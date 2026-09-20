@@ -66,6 +66,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /* Espace entre les deux champs porté ici plutôt que par un margin-bottom
+     sur .obm-fmfield : ce dernier doit pouvoir remplir toute la hauteur de
+     son wrap (voir .obm-fmfield) sans qu'un margin ne le pousse à déborder
+     du overflow: clip du wrap. */
+  gap: 12px;
 }
 
 /* Enveloppe de chaque champ : la hauteur (et non le champ lui-même) est
@@ -96,7 +101,13 @@
 
 .obm-fmfield {
   position: relative;
-  margin-bottom: 12px;
+  /* Remplit toujours la hauteur de .obm-fmfield-wrap (animée en JS) plutôt
+     que sa propre hauteur de contenu : sinon, vide (phase "Leo réfléchit")
+     ou en cours de frappe, le champ est plus court que le wrap et laisse un
+     espace non couvert par son fond en dessous — .obm-fm-thinking (centré
+     sur le wrap, pas sur le champ, voir OnboardingMockup.tsx) déborde alors
+     de la zone visible du champ sans jamais sortir du wrap. */
+  height: 100%;
   padding: 10px 32px 10px 12px;
   color: var(--color-muted);
   background-color: var(--color-beige);
@@ -181,9 +192,13 @@
 /* Mini badge "Leo réfléchit" (generating.json) : sibling de .obm-fmleo (jamais
    dedans — leoFieldEl.textContent écraserait tout enfant). position: absolute
    pour ne jamais peser sur les mesures de hauteur (measureWrapHeight/
-   syncFieldsMinHeight, voir OnboardingMockup.tsx). */
+   syncFieldsMinHeight, voir OnboardingMockup.tsx). z-index nécessaire : sans
+   ça, .obm-fmfield (aussi position: relative, mais déclaré après en JSX)
+   peint par-dessus au même niveau d'empilement (positionnés à z-index:auto,
+   l'ordre du DOM tranche) et masque entièrement le badge derrière son fond. */
 .obm-fm-thinking {
   position: absolute;
+  z-index: 1;
   top: 50%;
   left: 12px;
   transform: translateY(-50%);

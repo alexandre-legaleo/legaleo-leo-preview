@@ -3629,7 +3629,7 @@ function p() {
 			})(), m(() => {
 				if (p !== S) return;
 				_.classList.remove("is-thinking");
-				let e = `<b>⚠ Point de vigilance :</b> ${u.answerHTML}`;
+				let e = u.answerHTML;
 				T.innerHTML = e, E.classList.add("is-visible"), _.style.minHeight = `${_.getBoundingClientRect().height}px`, E.classList.remove("is-visible"), T.innerHTML = "", h(), y(T, e, {
 					wordDelay: f,
 					shouldContinue: () => p === S,

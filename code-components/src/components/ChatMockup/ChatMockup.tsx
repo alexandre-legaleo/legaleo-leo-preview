@@ -288,7 +288,7 @@ export default function ChatMockup() {
         // "generating" continue de tourner (déjà lancée pendant la réflexion,
         // voir plus haut) tout le temps du streaming mot à mot.
 
-        const fullAnswerHTML = `<b>⚠ Point de vigilance :</b> ${picked.answerHTML}`;
+        const fullAnswerHTML = picked.answerHTML;
 
         // Réserve d'avance la hauteur finale de .chm-bleo (pill sources
         // comprise) pour qu'elle ne grandisse pas par à-coups à chaque ligne

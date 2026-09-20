@@ -24,18 +24,19 @@
   --radius-pill: 100px;
 
   /* width/min-width/align-self : voir le commentaire équivalent sur
-     .avm-mockup (AvocatsMockup.css). height : repris de .lb-fvisual--chat
-     (journey.css), qui plafonne la carte à 400px côté site statique — ici
-     posé directement sur le composant plutôt que sur un ancêtre, pour que le
-     flux (voir .chm-chatlog, overflow-y: hidden + scrollTop piloté en JS)
-     garde une hauteur bornée même testé seul, hors du scaffold .lb-fvisual. */
+     .avm-mockup (AvocatsMockup.css). height : le site statique plafonne
+     .lb-fvisual--chat (l'ancêtre) à 400px de hauteur TOTALE (border-box,
+     padding 22px inclus) ; ici la hauteur est posée directement sur le
+     composant lui-même (pour qu'il garde une hauteur bornée même testé seul,
+     hors de ce scaffold), donc sur son propre contenu — 400 - 2*22 = 356,
+     sans quoi le composant déborderait de 44px du .lb-fvisual--chat existant. */
   display: flex;
   flex-direction: column;
   gap: 12px;
   min-height: 0;
   width: 100%;
   min-width: 320px;
-  height: 400px;
+  height: 356px;
   align-self: stretch;
   background-color: var(--color-white);
   border: 1px solid var(--color-border);
