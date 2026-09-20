@@ -188,7 +188,7 @@ export default function AvocatsMockup() {
       </div>
       <div className="avm-miniact">
         <button type="button" className="avm-sugg" onClick={handleRelaunch}>
-          Relancer l'analyse
+          Lancer l'analyse d'un autre contrat
         </button>
         <span className={miniVisible ? "avm-minicheck is-visible" : "avm-minicheck"}>
           <div ref={miniBadgeRef} style={{ width: "100%", height: "100%" }} />

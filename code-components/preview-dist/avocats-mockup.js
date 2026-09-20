@@ -1269,7 +1269,7 @@ function p() {
 				type: "button",
 				className: "avm-sugg",
 				onClick: b,
-				children: "Relancer l'analyse"
+				children: "Lancer l'analyse d'un autre contrat"
 			}), /* @__PURE__ */ (0, s.jsx)("span", {
 				className: p ? "avm-minicheck is-visible" : "avm-minicheck",
 				children: /* @__PURE__ */ (0, s.jsx)("div", {
