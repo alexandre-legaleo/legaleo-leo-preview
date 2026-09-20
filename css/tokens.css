@@ -1,0 +1,39 @@
+:root {
+  /* Couleurs — reprises telles quelles du CSS partagé Webflow de legaleo.webflow.io */
+  --color-beige: #f7f4ef;
+  --color-black: #1f120e;
+  --color-white: #fffefb;
+  --color-border: #e6e0d3;
+  --color-muted: #6f6757;
+
+  --color-teal: #087f83;
+  --color-teal-text: #065e61;
+  --color-teal-bg: #e9fbfb;
+  --color-cyan: #62e7eb;
+
+  /* Badge Leo — reprend .iconTile de legaleo-ai/components/design-system/LeoBadge */
+  --color-leo-badge: #00383c;
+
+  --color-orange-bg: #ffe9bd;
+  --color-orange-text: #a3310f;
+
+  --color-green-text: #1e9e63;
+  --color-green-bg: #e3f6ec;
+
+  --color-red-text: #c8442c;
+  --color-red-bg: #fbeae6;
+
+  /* Typo */
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "Manrope", Arial, sans-serif;
+
+  /* Rayons */
+  --radius-pill: 100px;
+  --radius-xl: 28px;
+  --radius-lg: 21px;
+  --radius-md: 16px;
+  --radius-sm: 8px;
+
+  /* Largeur de contenu */
+  --wrap-max: 1180px;
+}

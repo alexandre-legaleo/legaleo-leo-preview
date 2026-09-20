@@ -1,0 +1,187 @@
+/* Classes préfixées "edm-" (Editor Mockup) plutôt que les noms "lb-*" du
+   site d'origine : ce CSS est chargé globalement (via <link>, pas de Shadow
+   DOM/CSS Modules), et .lb-sugg/.lb-miniact/.lb-minicheck notamment sont
+   aussi utilisés par d'autres mockups sur la même page (01, 04) — les
+   réutiliser tels quels écraserait silencieusement leurs styles partout sur
+   la page, pas juste ici. Utile aussi une fois déposé sur une page Webflow
+   qui pourrait avoir ses propres styles portant ces noms.
+
+   Valeurs reprises de css/tokens.css (front-legaleo-leo) — dupliquées ici
+   pour que le composant reste autonome, indépendant du reste du site
+   Webflow où il sera déposé. Si "Manrope" n'est pas déjà chargée par la
+   page hôte, le fallback Arial s'applique (comme sur le site statique).
+
+   box-sizing: border-box explicite, pour la même raison : le site d'origine
+   le pose globalement via un reset CSS, mais rien ne garantit que la page
+   Webflow hôte fasse pareil. Sans ça, un élément qui combine width fixe et
+   padding (.edm-minicheck) se retrouve plus grand que prévu (padding ajouté
+   plutôt que soustrait), ce qui a produit un halo/gap visible de 4px autour
+   du canvas Lottie. */
+.edm-reco,
+.edm-reco *,
+.edm-reco *::before,
+.edm-reco *::after {
+  box-sizing: border-box;
+}
+
+.edm-reco {
+  /* width/min-width/align-self : voir le commentaire équivalent sur
+     .avm-mockup (AvocatsMockup.css) — même faille de shrink-to-fit si le
+     composant est testé seul dans un conteneur Webflow qui ne stretch pas
+     ses enfants. Pas encore observé ici (le texte varie en hauteur, pas en
+     largeur de bloc), posé par précaution. */
+  width: 100%;
+  min-width: 320px;
+  align-self: stretch;
+  --color-white: #fffefb;
+  --color-black: #1f120e;
+  --color-teal: #087f83;
+  --color-teal-text: #065e61;
+  --color-teal-bg: #e9fbfb;
+  --color-leo-badge: #00383c;
+  --color-green-text: #1e9e63;
+  --color-green-bg: #e3f6ec;
+  --color-red-text: #c8442c;
+  --color-red-bg: #fbeae6;
+  --font-sans: "Manrope", Arial, sans-serif;
+  --radius-md: 16px;
+  --radius-pill: 100px;
+
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  font-family: var(--font-sans);
+}
+
+.edm-recoh {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 14px;
+  color: var(--color-white);
+  background-color: var(--color-black);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.edm-recobody {
+  padding: 14px;
+  color: var(--color-black);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* Départ "texte basique" : .edm-add est hidden (pas d'espace réservé, sinon
+   le texte de départ aurait des trous invisibles) et fade en opacity une
+   fois révélé — display ne s'anime pas, donc le pop de mise en page à
+   l'insertion est inévitable, mais l'opacity adoucit l'apparition. */
+.edm-add {
+  padding: 0 3px;
+  color: var(--color-green-text);
+  background-color: var(--color-green-bg);
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.edm-add.is-visible {
+  opacity: 1;
+}
+
+/* .edm-del reste du texte normal tant qu'il n'est pas "barré" : le trait se
+   dessine (scaleX) plutôt que d'apparaître d'un coup via text-decoration. */
+.edm-del {
+  position: relative;
+  padding: 0 3px;
+  border-radius: 3px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.edm-del::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 50%;
+  height: 1.5px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.edm-del.is-struck {
+  color: var(--color-red-text);
+  background-color: var(--color-red-bg);
+}
+
+.edm-del.is-struck::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .edm-add,
+  .edm-del,
+  .edm-del::after {
+    transition: none;
+  }
+}
+
+.edm-miniact {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 0 14px 14px;
+}
+
+.edm-minicheck {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  padding: 4px;
+  border-radius: 6px;
+  background-color: var(--color-leo-badge);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.edm-minicheck.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.edm-sugg {
+  display: inline-block;
+  order: 1;
+  cursor: pointer;
+  color: var(--color-teal-text);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-teal);
+  border-radius: var(--radius-pill);
+  padding: 8px 13px;
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.edm-sugg:hover {
+  background-color: var(--color-teal-bg);
+}
+
+.edm-sugg-solid {
+  order: 2;
+  color: var(--color-white);
+  background-color: var(--color-teal);
+}
+
+.edm-sugg-solid:hover {
+  background-color: #076e71;
+}

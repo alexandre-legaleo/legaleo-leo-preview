@@ -1,0 +1,1048 @@
+.lb-sechead {
+  max-width: 700px;
+  margin: 0 auto 8px;
+  text-align: center;
+}
+
+.lb-feature {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 30px;
+  padding: 96px 0 0;
+}
+
+.lb-feature-rev {
+  flex-direction: row-reverse;
+}
+
+.lb-ftext {
+  flex: 1;
+  min-width: 320px;
+}
+
+.lb-tagmini {
+  display: inline-block;
+  color: var(--color-teal);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.lb-badge-beta {
+  display: inline-block;
+  margin-left: 6px;
+  color: var(--color-cyan);
+  background-color: var(--color-black);
+  border-radius: var(--radius-pill);
+  padding: 3px 10px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.lb-h3b {
+  margin: 12px 0 14px;
+  color: var(--color-black);
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.lb-p2 {
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.lb-flist {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 20px;
+}
+
+.lb-frow {
+  color: var(--color-black);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  padding-left: 20px;
+  text-indent: -20px;
+}
+
+.lb-ck {
+  margin-right: 8px;
+  color: var(--color-teal);
+  font-weight: 800;
+}
+
+.lb-fnote {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--color-teal-text);
+  background-color: var(--color-teal-bg);
+  border: 1px solid var(--color-cyan);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+/* Visuel / mockup */
+.lb-fvisual {
+  position: relative;
+  flex: 1;
+  min-width: 320px;
+  background-color: var(--color-teal);
+  border: 1px solid var(--color-teal);
+  border-radius: var(--radius-xl);
+  padding: 22px;
+  box-shadow: 0 50px 100px 20px #1e505229, 0 25px 45px -25px #1f120e40;
+  will-change: transform;
+}
+
+/* Réservée au mockup 02 (chat) : max-height plafonne la carte à 400px — le
+   flux de questions/réponses est sans fin (voir main.js), donc sans cap elle
+   grandirait indéfiniment. display: flex permet à .lb-chatmock de remplir
+   cette hauteur via flex: 1, et .lb-chatlog (flex: 1 + overflow-y: auto, plus
+   bas) absorbe le surplus en scrollant au lieu de pousser la carte plus haut.
+   Les .lb-ficon (position: absolute) restent hors flux, non affectés. Les 3
+   autres .lb-fvisual gardent leur hauteur naturelle, non concernés. */
+.lb-fvisual--chat {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+}
+/* .lb-fvisual--chat .lb-chatmock{
+  padding-top: 0;
+}
+.lb-fvisual--chat .lb-formmock{
+  border: none;
+} */
+
+@media (prefers-reduced-motion: reduce) {
+  .lb-fvisual {
+    transform: none !important;
+  }
+}
+
+/* Badge Leo animé (Lottie) : en coin de son .lb-fvisual — haut-droit par
+   défaut, haut-gauche dans .lb-feature-rev (même bord "extérieur" que les
+   .lb-ficon, voir plus bas). Porte aussi la classe .lb-ficon pour hériter de
+   son position:absolute/z-index et du parallax JS (voir js/main.js) ; pas
+   d'animation de flottement CSS ici, pour ne pas superposer deux mouvements
+   au flottement continu déjà joué par le Lottie à l'intérieur. */
+.lb-fanim {
+  top: -20px;
+  right: -20px;
+  width: 56px;
+  height: 56px;
+  padding: 10px;
+  border-radius: 14px;
+  background-color: var(--color-leo-badge);
+  box-shadow: 0 20px 35px -12px #1f120e40;
+  overflow: clip;
+}
+
+.lb-feature-rev .lb-fanim {
+  right: auto;
+  left: -20px;
+}
+
+.lb-miniact {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* Mini icône de confirmation contextuelle, à côté des boutons d'action —
+   masquée par défaut, révélée par JS le temps de l'animation "check". */
+.lb-minicheck {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  padding: 4px;
+  border-radius: 6px;
+  background-color: var(--color-leo-badge);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.lb-minicheck.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* .lb-reco n'a pas de padding propre (son en-tête .lb-recoh doit toucher les
+   bords) : ses enfants gèrent leur propre inset, donc .lb-miniact a besoin du
+   sien ici — contrairement aux autres mockups où .lb-formmock porte déjà le
+   padding global. */
+.lb-reco .lb-miniact {
+  padding: 0 14px 14px;
+}
+
+.lb-sugg {
+  display: inline-block;
+  order: 1;
+  cursor: pointer;
+  color: var(--color-teal-text);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-teal);
+  border-radius: var(--radius-pill);
+  padding: 8px 13px;
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.lb-sugg:hover {
+  background-color: var(--color-teal-bg);
+}
+
+.lb-sugg-solid {
+  order: 2;
+  color: var(--color-white);
+  background-color: var(--color-teal);
+}
+
+.lb-sugg-solid:hover {
+  background-color: #076e71;
+}
+
+.lb-sugg:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.lb-sugg:disabled:hover {
+  background-color: var(--color-white);
+}
+
+.lb-sugg-solid:disabled:hover {
+  background-color: var(--color-teal);
+}
+
+/* 01 — mockup onboarding (formulaire) */
+.lb-formmock {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  transition: opacity 0.15s ease;
+}
+
+/* 02 — mockup chat : occupe toute la hauteur de .lb-fvisual (flex: 1, voir
+   .lb-fvisual) ; le log grandit dedans (flex: 1 aussi) et pousse l'icône Leo
+   + les bulles de suggestion tout en bas, comme le compositeur fixe d'une
+   vraie appli de chat. */
+.lb-chatmock {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+}
+
+/* Flux de questions/réponses : chaque clic ajoute une paire .lb-buser/.lb-bleo
+   en bas (voir main.js) au lieu de remplacer la précédente. flex: 1 + fade au
+   sommet + scroll auto vers le bas donnent l'effet de défilement continu ; le
+   pool de questions se régénère une fois épuisé, pour une boucle sans fin.
+   min-height: 0 est nécessaire pour qu'un flex item scrollable puisse
+   réellement se contraindre au lieu de pousser son parent. */
+.lb-chatlog {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+  /* hidden (pas auto) : coupe le scroll utilisateur (molette/tactile/
+     clavier/scrollbar) sans bloquer le scroll programmatique (scrollTop),
+     qui pilote l'auto-scroll en JS — donc pas besoin de masquer une
+     scrollbar, il n'y en a jamais. */
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Icône Leo (Lottie, la-q) déplacée du coin flottant de .lb-fvisual à
+   l'intérieur de .lb-chatmock, juste au-dessus des bulles — sans la classe
+   .lb-ficon, donc plus en position: absolute (les top/right hérités de
+   .lb-fanim ne s'appliquent qu'aux éléments positionnés, ils deviennent
+   inertes ici). */
+.lb-fanim--inline {
+  position: static;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* Bulles de questions suggérées — mimique les prompts cliquables de l'assistant.
+   Placées après l'icône Leo, tout en bas de .lb-chatmock (voir plus haut) :
+   visibles par défaut, se cachent le temps d'une question/réponse (voir
+   main.js) puis reviennent une fois le streaming terminé, ou se régénèrent
+   si le pool est épuisé. */
+.lb-qbubbles {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 8px;
+}
+
+.lb-qbubbles[hidden] {
+  display: none;
+}
+
+/* Fond teal (au lieu du beige de .lb-bleo) : ce sont des suggestions
+   cliquables, pas des messages — la confusion visuelle avec les réponses de
+   Leo serait facile vu qu'elles s'enchaînent juste en dessous. */
+.lb-qbubble {
+  width: 100%;
+  padding: 9px 14px;
+  color: var(--color-teal-text);
+  background-color: var(--color-teal-bg);
+  border: 1px solid var(--color-cyan);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-align: left;
+  line-height: 1.4;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.lb-qbubble:hover {
+  color: var(--color-white);
+  background-color: var(--color-teal);
+  border-color: var(--color-teal);
+}
+
+.lb-qbubble:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+}
+
+.lb-fmq {
+  transition: opacity 0.15s ease;
+}
+
+.lb-fmtitle {
+  margin-bottom: 12px;
+  color: var(--color-black);
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.lb-fmq {
+  margin-bottom: 6px;
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.lb-fmfield {
+  position: relative;
+  margin-bottom: 12px;
+  padding: 10px 32px 10px 12px;
+  color: var(--color-muted);
+  background-color: var(--color-beige);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Enveloppe de chaque champ : la hauteur (et non le champ lui-même) est
+   animée + clippée, pour que le padding/margin/border de .lb-fmfield ne
+   perturbe pas la transition (voir onboarding-demo.js, openWrapTo/closeWrap).
+   Repliée par défaut (.is-collapsed, pour lb-fm-leo) sinon "auto" (ouverte,
+   suit son contenu). Fondu en opacité porté par le wrapper lui-même (piloté
+   par data-open, posé en JS) : léger fade-in à l'arrivée, pour masquer la
+   bulle le temps qu'elle atteigne sa hauteur cible plutôt que de la voir
+   apparaître quasi plate (elle vise directement la hauteur du texte final,
+   voir openWrapTo — sans ce fade elle "pop" quand même un peu à l'oeil). */
+.lb-fmfield-wrap {
+  position: relative;
+  overflow: clip;
+  opacity: 0;
+  transition: height 0.45s ease, opacity 0.35s ease;
+}
+
+.lb-fmfield-wrap[data-open="true"] {
+  opacity: 1;
+}
+
+.lb-fmfield-wrap.is-collapsed {
+  height: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lb-fmfield-wrap {
+    transition: none;
+  }
+}
+
+/* Enveloppe flex de lb-fm-user-wrap + lb-fm-leo-wrap : centre le champ seul
+   ouvert tant que l'autre est replié à hauteur 0, et suit naturellement (flex
+   reflow, sans JS) le champ qui reste quand l'autre s'ouvre/se referme —
+   comme le ferait un flex-direction: column + justify-content: center
+   classique. La min-height (posée en JS à chaque scénario) réserve la place
+   des deux champs pour que ce centrage soit visible. */
+.lb-fmfields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Mini badge "Leo réfléchit" (generating.json) : dans #lb-fm-leo-wrap, sibling
+   de #lb-fm-leo (jamais dedans — leoFieldEl.textContent écraserait tout
+   enfant). onboarding-demo.js ouvre d'abord le wrap à une petite hauteur fixe
+   pour le rendre visible malgré l'overflow: clip du wrap replié, puis
+   l'enchaîne directement sur la hauteur du texte final une fois révélé.
+   position: absolute pour ne jamais peser sur les mesures de hauteur
+   (measureWrapHeight/syncFieldsMinHeight, voir onboarding-demo.js). */
+.lb-fm-thinking {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 8px;
+  background-color: var(--color-leo-badge);
+  box-shadow: 0 8px 16px -8px #1f120e40;
+  overflow: clip;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.lb-fm-thinking.is-visible {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lb-fm-thinking {
+    transition: none;
+  }
+}
+
+.lb-fmleo {
+  color: var(--color-teal-text);
+  background-color: var(--color-teal-bg);
+  border-color: var(--color-cyan);
+}
+
+.lb-fmfield.is-selected {
+  border-color: var(--color-teal);
+  /* inset : reste entièrement dans le border-box du champ, jamais rogné par
+     l'overflow: clip de .lb-fmfield-wrap pendant l'animation de hauteur (un
+     box-shadow non-inset déborderait du border-box et se ferait couper). */
+  box-shadow: inset 0 0 0 1px var(--color-teal);
+  animation: lb-select-flicker 0.45s ease-in-out;
+}
+
+/* Flicker de sélection : 3 fade-in / 2 fade-out avant de se stabiliser sur
+   l'état "on" (identique aux valeurs statiques ci-dessus, donc aucun saut à
+   la fin de l'animation). */
+@keyframes lb-select-flicker {
+  0%,
+  40%,
+  80% {
+    border-color: var(--color-border);
+    box-shadow: inset 0 0 0 1px transparent;
+  }
+  20%,
+  60%,
+  100% {
+    border-color: var(--color-teal);
+    box-shadow: inset 0 0 0 1px var(--color-teal);
+  }
+}
+
+/* Survol du bouton correspondant (voir onboarding-demo.js) : surbrillance
+   légère. */
+.lb-fmfield.is-hint {
+  /* border-color: var(--color-teal); */
+  /* box-shadow: inset 0 0 0 1px var(--color-teal); */
+}
+
+/* Assombrit le fond de is-hint de ~3% de noir, peu importe la couleur de
+   base (beige ou teal-bg pour .lb-fmleo) : un calque noir en mix-blend-mode
+   multiply plutôt qu'une couleur calculée, pour rester transitionnable
+   (background-image/-blend-mode ne s'anime pas, opacity si). */
+.lb-fmfield::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: var(--color-black);
+  opacity: 0;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.lb-fmfield.is-hint::before {
+  opacity: 0.03;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lb-fmfield.is-selected {
+    animation: none;
+  }
+}
+
+.lb-fmfield.is-selected::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 13px;
+  height: 13px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2.5 6.2L4.8 8.5L9.5 3.5' stroke='%23087f83' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* 02 — mockup chat : flux continu, voir .lb-chatlog plus bas */
+.lb-buser {
+  flex-shrink: 0;
+  max-width: 82%;
+  margin-left: auto;
+  padding: 11px 15px;
+  color: var(--color-white);
+  background-color: var(--color-black);
+  border-radius: 15px 15px 4px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.lb-bleo {
+  position: relative;
+  flex-shrink: 0;
+  padding: 13px 15px 13px 46px;
+  color: var(--color-black);
+  background-color: var(--color-beige);
+  border: 1px solid var(--color-border);
+  border-radius: 15px 15px 15px 4px;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+/* Mini version de .lb-fanim, une par réponse : remplace le badge unique
+   .lb-fanim--inline (masqué dès la 1re question, voir main.js) une fois la
+   conversation lancée — chaque bulle de Leo porte désormais son propre avatar. */
+.lb-bleo-icon {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  border-radius: 7px;
+  background-color: var(--color-leo-badge);
+  box-shadow: 0 8px 16px -8px #1f120e40;
+  overflow: clip;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+/* Une fois la réponse affichée (check.json terminé, voir main.js) : la
+   mini-icône de ce message s'efface, son rôle est fini. */
+.lb-bleo-icon.is-done {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lb-bleo-icon {
+    transition: none;
+  }
+}
+
+.lb-buser,
+.lb-bleo {
+  animation: lb-msg-in 0.25s ease;
+}
+
+@keyframes lb-msg-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lb-buser,
+  .lb-bleo {
+    animation: none;
+  }
+}
+
+/* Skeleton "réflexion" affiché pendant le faux chargement, avant le streaming */
+.lb-bleo-skeleton {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 2px 0;
+}
+
+.lb-bleo.is-thinking .lb-bleo-skeleton {
+  display: flex;
+}
+
+.lb-bleo.is-thinking .lb-chat-answer,
+.lb-bleo.is-thinking .lb-srcpill {
+  display: none;
+}
+
+.lb-bleo-skeleton span {
+  display: block;
+  height: 10px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--color-border) 25%, var(--color-white) 50%, var(--color-border) 75%);
+  background-size: 200% 100%;
+  animation: lb-shimmer 1.3s ease-in-out infinite;
+}
+
+.lb-bleo-skeleton span:nth-child(1) {
+  width: 92%;
+}
+
+.lb-bleo-skeleton span:nth-child(2) {
+  width: 78%;
+}
+
+.lb-bleo-skeleton span:nth-child(3) {
+  width: 55%;
+}
+
+@keyframes lb-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.lb-srcpill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: fit-content;
+  margin-top: 10px;
+  padding: 4px 11px;
+  color: #000;
+  background-color: #e6e0d4;
+  border: 1px solid #dfd9ce;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.lb-srcpill-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  background-color: #d7d0c3;
+  border-radius: 2px;
+  background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 24 24'%3E %3C!-- Generator: Adobe Illustrator 30.8.1, SVG Export Plug-In . SVG Version: 2.1.4 Build 1) --%3E %3Cdefs%3E %3Cstyle%3E .st0 { fill: %23d3e1e1; opacity: 0; } .st1 { fill: none; stroke: %23000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.1px; } %3C/style%3E %3C/defs%3E %3Crect class='st0' width='24' height='24' rx='3.4' ry='3.4'/%3E %3Cg%3E %3Cg%3E %3Cpolyline class='st1' points='12.9 5.3 18.7 5.3 18.7 11.1'/%3E %3Cline class='st1' x1='11.8' y1='12.2' x2='18.7' y2='5.3'/%3E %3C/g%3E %3Cpolyline class='st1' points='17.5 15.4 17.5 18.7 5.3 18.7 5.3 6.5 8.6 6.5'/%3E %3C/g%3E %3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80%;
+}
+
+.lb-srcpill.is-visible {
+  opacity: 1;
+}
+
+/* 03 — mockup éditeur (diff) */
+.lb-reco {
+  background-color: var(--color-white);
+  /* border: 1px solid var(--color-border); */
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.lb-recoh {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 14px;
+  color: var(--color-white);
+  background-color: var(--color-black);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.lb-recobody {
+  padding: 14px;
+  color: var(--color-black);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* Départ "texte basique" (voir main.js, #lb-ed-recommend) : .lb-add est
+   hidden (pas d'espace réservé, sinon le texte de départ aurait des trous
+   invisibles) et fade en opacity une fois révélé — display ne s'anime pas,
+   donc le pop de mise en page à l'insertion est inévitable, mais l'opacity
+   adoucit l'apparition. */
+.lb-add {
+  padding: 0 3px;
+  color: var(--color-green-text);
+  background-color: var(--color-green-bg);
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.lb-add.is-visible {
+  opacity: 1;
+}
+
+/* .lb-del reste du texte normal tant qu'il n'est pas "barré" : le trait se
+   dessine (scaleX) plutôt que d'apparaître d'un coup via text-decoration. */
+.lb-del {
+  position: relative;
+  padding: 0 3px;
+  border-radius: 3px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.lb-del::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 50%;
+  height: 1.5px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.lb-del.is-struck {
+  color: var(--color-red-text);
+  background-color: var(--color-red-bg);
+}
+
+.lb-del.is-struck::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lb-add,
+  .lb-del,
+  .lb-del::after {
+    transition: none;
+  }
+}
+
+.lb-legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px 12px;
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 11px;
+}
+
+.lb-legend[hidden] {
+  display: none;
+}
+
+.lb-ladd,
+.lb-ldel {
+  padding: 2px 9px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+}
+
+.lb-ladd {
+  color: var(--color-green-text);
+  background-color: var(--color-green-bg);
+}
+
+.lb-ldel {
+  color: var(--color-red-text);
+  background-color: var(--color-red-bg);
+}
+
+/* 04 — mockup avocats (criticité) : #lb-av-critlist pioche 2-3 cartes au
+   hasard dans le pool de 9 du <template>, à chaque chargement et à chaque
+   clic sur "Relancer l'analyse" (voir main.js), avec un bref état "scan" et
+   une entrée décalée pour donner l'impression d'une vraie nouvelle passe. */
+.lb-critlist {
+  display: flex;
+  flex-direction: column;
+}
+
+.lb-crit {
+  margin-bottom: 6px;
+  padding: 14px;
+  background-color: var(--color-beige);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  animation: lb-crit-in 0.3s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lb-crit {
+    animation: none;
+  }
+}
+
+@keyframes lb-crit-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lb-critt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-black);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.lb-risk {
+  padding: 3px 8px;
+  color: var(--color-red-text);
+  background-color: var(--color-red-bg);
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.lb-risk--medium {
+  color: var(--color-orange-text);
+  background-color: var(--color-orange-bg);
+}
+
+.lb-risk--low {
+  color: var(--color-green-text);
+  background-color: var(--color-green-bg);
+}
+
+.lb-critp {
+  margin-top: 6px;
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+/* État "scan en cours" pendant une relance d'analyse (voir main.js) : les
+   cartes réelles cèdent la place à des barres qui pulsent, le temps du scan. */
+.lb-crit-skeleton {
+  margin-bottom: 6px;
+  padding: 14px;
+  background-color: var(--color-beige);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.lb-crit-skeleton span {
+  display: block;
+  height: 10px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--color-border) 25%, var(--color-white) 50%, var(--color-border) 75%);
+  background-size: 200% 100%;
+  animation: lb-shimmer 1.3s ease-in-out infinite;
+}
+
+.lb-crit-skeleton span + span {
+  margin-top: 8px;
+}
+
+.lb-crit-skeleton span:nth-child(1) {
+  width: 55%;
+}
+
+.lb-crit-skeleton span:nth-child(2) {
+  width: 92%;
+}
+
+.lb-crit-skeleton span:nth-child(3) {
+  width: 78%;
+}
+
+@media (max-width: 780px) {
+  .lb-feature,
+  .lb-feature-rev {
+    flex-direction: column;
+    gap: 32px;
+    padding-top: 56px;
+  }
+}
+
+/* Icônes flottantes autour de chaque .lb-fvisual — décoratives, une par
+   sujet abordé dans le bloc (le 3e corner, en haut, est pris par le badge
+   Lottie .lb-fanim ci-dessus). Deux effets se superposent sans se marcher
+   dessus car ils portent chacun leur propre transform : le flottement est en
+   CSS pure sur .lb-ficon-inner (donc transféré tel quel vers Webflow, comme
+   .lb-shimmer), le parallax de scroll est piloté par JS sur .lb-ficon
+   (voir js/main.js + WEBFLOW-TODO.md #8). */
+.lb-ficon {
+  position: absolute;
+  z-index: 2;
+  will-change: transform;
+}
+
+.lb-ficon-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 35px -12px #1f120e40;
+  animation: lb-ficon-float 5s ease-in-out infinite;
+}
+
+.lb-ficon svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+}
+
+.lb-ficon--white .lb-ficon-inner {
+  color: var(--color-black);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+}
+
+.lb-ficon--teal .lb-ficon-inner {
+  color: var(--color-white);
+  background-color: var(--color-teal);
+}
+
+.lb-ficon--tint .lb-ficon-inner {
+  color: var(--color-teal-text);
+  background-color: var(--color-teal-bg);
+  border: 1px solid var(--color-cyan);
+}
+
+.lb-ficon--risk .lb-ficon-inner {
+  color: var(--color-red-text);
+  background-color: var(--color-red-bg);
+}
+
+@keyframes lb-ficon-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+/* Durée/décalage propres à b et c pour que les 2 icônes d'un même mockup ne
+   flottent pas en phase (délais négatifs : démarrent déjà "en cours"). */
+.lb-ficon-b .lb-ficon-inner {
+  animation-duration: 6s;
+  animation-delay: -2s;
+}
+
+.lb-ficon-c .lb-ficon-inner {
+  animation-duration: 4.2s;
+  animation-delay: -3.4s;
+}
+
+/* Positions par défaut : .lb-fvisual est à droite dans .lb-feature, donc le
+   bord "extérieur" (celui qui ne mord pas sur .lb-ftext) est la droite. */
+.lb-ficon-b {
+  top: 38%;
+  right: -28px;
+}
+
+.lb-ficon-c {
+  bottom: -16px;
+  right: 24px;
+}
+
+/* .lb-feature-rev inverse la ligne (.lb-fvisual passe à gauche) : on
+   reflète les positions pour garder les icônes du côté extérieur. */
+.lb-feature-rev .lb-ficon-b {
+  right: auto;
+  left: -28px;
+}
+
+.lb-feature-rev .lb-ficon-c {
+  right: auto;
+  left: 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lb-ficon,
+  .lb-ficon-inner {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Masquées dès que .lb-feature repasse en colonne (voir règle ci-dessus) :
+   pas assez de marge autour de .lb-fvisual en pleine largeur pour déborder
+   sans risquer un scroll horizontal. .lb-fanim fait exception : ce n'est pas
+   de la pure déco (badge Lottie de statut), donc il reste visible, mais
+   rentre dans la carte (offsets positifs) au lieu de déborder de son bord. */
+@media (max-width: 900px) {
+  .lb-ficon:not(.lb-fanim) {
+    display: none;
+  }
+
+  .lb-fanim {
+    top: 14px;
+    right: 14px;
+  }
+
+  .lb-feature-rev .lb-fanim {
+    left: 14px;
+  }
+}

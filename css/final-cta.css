@@ -1,0 +1,30 @@
+.lb-final {
+  text-align: center;
+  padding: 72px;
+  background-color: var(--color-teal-bg);
+  border-radius: var(--radius-xl);
+}
+
+.lb-finalanim {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto;
+}
+
+.lb-finalnote {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 10px 16px;
+  color: var(--color-teal-text);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-cyan);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+}
+
+@media (max-width: 640px) {
+  .lb-final {
+    padding: 40px 22px;
+  }
+}

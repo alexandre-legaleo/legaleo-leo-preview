@@ -1,0 +1,219 @@
+/* Classes préfixées "avm-" (Avocats Mockup), même raison que EditorMockup.css :
+   CSS chargé globalement (pas de Shadow DOM/CSS Modules) sur une page qui
+   peut réutiliser des noms comme .lb-crit/.lb-risk/.lb-miniact/.lb-minicheck
+   pour d'autres mockups (01, 03) ou pour ses propres styles côté Webflow. */
+.avm-mockup,
+.avm-mockup *,
+.avm-mockup *::before,
+.avm-mockup *::after {
+  box-sizing: border-box;
+}
+
+.avm-mockup {
+  --color-white: #fffefb;
+  --color-black: #1f120e;
+  --color-beige: #f7f4ef;
+  --color-border: #e6e0d3;
+  --color-muted: #6f6757;
+  --color-teal: #087f83;
+  --color-teal-text: #065e61;
+  --color-teal-bg: #e9fbfb;
+  --color-leo-badge: #00383c;
+  --color-orange-bg: #ffe9bd;
+  --color-orange-text: #a3310f;
+  --color-green-text: #1e9e63;
+  --color-green-bg: #e3f6ec;
+  --color-red-text: #c8442c;
+  --color-red-bg: #fbeae6;
+  --font-sans: "Manrope", Arial, sans-serif;
+  --radius-md: 16px;
+  --radius-pill: 100px;
+
+  /* width: 100% suffit dans le scaffold final (.lb-fvisual, flex-grow:1 donc
+     déjà indépendant du contenu) mais pas si le composant est testé seul dans
+     un conteneur Webflow qui, lui, dimensionne par shrink-to-fit (flex sans
+     stretch, inline-block...) : width:100% d'un parent auto ne fait rien
+     (dépendance circulaire), et les cartes skeleton (juste des <span> vides à
+     largeur en %, sans texte) n'ont presque aucune largeur intrinsèque —
+     d'où l'écroulement visible pendant le "scan". align-self: stretch corrige
+     le cas flex-sans-stretch ; min-width (même valeur que .lb-fvisual dans
+     journey.css) plafonne l'écroulement dans les autres cas. */
+  width: 100%;
+  min-width: 320px;
+  align-self: stretch;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+}
+
+.avm-critlist {
+  display: flex;
+  flex-direction: column;
+}
+
+.avm-crit {
+  margin-bottom: 6px;
+  padding: 14px;
+  background-color: var(--color-beige);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  animation: avm-crit-in 0.3s ease both;
+}
+
+@keyframes avm-crit-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.avm-critt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-black);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.avm-risk {
+  padding: 3px 8px;
+  color: var(--color-red-text);
+  background-color: var(--color-red-bg);
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.avm-risk--medium {
+  color: var(--color-orange-text);
+  background-color: var(--color-orange-bg);
+}
+
+.avm-risk--low {
+  color: var(--color-green-text);
+  background-color: var(--color-green-bg);
+}
+
+.avm-critp {
+  margin-top: 6px;
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avm-crit {
+    animation: none;
+  }
+}
+
+/* État "scan en cours" pendant une relance d'analyse : les cartes réelles
+   cèdent la place à des barres qui pulsent, le temps du scan. */
+.avm-crit-skeleton {
+  margin-bottom: 6px;
+  padding: 14px;
+  background-color: var(--color-beige);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.avm-crit-skeleton span {
+  display: block;
+  height: 10px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--color-border) 25%, var(--color-white) 50%, var(--color-border) 75%);
+  background-size: 200% 100%;
+  animation: avm-shimmer 1.3s ease-in-out infinite;
+}
+
+.avm-crit-skeleton span + span {
+  margin-top: 8px;
+}
+
+.avm-crit-skeleton span:nth-child(1) {
+  width: 55%;
+}
+
+.avm-crit-skeleton span:nth-child(2) {
+  width: 92%;
+}
+
+.avm-crit-skeleton span:nth-child(3) {
+  width: 78%;
+}
+
+@keyframes avm-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avm-crit-skeleton span {
+    animation: none;
+  }
+}
+
+.avm-miniact {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.avm-minicheck {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  padding: 4px;
+  border-radius: 6px;
+  background-color: var(--color-leo-badge);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.avm-minicheck.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.avm-sugg {
+  display: inline-block;
+  cursor: pointer;
+  color: var(--color-teal-text);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-teal);
+  border-radius: var(--radius-pill);
+  padding: 8px 13px;
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.avm-sugg:hover {
+  background-color: var(--color-teal-bg);
+}

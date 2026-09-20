@@ -1,0 +1,13 @@
+{
+  "library": {
+    "name": "Legaleo Widgets",
+    "components": [
+      "./src/**/*.webflow.@(js|jsx|mjs|ts|tsx)"
+    ],
+    "functions": [
+      "**/*.webflow.function.@(js|cjs|mjs|ts)"
+    ],
+    "description": "",
+    "id": "legaleo-widgets"
+  }
+}

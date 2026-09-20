@@ -1,0 +1,293 @@
+/* Classes préfixées "chm-" (Chat Mockup), même raison que les autres
+   composants (voir AvocatsMockup.css) : CSS chargé globalement, à isoler des
+   autres mockups. */
+.chm-mockup,
+.chm-mockup *,
+.chm-mockup *::before,
+.chm-mockup *::after {
+  box-sizing: border-box;
+}
+
+.chm-mockup {
+  --color-white: #fffefb;
+  --color-black: #1f120e;
+  --color-beige: #f7f4ef;
+  --color-border: #e6e0d3;
+  --color-teal: #087f83;
+  --color-teal-text: #065e61;
+  --color-teal-bg: #e9fbfb;
+  --color-cyan: #62e7eb;
+  --color-leo-badge: #00383c;
+  --font-sans: "Manrope", Arial, sans-serif;
+  --radius-md: 16px;
+  --radius-lg: 21px;
+  --radius-pill: 100px;
+
+  /* width/min-width/align-self : voir le commentaire équivalent sur
+     .avm-mockup (AvocatsMockup.css). height : repris de .lb-fvisual--chat
+     (journey.css), qui plafonne la carte à 400px côté site statique — ici
+     posé directement sur le composant plutôt que sur un ancêtre, pour que le
+     flux (voir .chm-chatlog, overflow-y: hidden + scrollTop piloté en JS)
+     garde une hauteur bornée même testé seul, hors du scaffold .lb-fvisual. */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+  width: 100%;
+  min-width: 320px;
+  height: 400px;
+  align-self: stretch;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+}
+
+/* Flux de questions/réponses : chaque clic ajoute une paire .chm-buser/
+   .chm-bleo en bas (voir ChatMockup.tsx) au lieu de remplacer la précédente.
+   flex: 1 + scroll auto vers le bas donnent l'effet de défilement continu ;
+   le pool de questions se régénère une fois épuisé, pour une boucle sans fin.
+   overflow-y: hidden (pas auto) : coupe le scroll utilisateur sans bloquer le
+   scroll programmatique (scrollTop) qui pilote l'auto-scroll en JS — donc pas
+   besoin de masquer une scrollbar, il n'y en a jamais. min-height: 0 est
+   nécessaire pour qu'un flex item scrollable puisse réellement se contraindre
+   au lieu de pousser son parent. */
+.chm-chatlog {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Badge Leo (Lottie, idle.json) affiché tant qu'aucune question n'a été
+   posée — sans .lb-ficon, donc pas en position: absolute (hérité par les
+   badges en coin des autres mockups) : ici c'est un membre normal du flex
+   column, centré, retiré du flux ([hidden]) dès la première question. */
+.chm-fanim-inline {
+  position: static;
+  flex-shrink: 0;
+  align-self: center;
+  width: 56px;
+  height: 56px;
+  padding: 10px;
+  border-radius: 14px;
+  background-color: var(--color-leo-badge);
+  box-shadow: 0 20px 35px -12px #1f120e40;
+  overflow: clip;
+}
+
+.chm-fanim-inline[hidden] {
+  display: none;
+}
+
+/* Bulles de questions suggérées — mimique les prompts cliquables de
+   l'assistant. Visibles par défaut, se cachent le temps d'une question/
+   réponse puis reviennent une fois le streaming terminé, ou se régénèrent si
+   le pool est épuisé. */
+.chm-qbubbles {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 8px;
+}
+
+.chm-qbubbles[hidden] {
+  display: none;
+}
+
+/* Fond teal (au lieu du beige de .chm-bleo) : ce sont des suggestions
+   cliquables, pas des messages — la confusion visuelle avec les réponses de
+   Leo serait facile vu qu'elles s'enchaînent juste en dessous. */
+.chm-qbubble {
+  width: 100%;
+  padding: 9px 14px;
+  color: var(--color-teal-text);
+  background-color: var(--color-teal-bg);
+  border: 1px solid var(--color-cyan);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-align: left;
+  line-height: 1.4;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.chm-qbubble:hover {
+  color: var(--color-white);
+  background-color: var(--color-teal);
+  border-color: var(--color-teal);
+}
+
+.chm-qbubble:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+}
+
+.chm-buser {
+  flex-shrink: 0;
+  max-width: 82%;
+  margin-left: auto;
+  padding: 11px 15px;
+  color: var(--color-white);
+  background-color: var(--color-black);
+  border-radius: 15px 15px 4px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.chm-bleo {
+  position: relative;
+  flex-shrink: 0;
+  padding: 13px 15px 13px 46px;
+  color: var(--color-black);
+  background-color: var(--color-beige);
+  border: 1px solid var(--color-border);
+  border-radius: 15px 15px 15px 4px;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.chm-buser,
+.chm-bleo {
+  animation: chm-msg-in 0.25s ease;
+}
+
+@keyframes chm-msg-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chm-buser,
+  .chm-bleo {
+    animation: none;
+  }
+}
+
+/* Mini version du badge Leo, une par réponse : remplace .chm-fanim-inline
+   (masqué dès la 1re question) une fois la conversation lancée — chaque
+   bulle de Leo porte désormais son propre avatar. */
+.chm-bleo-icon {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  border-radius: 7px;
+  background-color: var(--color-leo-badge);
+  box-shadow: 0 8px 16px -8px #1f120e40;
+  overflow: clip;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+/* Une fois la réponse affichée : la mini-icône de ce message s'efface, son
+   rôle est fini (voir ChatMockup.tsx, qui détruit aussi son animation). */
+.chm-bleo-icon.is-done {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chm-bleo-icon {
+    transition: none;
+  }
+}
+
+/* Skeleton "réflexion" affiché pendant le faux chargement, avant le streaming. */
+.chm-bleo-skeleton {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 2px 0;
+}
+
+.chm-bleo.is-thinking .chm-bleo-skeleton {
+  display: flex;
+}
+
+.chm-bleo.is-thinking .chm-chat-answer,
+.chm-bleo.is-thinking .chm-srcpill {
+  display: none;
+}
+
+.chm-bleo-skeleton span {
+  display: block;
+  height: 10px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--color-border) 25%, var(--color-white) 50%, var(--color-border) 75%);
+  background-size: 200% 100%;
+  animation: chm-shimmer 1.3s ease-in-out infinite;
+}
+
+.chm-bleo-skeleton span:nth-child(1) {
+  width: 92%;
+}
+
+.chm-bleo-skeleton span:nth-child(2) {
+  width: 78%;
+}
+
+.chm-bleo-skeleton span:nth-child(3) {
+  width: 55%;
+}
+
+@keyframes chm-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.chm-srcpill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: fit-content;
+  margin-top: 10px;
+  padding: 4px 11px;
+  color: #000;
+  background-color: #e6e0d4;
+  border: 1px solid #dfd9ce;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+/* Icône "lien externe" en data URI (au lieu d'un fichier .svg référencé) :
+   composant autonome, sans dépendance à un chemin d'asset du site hôte —
+   voir assets/icons-front_tiny-external-link.svg (front-legaleo-leo) pour
+   la source. */
+.chm-srcpill-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  background-color: #d7d0c3;
+  border-radius: 2px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.1'%3E%3Cpolyline points='12.9 5.3 18.7 5.3 18.7 11.1'/%3E%3Cline x1='11.8' y1='12.2' x2='18.7' y2='5.3'/%3E%3Cpolyline points='17.5 15.4 17.5 18.7 5.3 18.7 5.3 6.5 8.6 6.5'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80%;
+}
+
+.chm-srcpill.is-visible {
+  opacity: 1;
+}

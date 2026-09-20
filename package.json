@@ -1,0 +1,12 @@
+{
+  "name": "front-legaleo-leo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Page vitrine \"Agent IA Leo\" - HTML/CSS statique, prête à être importée dans Webflow via HTMLtoflow (codetocanvas.io n'est plus listé sur le marketplace Webflow)",
+  "scripts": {
+    "dev": "live-server --port=5173 --open=index.html"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

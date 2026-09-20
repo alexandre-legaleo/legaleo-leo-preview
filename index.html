@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent IA Leo — l'assistant juridique de votre réseau de franchise | Legaleo</title>
+  <meta name="description" content="Leo intervient de votre onboarding à la rédaction de vos contrats : il répond à vos questions juridiques en citant ses sources, travaille vos clauses dans l'éditeur et prépare la révision côté avocats." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/how-it-works.css" />
+  <link rel="stylesheet" href="css/journey.css" />
+  <link rel="stylesheet" href="css/states.css" />
+  <link rel="stylesheet" href="css/trust.css" />
+  <link rel="stylesheet" href="css/faq.css" />
+  <link rel="stylesheet" href="css/final-cta.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+
+  <!-- CSS des composants React (code-components/), classes préfixées "edm-"
+       etc. pour ne pas entrer en collision avec les classes "lb-*" du site. -->
+  <link rel="stylesheet" href="code-components/preview-dist/code-components.css" />
+</head>
+<body>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="lb-hero">
+      <div class="lb-wrap">
+        <div class="lb-hero-anim">
+          <div id="la-hero" class="lb-hero-anim-icon"></div>
+        </div>
+
+
+        <h1 class="lb-h1">Leo, l'assistant IA <em class="lb-em">juridique</em> de votre réseau de franchise</h1>
+
+        <p class="lb-lede">Leo intervient de votre onboarding à la rédaction de vos contrats : il répond à vos questions juridiques <em class="lb-em2">en citant ses sources</em>, <em class="lb-em2">travaille vos clauses</em> dans l'éditeur et <em class="lb-em2">prépare la révision</em> côté avocats. Toujours à vos côtés, jamais à la place de votre avocat.</p>
+
+        <div class="lb-heroprompt" aria-hidden="true">
+          <svg class="lb-heroprompt-lead" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594zM20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></g></svg>
+          <span class="lb-heroprompt-text"><span id="lb-heroprompt-typed"></span><span class="lb-heroprompt-cursor"></span></span>
+          <span class="lb-heroprompt-send">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 12l7-7l7 7m-7 7V5"/></svg>
+          </span>
+        </div>
+
+        <div class="lb-ctarow">
+          <a href="/contact" class="lb-btn lb-btn-primary">Demander une démo de Leo</a>
+          <a href="#lb-parcours" class="lb-btn lb-btn-ghost">Voir Leo en action</a>
+        </div>
+      </div>
+
+      <div class="lb-heroreassure">
+        <span class="lb-heroreassure-item">Chaque réponse cite ses sources</span>
+        <span class="lb-heroreassure-item">Aucune clause appliquée sans un humain</span>
+        <span class="lb-heroreassure-item">Vos données restent en France</span>
+      </div>
+    </section>
+
+    <div class="lb-reassure">
+      <div class="lb-reassure-item">
+        <span class="lb-reassure-icon lb-reassure-icon--brain" role="img" aria-hidden="true"></span>
+        <p>Réponses personnalisées à vos contrats</p>
+      </div>
+      <div class="lb-reassure-item">
+        <span class="lb-reassure-icon lb-reassure-icon--quote" role="img" aria-hidden="true"></span>
+        <p>Chaque réponse cite ses sources</p>
+      </div>
+      <div class="lb-reassure-item">
+        <span class="lb-reassure-icon lb-reassure-icon--hammer" role="img" aria-hidden="true"></span>
+        <p>Aucune clause n'est appliquée sans vérification humaine</p>
+      </div>
+      <div class="lb-reassure-item">
+        <span class="lb-reassure-icon lb-reassure-icon--map" role="img" aria-hidden="true"></span>
+        <p>Vos données restent en France</p>
+      </div>
+    </div>
+
+    <!-- COMMENT LEO TRAVAILLE -->
+    <section id="lb-fonctionnement" class="lb-block lb-block-tint">
+      <div class="lb-wrap">
+        <div class="lb-sechead-center">
+          <span class="lb-eyebrow">Comment Leo travaille</span>
+          <h2 class="lb-h2">Leo <em class="lb-em2">propose</em>, vous décidez</h2>
+          <p class="lb-lede2">Leo vous accompagne au quotidien pour la rédaction de vos contrats et documents juridiques de franchiseur. Il lit le contexte, intervient sur vos documents, vous conseille et attend votre validation. La décision juridique reste toujours humaine, et faite par votre avocat, dédié au droit de la franchise.</p>
+        </div>
+
+        <div class="lb-steps">
+          <div class="lb-step">
+            <div class="lb-step-n lb-step-n--brain" role="img" aria-hidden="true"></div>
+            <h3 class="lb-h3">Il connaît votre réseau</h3>
+            <p class="lb-p-muted">Grâce aux informations renseignées pendant l'onboarding,<em>Leo connaît déjà vos zones, vos redevances, vos modèles et l'étape où en est votre réseau</em>. Il lit ce contexte avant de répondre,jamais une réponse générique.</p>
+          </div>
+          <div class="lb-step">
+            <div class="lb-step-n lb-step-n--quote" role="img" aria-hidden="true"></div>
+            <h3 class="lb-h3">Il prépare et cite</h3>
+            <p class="lb-p-muted"><em>Chaque réponse s'appuie sur les textes officiels et la jurisprudence, cités clairement</em>. Les clauses sont retravaillées en montrant ce qui change, mot à mot.</p>
+          </div>
+          <div class="lb-step">
+            <div class="lb-step-n lb-step-n--hammer" role="img" aria-hidden="true"></div>
+            <h3 class="lb-h3">Vous décidez</h3>
+            <p class="lb-p-muted">Appliquer, modifier, ignorer, ou passer à votre avocat : <em>rien ne s'écrit dans un contrat sans une décision humaine</em> de votre part.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARCOURS -->
+    <section id="lb-parcours" class="lb-block lb-block-notop">
+      <div class="lb-wrap">
+        <div class="lb-sechead">
+          <span class="lb-eyebrow">De l'onboarding à la rédaction</span>
+          <h2 class="lb-h2">Leo intervient <em class="lb-em2">à chaque étape</em>, jamais à votre place</h2>
+        </div>
+
+        <!-- 01 - onboarding -->
+        <div class="lb-feature">
+          <div class="lb-ftext">
+            <span class="lb-tagmini">01 · À votre arrivée · Rédaction guidée</span>
+            <h3 class="lb-h3b">Un contrat bien rédigé, même sans être juriste</h3>
+            <p class="lb-p2">Vous répondez à des questions simples sur votre réseau : zones, redevances, durée, spécificités. Leo transforme ces réponses en un DIP et un contrat de franchise correctement structurés, à partir d'un modèle déjà validé par un avocat dédié au droit de la franchise. Vous n'avez pas besoin de savoir rédiger un contrat pour obtenir un contrat bien rédigé.</p>
+            <div class="lb-flist">
+              <div class="lb-frow"><span class="lb-ck">•</span>Vos réponses suffisent, la formulation juridique est déjà prête</div>
+              <div class="lb-frow"><span class="lb-ck">•</span>Le document suit un modèle validé par un avocat dédié au droit de la franchise</div>
+              <div class="lb-frow"><span class="lb-ck">•</span>Vous gardez la main pour ajuster, avant de signer</div>
+            </div>
+          </div>
+
+          <div class="lb-fvisual">
+            <div class="lb-fanim lb-ficon" aria-hidden="true" data-depth="0.85"><div id="la-onb" style="width:100%;height:100%"></div></div>
+            <span class="lb-ficon lb-ficon-b lb-ficon--teal" aria-hidden="true" data-depth="1.15">
+              <span class="lb-ficon-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21.64 3.64l-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72M14 7l3 3M5 6v4m14 4v4M10 2v2M7 8H3m18 8h-4M11 3H9"/></svg>
+              </span>
+            </span>
+            <span class="lb-ficon lb-ficon-c lb-ficon--tint" aria-hidden="true" data-depth="0.9">
+              <span class="lb-ficon-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5h8m-8 7h8m-8 7h8M3 17l2 2l4-4M3 7l2 2l4-4"/></svg>
+              </span>
+            </span>
+            <!-- Bloc 01 : composant React (code-components/src/components/OnboardingMockup),
+                 même approche que les blocs 03/04 (voir leurs commentaires).
+                 Remplace le .lb-formmock statique (démo cyclique) ; la badge
+                 coin "la-onb" (sign-loop.json) et les icônes décoratives
+                 restent statiques, hors composant. -->
+            <div id="onboarding-mockup-mount"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lb-wrap">
+        <!-- 02 - quotidien -->
+        <div class="lb-feature lb-feature-rev">
+          <div class="lb-ftext">
+            <span class="lb-tagmini">02 · Au quotidien · Chat conversationnel</span>
+            <h3 class="lb-h3b">Un premier niveau de réponse, sourcé, à toute heure</h3>
+            <p class="lb-p2">Renouvellement, DIP, exclusivité, non-concurrence… Leo répond à vos questions de droit de la franchise en citant les textes officiels et la jurisprudence, et vous dit clairement quand votre situation mérite votre avocat.</p>
+            <div class="lb-flist">
+              <div class="lb-frow"><span class="lb-ck">•</span>Chaque réponse affiche ses sources, vérifiables en un clic</div>
+              <div class="lb-frow"><span class="lb-ck">•</span>Les points de vigilance et les risques sont signalés d'eux-mêmes</div>
+              <div class="lb-frow"><span class="lb-ck">•</span>Leo vous oriente vers votre avocat dès que c'est votre cas précis</div>
+            </div>
+            <p class="lb-fnote">🛡 Information générale, jamais un avis juridique personnalisé — pour rédiger cette clause dans votre dossier, passez par votre avocat partenaire.</p>
+          </div>
+
+          <div class="lb-fvisual lb-fvisual--chat">
+            <span class="lb-ficon lb-ficon-b lb-ficon--teal" aria-hidden="true" data-depth="1.15">
+              <span class="lb-ficon-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12 3v18m7-13l3 8a5 5 0 0 1-6 0zV7"/><path d="M3 7h1a17 17 0 0 0 8-2a17 17 0 0 0 8 2h1M5 8l3 8a5 5 0 0 1-6 0zV7m2 14h10"/></g></svg>
+              </span>
+            </span>
+            <span class="lb-ficon lb-ficon-c lb-ficon--tint" aria-hidden="true" data-depth="0.9">
+              <span class="lb-ficon-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v16m8.001-2A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2a5 5 0 0 1 4-2z"/></svg>
+              </span>
+            </span>
+            <!-- Bloc 02 : composant React (code-components/src/components/ChatMockup),
+                 même approche que les blocs 01/03/04 (voir leurs
+                 commentaires). Remplace le .lb-formmock.lb-chatmock statique
+                 (flux + bulles + template) ; les icônes décoratives restent
+                 statiques, hors composant (pas de badge coin séparé pour ce
+                 bloc, voir .lb-fanim--inline dans ChatMockup.tsx). -->
+            <div id="chat-mockup-mount"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lb-wrap">
+        <!-- 03 - éditeur -->
+        <div class="lb-feature">
+          <div class="lb-ftext">
+            <span class="lb-tagmini">03 · Dans l'éditeur · Suggestions d'évolution</span>
+            <h3 class="lb-h3b">Des clauses travaillées, jamais appliquées sans vous</h3>
+            <p class="lb-p2">Sur vos modèles comme sur vos contrats, Leo repère les clauses imprécises et propose une formulation en montrant, mot à mot, ce qu'il ajoute et ce qu'il retire. Si vous souhaitez retenir une suggestion, elle est revue par un avocat avant d'entrer dans le contrat.</p>
+            <div class="lb-flist">
+              <div class="lb-frow"><span class="lb-ck">•</span>Suggestions article par article, sur les modèles et les contrats</div>
+              <div class="lb-frow"><span class="lb-ck">•</span>Chaque proposition affiche son diff : ajouté, retiré, rien de caché</div>
+              <div class="lb-frow"><span class="lb-ck">•</span>Revue par un avocat avant toute application au contrat</div>
+            </div>
+          </div>
+
+          <div class="lb-fvisual">
+            <div class="lb-fanim lb-ficon" aria-hidden="true" data-depth="0.85"><div id="la-ed" style="width:100%;height:100%"></div></div>
+            <span class="lb-ficon lb-ficon-b lb-ficon--teal" aria-hidden="true" data-depth="1.15">
+              <span class="lb-ficon-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7m-7 3H8a2 2 0 0 1-2-2V9"/></g></svg>
+              </span>
+            </span>
+            <span class="lb-ficon lb-ficon-c lb-ficon--tint" aria-hidden="true" data-depth="0.9">
+              <span class="lb-ficon-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4"/><path d="M14 2v4a2 2 0 0 0 2 2h4M3 15l2 2l4-4"/></g></svg>
+              </span>
+            </span>
+            <!-- Bloc 03 : composant React (code-components/src/components/EditorMockup),
+                 monté ici pour la preview locale intégrée à toute la page —
+                 voir code-components/vite.preview.config.ts. Remplace le
+                 .lb-reco statique ; c'est ce composant qui sera poussé comme
+                 Code Component Webflow (déjà fait, voir webflow.json). -->
+            <div id="editor-mockup-mount"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lb-wrap">
+        <!-- 04 - avocats -->
+        <div class="lb-feature lb-feature-rev">
+          <div class="lb-ftext">
+            <span class="lb-tagmini">04 · Côté avocats · Analyse des criticités <span class="lb-badge-beta">Réservé aux avocats</span></span>
+            <h3 class="lb-h3b">Avocats : vos relectures commencent préparées</h3>
+            <p class="lb-p2">L'évolution juridique des clauses est l'outil de travail de Leo pour les avocats. Sur un contrat client, Leo analyse chaque clause, classe les risques par criticité et propose l'évolution — en diff, avec sa justification. Vous gardez la plume : modifier, régénérer, appliquer, ou écarter.</p>
+            <div class="lb-flist">
+              <div class="lb-frow"><span class="lb-ck">•</span>Analyse de criticité clause par clause, risques classés</div>
+              <div class="lb-frow"><span class="lb-ck">•</span>Évolution proposée en diff, justification à l'appui</div>
+              <div class="lb-frow"><span class="lb-ck">•</span>Vous éditez ou régénérez avant d'appliquer au contrat</div>
+            </div>
+            <p class="lb-fnote">Disponible pour les avocats partenaires pendant la bêta.</p>
+          </div>
+
+          <div class="lb-fvisual">
+            <div class="lb-fanim lb-ficon" aria-hidden="true" data-depth="0.85"><div id="la-av" style="width:100%;height:100%"></div></div>
+            <span class="lb-ficon lb-ficon-b lb-ficon--teal" aria-hidden="true" data-depth="1.15">
+              <span class="lb-ficon-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14 13l-8.381 8.38a1 1 0 0 1-3.001-3l8.384-8.381M16 16l6-6m-.5.5l-8-8M8 8l6-6M8.5 7.5l8 8"/></svg>
+              </span>
+            </span>
+            <span class="lb-ficon lb-ficon-c lb-ficon--risk" aria-hidden="true" data-depth="0.9">
+              <span class="lb-ficon-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21.73 18l-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3M12 9v4m0 4h.01"/></svg>
+              </span>
+            </span>
+            <!-- Bloc 04 : composant React (code-components/src/components/AvocatsMockup),
+                 même approche que le bloc 03 (voir son commentaire ci-dessus).
+                 Remplace le .lb-formmock statique (critlist + relance) ; la
+                 badge coin "la-av" (hammer.json) et les icônes décoratives
+                 restent statiques, hors composant. -->
+            <div id="avocats-mockup-mount"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRANSPARENCE -->
+    <section class="lb-block lb-block-notop lb-block-tint">
+      <div class="lb-wrap">
+        <div class="lb-states">
+          <h2 class="lb-h2center">Vous voyez toujours ce que Leo <em class="lb-em2">fait</em></h2>
+          <p class="lb-lede2c">Pas de boîte noire : chaque état de Leo est visible à l'écran. Vous savez quand il écoute, quand il cherche, quand il rédige, et quand il a terminé.</p>
+
+          <div class="lb-statesrow">
+            <div class="lb-state">
+              <div class="lb-stateanim"><div id="la-si" style="width:100%;height:100%"></div></div>
+              <b class="lb-stateb">À l'écoute</b>
+              <span class="lb-states-sub">Prêt, sans rien faire tourner en tâche de fond</span>
+            </div>
+            <div class="lb-state">
+              <div class="lb-stateanim"><div id="la-sf" style="width:100%;height:100%"></div></div>
+              <b class="lb-stateb">Va chercher la source</b>
+              <span class="lb-states-sub">Textes officiels et jurisprudence</span>
+            </div>
+            <div class="lb-state">
+              <div class="lb-stateanim"><div id="la-sg" style="width:100%;height:100%"></div></div>
+              <b class="lb-stateb">Rédige</b>
+              <span class="lb-states-sub">Prépare la réponse ou la clause</span>
+            </div>
+            <div class="lb-state">
+              <div class="lb-stateanim"><div id="la-sc" style="width:100%;height:100%"></div></div>
+              <b class="lb-stateb">Terminé</b>
+              <span class="lb-states-sub">À vous de trancher</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONFIANCE -->
+    <section id="lb-confiance" class="lb-block lb-block-notop">
+      <div class="lb-wrap">
+        <div class="lb-deonto">
+          <div class="lb-deonto-text">
+            <span class="lb-eyebrow-dark">Conçu pour la confiance</span>
+            <h2 class="lb-h2dark">Leo connaît ses limites, <em class="lb-em3">et c'est ce qui le rend fiable.</em></h2>
+            <p class="lb-lededark">Un agent digne de confiance sait quand passer la main. Leo répond au général, cite ses sources, et s'arrête là où commence le conseil : votre situation précise appartient à votre avocat dédié au droit de la franchise. L'IA prépare, l'avocat valide.</p>
+          </div>
+          <div class="lb-ctarow">
+            <a href="/contact" class="lb-btn lb-btn-primary">Demander une démo de Leo</a>
+            <a href="#lb-parcours" class="lb-btn lb-btn-ghost-light">Voir Leo en action</a>
+          </div>
+        </div>
+
+        <div class="lb-stats">
+          <div class="lb-stat">
+            <div class="lb-statnum">5-10 h</div>
+            <div class="lb-statlab">Économisées en moyenne chaque mois sur la gestion contractuelle</div>
+          </div>
+          <div class="lb-stat">
+            <div class="lb-statnum">48 h</div>
+            <div class="lb-statlab">Pour obtenir un modèle de contrat validé par un avocat</div>
+          </div>
+          <div class="lb-stat">
+            <div class="lb-statnum">100 %</div>
+            <div class="lb-statlab">Des réponses juridiques accompagnées de leurs sources</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="lb-block lb-block-notop lb-block-tint">
+      <div class="lb-wrap">
+        <div class="lb-sechead-center">
+          <span class="lb-eyebrow">Vos questions</span>
+          <h2 class="lb-h2">Ce que vous nous demandez <em class="lb-em2">sur Leo</em></h2>
+        </div>
+
+        <div class="lb-faq">
+          <div class="lb-faqitem">
+            <button type="button" class="lb-faqq" aria-expanded="false">
+              Leo remplace-t-il mon avocat ?
+              <span class="lb-faqplus" aria-hidden="true">+</span>
+            </button>
+            <p class="lb-faqa">Non, et il est conçu pour ne pas le faire. Leo délivre de l'information générale et prépare le travail ; dès qu'il s'agit de votre situation précise ou d'une clause à appliquer, il passe la main à votre avocat dédié au droit de la franchise. L'IA prépare, l'avocat valide.</p>
+          </div>
+          <div class="lb-faqitem">
+            <button type="button" class="lb-faqq" aria-expanded="false">
+              D'où viennent ses réponses ?
+              <span class="lb-faqplus" aria-hidden="true">+</span>
+            </button>
+            <p class="lb-faqa">Des textes officiels et de la jurisprudence, cités sous chaque réponse et vérifiables en un clic, et du contexte de votre réseau tel qu'il est paramétré dans Legaleo. Leo ne cite pas de source qu'il ne peut pas montrer.</p>
+          </div>
+          <div class="lb-faqitem">
+            <button type="button" class="lb-faqq" aria-expanded="false">
+              Qui peut utiliser l'évolution juridique des clauses ?
+              <span class="lb-faqplus" aria-hidden="true">+</span>
+            </button>
+            <p class="lb-faqa">Pendant la bêta, cet outil est réservé aux avocats partenaires : analyse de criticité, proposition d'évolution en diff, application au contrat. Les franchiseurs en bénéficient à travers la relecture de leur avocat.</p>
+          </div>
+          <div class="lb-faqitem">
+            <button type="button" class="lb-faqq" aria-expanded="false">
+              Que veut dire « bêta » ?
+              <span class="lb-faqplus" aria-hidden="true">+</span>
+            </button>
+            <p class="lb-faqa">Leo est en production sur la plateforme, avec un périmètre qui s'élargit chaque mois. Le badge bêta signifie que vos retours façonnent directement la suite, et que les garde-fous décrits sur cette page s'appliquent dès aujourd'hui.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section id="lb-final" class="lb-block lb-block-notop">
+      <div class="lb-wrap">
+        <div class="lb-final">
+          <span class="lb-eyebrow">Moins de recherche, plus de réponses</span>
+
+          <div class="lb-finalanim">
+            <div id="la-fin" style="width:100%;height:100%"></div>
+          </div>
+
+          <h2 class="lb-h2center">Donnez à vos équipes juridiques <em class="lb-em2">une longueur d'avance</em>, sans jamais les remplacer.</h2>
+          <p class="lb-lede2c">Vos équipes ne passent plus des heures à chercher une réponse. Leo la prépare, sourcée, en quelques secondes, et votre avocat dédié au droit de la franchise reste seul décisionnaire sur le fond.</p>
+
+          <div class="lb-ctarow">
+            <a href="/contact" class="lb-btn lb-btn-primary">Demander une démo de Leo</a>
+            <a href="#lb-parcours" class="lb-btn lb-btn-dark">Voir Leo en action</a>
+          </div>
+
+          <p class="lb-finalnote">Bêta incluse dans les offres Legaleo · L'évolution juridique des clauses est réservée aux avocats partenaires.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/build/player/lottie_svg.min.js"></script>
+  <script src="js/anims.js"></script>
+  <script src="js/onboarding-demo.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Composants React (code-components/) — preview locale intégrée à toute
+       la page, voir code-components/vite.preview.config.ts. Bundle distinct
+       de celui poussé vers Webflow (webflow.json) ; React/ReactDOM inclus
+       dedans, page hôte purement statique. -->
+  <script type="module" src="code-components/preview-dist/editor-mockup.js"></script>
+  <script type="module" src="code-components/preview-dist/avocats-mockup.js"></script>
+  <script type="module" src="code-components/preview-dist/onboarding-mockup.js"></script>
+  <script type="module" src="code-components/preview-dist/chat-mockup.js"></script>
+</body>
+</html>

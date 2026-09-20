@@ -1,0 +1,262 @@
+/* Classes préfixées "obm-" (Onboarding Mockup), même raison que
+   EditorMockup.css/AvocatsMockup.css : CSS chargé globalement, à isoler des
+   autres mockups (03, 04) qui réutilisent des noms comme .lb-miniact. */
+.obm-mockup,
+.obm-mockup *,
+.obm-mockup *::before,
+.obm-mockup *::after {
+  box-sizing: border-box;
+}
+
+.obm-mockup {
+  --color-white: #fffefb;
+  --color-black: #1f120e;
+  --color-beige: #f7f4ef;
+  --color-border: #e6e0d3;
+  --color-muted: #6f6757;
+  --color-teal: #087f83;
+  --color-teal-text: #065e61;
+  --color-teal-bg: #e9fbfb;
+  --color-cyan: #62e7eb;
+  --color-leo-badge: #00383c;
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "Manrope", Arial, sans-serif;
+  --radius-md: 16px;
+  --radius-sm: 8px;
+  --radius-pill: 100px;
+
+  /* width/min-width/align-self : voir le commentaire équivalent sur
+     .avm-mockup (AvocatsMockup.css) — mitige le shrink-to-fit si le composant
+     est testé seul dans un conteneur Webflow qui ne stretch pas ses enfants. */
+  width: 100%;
+  min-width: 320px;
+  align-self: stretch;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+}
+
+.obm-fmtitle {
+  margin-bottom: 12px;
+  color: var(--color-black);
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.obm-fmq {
+  margin-bottom: 6px;
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  transition: opacity 0.15s ease;
+}
+
+/* Toggled pendant le changement de scénario (voir OnboardingMockup.tsx) —
+   repris tel quel de js/onboarding-demo.js (lb-chat-fade), qui n'a pas non
+   plus de règle d'opacité associée sur le site statique d'origine : le texte
+   change instantanément sans fondu visible, malgré la transition posée
+   ci-dessus. Comportement actuel du site conservé à l'identique. */
+.obm-fade {
+}
+
+.obm-fmfields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Enveloppe de chaque champ : la hauteur (et non le champ lui-même) est
+   animée + clippée, pour que le padding/margin/border de .obm-fmfield ne
+   perturbe pas la transition (voir OnboardingMockup.tsx, openWrapTo/closeWrap).
+   Repliée par défaut (.is-collapsed) sinon "auto" (ouverte, suit son
+   contenu). */
+.obm-fmfield-wrap {
+  position: relative;
+  overflow: clip;
+  opacity: 0;
+  transition: height 0.45s ease, opacity 0.35s ease;
+}
+
+.obm-fmfield-wrap[data-open="true"] {
+  opacity: 1;
+}
+
+.obm-fmfield-wrap.is-collapsed {
+  height: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .obm-fmfield-wrap {
+    transition: none;
+  }
+}
+
+.obm-fmfield {
+  position: relative;
+  margin-bottom: 12px;
+  padding: 10px 32px 10px 12px;
+  color: var(--color-muted);
+  background-color: var(--color-beige);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.obm-fmleo {
+  color: var(--color-teal-text);
+  background-color: var(--color-teal-bg);
+  border-color: var(--color-cyan);
+}
+
+/* Assombrit le fond de is-hint de ~3% de noir, peu importe la couleur de
+   base (beige ou teal-bg pour .obm-fmleo) : un calque noir en
+   mix-blend-mode multiply plutôt qu'une couleur calculée, pour rester
+   transitionnable (opacity s'anime, background-color+blend-mode non). */
+.obm-fmfield::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: var(--color-black);
+  opacity: 0;
+  mix-blend-mode: multiply;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+}
+
+.obm-fmfield.is-hint::before {
+  opacity: 0.03;
+}
+
+.obm-fmfield.is-selected {
+  border-color: var(--color-teal);
+  /* inset : reste entièrement dans le border-box du champ, jamais rogné par
+     l'overflow: clip de .obm-fmfield-wrap pendant l'animation de hauteur. */
+  box-shadow: inset 0 0 0 1px var(--color-teal);
+  animation: obm-select-flicker 0.45s ease-in-out;
+}
+
+.obm-fmfield.is-selected::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 13px;
+  height: 13px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2.5 6.2L4.8 8.5L9.5 3.5' stroke='%23087f83' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Flicker de sélection : 3 fade-in / 2 fade-out avant de se stabiliser sur
+   l'état "on" (identique aux valeurs statiques ci-dessus, donc aucun saut à
+   la fin de l'animation). */
+@keyframes obm-select-flicker {
+  0%,
+  40%,
+  80% {
+    border-color: var(--color-border);
+    box-shadow: inset 0 0 0 1px transparent;
+  }
+  20%,
+  60%,
+  100% {
+    border-color: var(--color-teal);
+    box-shadow: inset 0 0 0 1px var(--color-teal);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .obm-fmfield.is-selected {
+    animation: none;
+  }
+}
+
+/* Mini badge "Leo réfléchit" (generating.json) : sibling de .obm-fmleo (jamais
+   dedans — leoFieldEl.textContent écraserait tout enfant). position: absolute
+   pour ne jamais peser sur les mesures de hauteur (measureWrapHeight/
+   syncFieldsMinHeight, voir OnboardingMockup.tsx). */
+.obm-fm-thinking {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 8px;
+  background-color: var(--color-leo-badge);
+  box-shadow: 0 8px 16px -8px #1f120e40;
+  overflow: clip;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.obm-fm-thinking.is-visible {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .obm-fm-thinking {
+    transition: none;
+  }
+}
+
+.obm-miniact {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.obm-sugg {
+  display: inline-block;
+  order: 1;
+  cursor: pointer;
+  color: var(--color-teal-text);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-teal);
+  border-radius: var(--radius-pill);
+  padding: 8px 13px;
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.obm-sugg:hover {
+  background-color: var(--color-teal-bg);
+}
+
+.obm-sugg-solid {
+  order: 2;
+  color: var(--color-white);
+  background-color: var(--color-teal);
+}
+
+.obm-sugg-solid:hover {
+  background-color: #076e71;
+}
+
+.obm-sugg:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.obm-sugg:disabled:hover {
+  background-color: var(--color-white);
+}
+
+.obm-sugg-solid:disabled:hover {
+  background-color: var(--color-teal);
+}
