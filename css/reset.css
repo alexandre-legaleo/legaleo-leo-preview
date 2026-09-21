@@ -6,6 +6,20 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  /* Défilement fluide vers les ancres (#lb-parcours...). */
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* --anchor-offset : à régler sur la hauteur du header sticky quand il sera
+   intégré, pour que les sections ancrées ne se glissent pas dessous. */
+section[id] {
+  scroll-margin-top: var(--anchor-offset, 0px);
 }
 
 body {
