@@ -21,11 +21,13 @@
 
 /* Page dans un iframe (classe posée par js/embed.js) : 100vh = hauteur de
    l'iframe, qui s'ajuste elle-même à la hauteur de la page → le hero
-   grandirait en boucle. On le laisse à sa hauteur naturelle, avec un peu d'air
-   en haut à la place du centrage vertical. */
+   grandirait en boucle. On le laisse à sa hauteur naturelle. padding-top
+   remplace le centrage vertical et dégage la nav fixe de www.legaleo.ai
+   (.nav-wrapper : 80px de haut sur desktop, 78px sur mobile, mesuré) qui
+   recouvre le haut de l'iframe ; surcharge aussi le padding mobile (64px). */
 .is-embedded .lb-hero {
   min-height: auto;
-  padding-top: 64px;
+  padding-top: 100px;
 }
 
 /* Reprend .iconTile de LeoIconTile.tsx (legaleo-ai/components/design-system/LeoBadge) :
