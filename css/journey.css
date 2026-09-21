@@ -919,6 +919,22 @@
     gap: 32px;
     padding-top: 56px;
   }
+
+  /* Empilés en colonne : le min-width 320px (utile côte à côte) ferait
+     déborder la page sous 360 px de large. Idem pour les mockups React,
+     dont le min-width 320px (garde-fou shrink-to-fit côté Webflow) dépasse la
+     place utile d'un .lb-fvisual (largeur écran - gutters - padding) ; ici le
+     conteneur a une largeur définie, donc pas de risque d'écroulement. Le
+     sélecteur à 2 classes l'emporte sur celui du composant quel que soit
+     l'ordre de chargement. */
+  .lb-fvisual .obm-mockup,
+  .lb-fvisual .chm-mockup,
+  .lb-fvisual .edm-reco,
+  .lb-fvisual .avm-mockup,
+  .lb-ftext,
+  .lb-fvisual {
+    min-width: 0;
+  }
 }
 
 /* Icônes flottantes autour de chaque .lb-fvisual — décoratives, une par
@@ -1031,15 +1047,22 @@
    pas assez de marge autour de .lb-fvisual en pleine largeur pour déborder
    sans risquer un scroll horizontal. .lb-fanim fait exception : ce n'est pas
    de la pure déco (badge Lottie de statut), donc il reste visible, mais
-   rentre dans la carte (offsets positifs) au lieu de déborder de son bord. */
+   rentre dans la carte horizontalement (offsets positifs) au lieu de déborder
+   de son bord. Verticalement il chevauche le bord haut du cadre (top négatif,
+   l'espace au-dessus est libre : gap de .lb-feature) plutôt que le mockup,
+   dont il masquait le début du contenu (ex. bloc 04, coin haut-gauche). */
 @media (max-width: 900px) {
   .lb-ficon:not(.lb-fanim) {
     display: none;
   }
 
   .lb-fanim {
-    top: 14px;
+    top: -22px;
     right: 14px;
+    width: 48px;
+    height: 48px;
+    padding: 8px;
+    border-radius: 12px;
   }
 
   .lb-feature-rev .lb-fanim {

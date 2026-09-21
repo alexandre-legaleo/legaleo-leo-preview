@@ -88,6 +88,18 @@
     padding: 36px 24px;
   }
 
+  /* Desktop : texte (min-width 320) et boutons (flex-shrink 0) côte à côte.
+     Sur mobile ils s'empilent, et sans ça la rangée de boutons garde sa
+     largeur maximale et fait déborder toute la page. */
+  .lb-deonto-text {
+    min-width: 0;
+  }
+
+  .lb-deonto .lb-ctarow {
+    flex-shrink: 1;
+    width: 100%;
+  }
+
   .lb-h2dark {
     font-size: 26px;
   }
