@@ -19,6 +19,15 @@
   margin: auto 0;
 }
 
+/* Page dans un iframe (classe posée par js/embed.js) : 100vh = hauteur de
+   l'iframe, qui s'ajuste elle-même à la hauteur de la page → le hero
+   grandirait en boucle. On le laisse à sa hauteur naturelle, avec un peu d'air
+   en haut à la place du centrage vertical. */
+.is-embedded .lb-hero {
+  min-height: auto;
+  padding-top: 64px;
+}
+
 /* Reprend .iconTile de LeoIconTile.tsx (legaleo-ai/components/design-system/LeoBadge) :
    tuile 34px de référence, rayon 7/34, icône 20/34, centrée en flex. */
 .lb-hero-anim {

@@ -25,6 +25,11 @@
   <!-- CSS des composants React (code-components/), classes préfixées "edm-"
        etc. pour ne pas entrer en collision avec les classes "lb-*" du site. -->
   <link rel="stylesheet" href="code-components/preview-dist/code-components.css" />
+
+  <!-- Mode « page dans un iframe » (voir le commentaire en tête de embed.js).
+       Dans <head>, synchrone : la classe .is-embedded doit être posée avant le
+       premier rendu, sinon le hero s'affiche d'abord à 100vh puis saute. -->
+  <script src="js/embed.js"></script>
 </head>
 <body>
 
@@ -54,7 +59,7 @@
         </div>
 
         <div class="lb-ctarow">
-          <a href="/contact" class="lb-btn lb-btn-primary">Demander une démo de Leo</a>
+          <a href="https://www.legaleo.ai/contact" target="_top" class="lb-btn lb-btn-primary">Demander une démo de Leo</a>
           <a href="#lb-parcours" class="lb-btn lb-btn-ghost">Voir Leo en action</a>
         </div>
       </div>
@@ -322,7 +327,7 @@
             <p class="lb-lededark">Un agent digne de confiance sait quand passer la main. Leo répond au général, cite ses sources, et s'arrête là où commence le conseil : votre situation précise appartient à votre avocat dédié au droit de la franchise. L'IA prépare, l'avocat valide.</p>
           </div>
           <div class="lb-ctarow">
-            <a href="/contact" class="lb-btn lb-btn-primary">Demander une démo de Leo</a>
+            <a href="https://www.legaleo.ai/contact" target="_top" class="lb-btn lb-btn-primary">Demander une démo de Leo</a>
             <a href="#lb-parcours" class="lb-btn lb-btn-ghost-light">Voir Leo en action</a>
           </div>
         </div>
@@ -406,7 +411,7 @@
           <p class="lb-lede2c">Une première réponse sourcée en quelques secondes, et votre avocat dédié au droit de la franchise qui garde le dernier mot. En démo, on vous le montre sur les questions que vous vous posez aujourd'hui.</p>
 
           <div class="lb-ctarow">
-            <a href="/contact" class="lb-btn lb-btn-primary">Demander une démo de Leo</a>
+            <a href="https://www.legaleo.ai/contact" target="_top" class="lb-btn lb-btn-primary">Demander une démo de Leo</a>
           </div>
 
           <p class="lb-finalnote">Bêta incluse dans les offres Legaleo · L'évolution juridique des clauses est réservée aux avocats partenaires.</p>
