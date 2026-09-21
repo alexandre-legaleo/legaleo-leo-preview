@@ -4,7 +4,7 @@
   "private": true,
   "description": "Page vitrine \"Agent IA Leo\" - HTML/CSS statique, prête à être importée dans Webflow via HTMLtoflow (codetocanvas.io n'est plus listé sur le marketplace Webflow)",
   "scripts": {
-    "dev": "live-server --port=5173 --open=index.html"
+    "dev": "live-server --port=5173 --open=index.html --watch=index.html,css,js,assets,leo-anims,code-components/preview-dist"
   },
   "devDependencies": {
     "live-server": "^1.2.2"
