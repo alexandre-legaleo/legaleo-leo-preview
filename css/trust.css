@@ -68,6 +68,14 @@
   line-height: 1;
 }
 
+/* Valeur textuelle (« Quelques secondes ») plutôt que chiffrée : plus petite
+   pour tenir sur une ligne, même hauteur de ligne que .lb-statnum pour que
+   les libellés restent alignés entre les trois stats. */
+.lb-statnum--word {
+  font-size: 32px;
+  line-height: 46px;
+}
+
 .lb-statlab {
   margin-top: 10px;
   color: var(--color-muted);
