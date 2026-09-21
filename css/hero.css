@@ -30,6 +30,17 @@
   padding-top: 100px;
 }
 
+/* Hero « plein écran » comme en local : --embed-vh = hauteur visible de la page
+   parente (posée par js/embed.js à partir d'un message du parent). Desktop
+   seulement, comme le hero hors iframe (sous 640px il reste à sa hauteur
+   naturelle). Le hero étant en flex colonne, .lb-wrap se recentre tout seul
+   (margin: auto 0) et .lb-heroreassure reste calé en bas. */
+@media (min-width: 641px) {
+  .is-embedded .lb-hero {
+    min-height: var(--embed-vh, auto);
+  }
+}
+
 /* Reprend .iconTile de LeoIconTile.tsx (legaleo-ai/components/design-system/LeoBadge) :
    tuile 34px de référence, rayon 7/34, icône 20/34, centrée en flex. */
 .lb-hero-anim {

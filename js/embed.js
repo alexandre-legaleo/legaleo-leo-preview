@@ -49,6 +49,19 @@
     post({ type: "leo-agent:height", height });
   };
 
+  // Hauteur visible de la page parente sous le haut de l'iframe (envoyée par le
+  // parent, voir webflow-embed.html) : redonne au hero sa hauteur « plein
+  // écran » (voir hero.css). Elle ne dépend pas de la hauteur de l'iframe, donc
+  // pas de boucle comme avec 100vh. Sans message du parent (ancien snippet), la
+  // variable n'existe pas et le hero garde sa hauteur naturelle.
+  window.addEventListener("message", (e) => {
+    if (e.source !== window.parent || !PARENT_ORIGINS.includes(e.origin)) return;
+    const data = e.data || {};
+    if (data.type === "leo-agent:viewport" && data.height > 0) {
+      root.style.setProperty("--embed-vh", Math.round(data.height) + "px");
+    }
+  });
+
   new ResizeObserver(sendHeight).observe(root);
   // Renvoie inconditionnellement au chargement complet : si le parent n'écoutait
   // pas encore au premier envoi, il rattrape ici.

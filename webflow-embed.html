@@ -1,24 +1,29 @@
 <!--
   À COLLER DANS WEBFLOW : élément « Embed » (Add > Components > Code Embed),
-  placé entre la nav et le footer de la page « Agent Leo ».
+  placé sous la nav de la page « Agent Leo » (et avant le footer).
   Tout ce qui est entre les deux lignes de commentaire "COLLER" ci-dessous.
 
   Ce que ça fait
   - Affiche la page hébergée sur GitHub Pages dans un iframe pleine largeur.
   - La page (js/embed.js) envoie sa hauteur ; le script ci-dessous ajuste
     l'iframe pour qu'elle n'ait pas de barre de défilement propre.
+  - Le script envoie en retour la hauteur visible de la fenêtre (au chargement
+    et à chaque redimensionnement) : le hero de la page prend toute la hauteur
+    de l'écran, contenu centré et pastilles en bas, comme en local.
   - Clic sur une ancre de la page (« Voir Leo en action ») : c'est la page
     Webflow qui défile, pas l'iframe.
 
   À régler
-  - NAV_OFFSET : hauteur en px de la nav si elle est fixe/collante sur
-    legaleo.ai (sinon laisser 0), pour que la section ciblée ne passe pas
-    dessous.
+  - NAV_OFFSET : hauteur en px de la nav fixe de legaleo.ai (mesurée : 80 sur
+    desktop, 78 sur mobile), pour que la section ciblée ne passe pas dessous.
   - Si la page source change d'adresse (autre domaine que github.io), changer
     PAGE_ORIGIN ET le src de l'iframe.
 
   Sécurité : le script ignore tout message qui ne vient pas de PAGE_ORIGIN
-  ET de cet iframe précis.
+  ET de cet iframe précis, et n'envoie la hauteur qu'à PAGE_ORIGIN.
+
+  Ce snippet fonctionne dans la preview ou sur le site publié, pas dans le
+  canvas du Designer (il n'y exécute pas les scripts).
 -->
 
 <!-- COLLER DEPUIS ICI -->
@@ -26,14 +31,25 @@
   id="leo-agent-frame"
   src="https://alexandre-legaleo.github.io/legaleo-leo-preview/"
   title="Agent IA Leo"
-  loading="lazy"
   style="display:block;width:100%;height:100vh;border:0"
 ></iframe>
 <script>
   (function () {
     var PAGE_ORIGIN = "https://alexandre-legaleo.github.io";
-    var NAV_OFFSET = 0;
+    var NAV_OFFSET = 80;
     var frame = document.getElementById("leo-agent-frame");
+
+    // Hauteur visible de la fenêtre sous le haut de l'iframe.
+    function sendViewport() {
+      if (!frame.contentWindow) return;
+      var top = frame.getBoundingClientRect().top + window.pageYOffset;
+      frame.contentWindow.postMessage(
+        { type: "leo-agent:viewport", height: Math.max(0, window.innerHeight - top) },
+        PAGE_ORIGIN
+      );
+    }
+    frame.addEventListener("load", sendViewport);
+    window.addEventListener("resize", sendViewport);
 
     window.addEventListener("message", function (e) {
       if (e.origin !== PAGE_ORIGIN || e.source !== frame.contentWindow) return;
