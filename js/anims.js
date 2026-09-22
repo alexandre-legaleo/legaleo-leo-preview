@@ -5,6 +5,27 @@
 
 const leoAnimInstances = {};
 
+// canvas (pas svg), comme les mockups React (voir le commentaire dans
+// EditorMockup.tsx) : ces animations sont faites de paths distincts qui se
+// touchent, et le renderer SVG anti-aliase chacun séparément — d'où un filet
+// clair entre eux, plus marqué sur Safari que sur Chrome. Le canvas rasterise
+// la frame entière d'un coup, ce qui supprime ce filet. Le renderer cale seul
+// son buffer sur window.devicePixelRatio, donc pas de perte de netteté.
+// Le <script> d'index.html doit charger un build qui embarque ce renderer
+// (lottie_canvas.min.js) : lottie_svg.min.js ne le contient pas.
+const LEO_RENDERER = "canvas";
+
+// Lottie dimensionne parfois le <canvas> qu'il crée d'après une mesure du
+// conteneur faite trop tôt (icône rétrécie ou décentrée). On lui impose de
+// remplir son conteneur — même correctif que dans les composants React.
+function fitCanvas(container) {
+  const canvas = container.querySelector("canvas");
+  if (!canvas) return;
+  canvas.style.width = "100%";
+  canvas.style.height = "100%";
+  canvas.style.display = "block";
+}
+
 function simpleLoop(containerId, file) {
   swapAnim(containerId, file, { loop: true });
 }
@@ -22,12 +43,13 @@ function swapAnim(containerId, file, { loop = true, onComplete } = {}) {
 
   const anim = lottie.loadAnimation({
     container,
-    renderer: "svg",
+    renderer: LEO_RENDERER,
     loop,
     autoplay: true,
     path: `leo-anims/${file}`,
   });
   leoAnimInstances[containerId] = anim;
+  anim.addEventListener("DOMLoaded", () => fitCanvas(container));
 
   if (!loop && onComplete) {
     anim.addEventListener("complete", onComplete);
@@ -67,11 +89,12 @@ function playSequence(containerId, segments) {
     const segment = segments[index % segments.length];
     const anim = lottie.loadAnimation({
       container,
-      renderer: "svg",
+      renderer: LEO_RENDERER,
       loop: !!segment.loop,
       autoplay: true,
       path: `leo-anims/${segment.file}`,
     });
+    anim.addEventListener("DOMLoaded", () => fitCanvas(container));
 
     // Un seul segment bouclé (cas du hero, whole.json) : lottie le rejoue
     // indéfiniment tout seul. Enchaîner ferait détruire puis recharger le même
