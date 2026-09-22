@@ -1,6 +1,6 @@
-import { a as e, n as t, r as n, t as r } from "./jsx-runtime-Bt-5_n2z.mjs";
+import { i as e, n as t, o as n, r, t as i } from "./jsx-runtime-Dc2F1fvU.mjs";
 //#region src/components/OnboardingMockup/leo-anims/generating.json
-var i = n(), a = t(), o = {
+var a = e(), o = r(), s = {
 	v: "5.12.1",
 	fr: 60,
 	ip: 89,
@@ -165,7 +165,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -334,7 +334,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -503,7 +503,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -672,7 +672,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -898,7 +898,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -1124,7 +1124,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -1142,7 +1142,7 @@ var i = n(), a = t(), o = {
 	],
 	markers: [],
 	props: {}
-}, s = r(), c = [
+}, c = i(), l = [
 	{
 		question: "Durée du contrat et modalités de renouvellement ?",
 		user: "« 5 ans, renouvelable, avec un préavis de 6 mois. »",
@@ -1163,30 +1163,30 @@ var i = n(), a = t(), o = {
 		user: "« 15 000 euros HT, payable en une fois à la signature. »",
 		leo: "Leo rédige : « Le Franchisé règle au Franchiseur, à la signature du présent Contrat, un droit d'entrée forfaitaire de quinze mille (15 000) euros hors taxes, payable en totalité et en une seule fois. »"
 	}
-], l = 40, u = 1100, d = 350, f = 24, p = 933;
-function m() {
-	let t = (0, i.useRef)(null), n = (0, i.useRef)(null), r = (0, i.useRef)(null), a = (0, i.useRef)(null), m = (0, i.useRef)(null), h = (0, i.useRef)(null), g = (0, i.useRef)(null), _ = (0, i.useRef)(null), v = (0, i.useRef)(null), y = (0, i.useRef)(null), b = (0, i.useRef)(null), x = (0, i.useRef)(null);
-	return (0, i.useEffect)(() => {
-		let t = !1;
+], u = 40, d = 1100, f = 350, p = 24, m = 933;
+function h() {
+	let e = (0, a.useRef)(null), r = (0, a.useRef)(null), i = (0, a.useRef)(null), o = (0, a.useRef)(null), h = (0, a.useRef)(null), g = (0, a.useRef)(null), _ = (0, a.useRef)(null), v = (0, a.useRef)(null), y = (0, a.useRef)(null), b = (0, a.useRef)(null), x = (0, a.useRef)(null), S = (0, a.useRef)(null);
+	return (0, a.useEffect)(() => {
+		let e = !1;
 		return (async () => {
-			if (!b.current) return;
-			let n = (await import("./lottie-Bc59Otqb.mjs").then((t) => /* @__PURE__ */ e(t.default))).default;
-			if (t || !b.current) return;
-			x.current = n.loadAnimation({
-				container: b.current,
+			if (!x.current) return;
+			let r = (await import("./lottie-Cns74Zx7.mjs").then((e) => /* @__PURE__ */ n(e.default))).default;
+			if (e || !x.current) return;
+			S.current = r.loadAnimation({
+				container: x.current,
 				renderer: "canvas",
 				loop: !0,
 				autoplay: !0,
-				animationData: o
+				animationData: t(s)
 			});
-			let r = b.current.querySelector("canvas");
-			r && (r.style.width = "100%", r.style.height = "100%", r.style.display = "block");
+			let i = x.current.querySelector("canvas");
+			i && (i.style.width = "100%", i.style.height = "100%", i.style.display = "block");
 		})(), () => {
-			t = !0, x.current?.destroy();
+			e = !0, S.current?.destroy();
 		};
-	}, []), (0, i.useEffect)(() => {
-		let e = t.current, i = n.current, o = r.current, s = a.current, b = m.current, x = h.current, S = g.current, C = _.current, w = v.current, T = y.current;
-		if (!e || !i || !o || !s || !b || !x || !S || !C || !w || !T) return;
+	}, []), (0, a.useEffect)(() => {
+		let t = e.current, n = r.current, a = i.current, s = o.current, c = h.current, x = g.current, S = _.current, C = v.current, w = y.current, T = b.current;
+		if (!t || !n || !a || !s || !c || !x || !S || !C || !w || !T) return;
 		let E = !1, D = 0, O = !1, k = [], A = /* @__PURE__ */ new WeakMap();
 		function j(e, t) {
 			let n = window.setTimeout(() => {
@@ -1199,7 +1199,7 @@ function m() {
 			C.disabled = e, w.disabled = e;
 		}
 		function ee(e) {
-			return e === x ? s : b;
+			return e === x ? s : c;
 		}
 		function P(e, t, n) {
 			let r = t.textContent, i = e.style.height, a = e.style.transition;
@@ -1241,59 +1241,59 @@ function m() {
 		}
 		function R(e) {
 			if (F(e), e.dataset.open = "true", M.matches) {
-				e.style.height = `${l}px`;
+				e.style.height = `${u}px`;
 				return;
 			}
 			let t = e.getBoundingClientRect().height;
 			e.style.transition = "none", e.style.height = `${t}px`, e.getBoundingClientRect(), requestAnimationFrame(() => {
-				E || (e.style.transition = "", e.style.height = `${l}px`);
+				E || (e.style.transition = "", e.style.height = `${u}px`);
 			});
 		}
 		function z(e) {
-			let t = x.textContent, n = S.textContent, r = s.style.height, i = b.style.height, a = s.style.transition, c = b.style.transition;
-			o.style.minHeight = "", x.textContent = e.user, S.textContent = e.leo, s.style.transition = "none", b.style.transition = "none", s.style.height = "auto", b.style.height = "auto", o.style.minHeight = `${o.getBoundingClientRect().height}px`, s.style.height = r, b.style.height = i, s.style.transition = a, b.style.transition = c, x.textContent = t, S.textContent = n;
+			let t = x.textContent, n = S.textContent, r = s.style.height, i = c.style.height, o = s.style.transition, l = c.style.transition;
+			a.style.minHeight = "", x.textContent = e.user, S.textContent = e.leo, s.style.transition = "none", c.style.transition = "none", s.style.height = "auto", c.style.height = "auto", a.style.minHeight = `${a.getBoundingClientRect().height}px`, s.style.height = r, c.style.height = i, s.style.transition = o, c.style.transition = l, x.textContent = t, S.textContent = n;
 		}
 		function B(e, t, n) {
 			let r = 0;
 			function i() {
-				E || (r += 1, e.textContent = t.slice(0, r), r < t.length ? j(i, f) : n?.());
+				E || (r += 1, e.textContent = t.slice(0, r), r < t.length ? j(i, p) : n?.());
 			}
 			i();
 		}
 		function V(e) {
-			z(e), x.classList.remove("is-selected"), S.classList.remove("is-selected"), L(b), I(s, x, e.user, { settle: !1 }), x.textContent = "";
+			z(e), x.classList.remove("is-selected"), S.classList.remove("is-selected"), L(c), I(s, x, e.user, { settle: !1 }), x.textContent = "";
 			function t() {
-				S.textContent = e.leo, I(b, S, e.leo), N(!1);
+				S.textContent = e.leo, I(c, S, e.leo), N(!1);
 			}
 			function n() {
-				s.style.height = "auto", S.textContent = "", R(b), T.classList.add("is-visible"), j(() => {
+				s.style.height = "auto", S.textContent = "", R(c), T.classList.add("is-visible"), j(() => {
 					T.classList.remove("is-visible"), t();
-				}, u);
+				}, d);
 			}
 			if (M.matches) {
 				x.textContent = e.user, t();
 				return;
 			}
-			B(x, e.user, () => j(n, d));
+			B(x, e.user, () => j(n, f));
 		}
 		function H() {
-			z(c[D]);
+			z(l[D]);
 		}
 		window.addEventListener("resize", H);
-		let U = e.closest(".lb-fvisual") || e, W = null;
+		let U = t.closest(".lb-fvisual") || t, W = null;
 		"IntersectionObserver" in window ? (W = new IntersectionObserver((e, t) => {
 			e.forEach((e) => {
-				e.isIntersecting && (t.disconnect(), V(c[D]));
+				e.isIntersecting && (t.disconnect(), V(l[D]));
 			});
-		}, { threshold: .4 }), W.observe(U)) : V(c[D]);
+		}, { threshold: .4 }), W.observe(U)) : V(l[D]);
 		function G() {
-			return new Promise((e) => j(e, p));
+			return new Promise((e) => j(e, m));
 		}
 		function K() {
-			D = (D + 1) % c.length;
-			let e = c[D];
-			i.classList.add("obm-fade"), j(() => {
-				i.textContent = e.question, i.classList.remove("obm-fade"), V(e);
+			D = (D + 1) % l.length;
+			let e = l[D];
+			n.classList.add("obm-fade"), j(() => {
+				n.textContent = e.question, n.classList.remove("obm-fade"), V(e);
 			}, 200);
 		}
 		async function q(e) {
@@ -1323,64 +1323,64 @@ function m() {
 		return C.addEventListener("click", J), w.addEventListener("click", Y), C.addEventListener("mouseenter", X), C.addEventListener("mouseleave", Z), w.addEventListener("mouseenter", Q), w.addEventListener("mouseleave", $), () => {
 			E = !0, k.forEach((e) => window.clearTimeout(e)), window.removeEventListener("resize", H), W?.disconnect(), C.removeEventListener("click", J), w.removeEventListener("click", Y), C.removeEventListener("mouseenter", X), C.removeEventListener("mouseleave", Z), w.removeEventListener("mouseenter", Q), w.removeEventListener("mouseleave", $);
 		};
-	}, []), /* @__PURE__ */ (0, s.jsxs)("div", {
+	}, []), /* @__PURE__ */ (0, c.jsxs)("div", {
 		className: "obm-mockup",
-		ref: t,
+		ref: e,
 		children: [
-			/* @__PURE__ */ (0, s.jsx)("div", {
+			/* @__PURE__ */ (0, c.jsx)("div", {
 				className: "obm-fmtitle",
 				children: "Paramètres du contrat"
 			}),
-			/* @__PURE__ */ (0, s.jsx)("div", {
+			/* @__PURE__ */ (0, c.jsx)("div", {
 				className: "obm-fmq",
-				ref: n,
-				children: c[0].question
-			}),
-			/* @__PURE__ */ (0, s.jsxs)("div", {
-				className: "obm-fmfields",
 				ref: r,
-				children: [/* @__PURE__ */ (0, s.jsx)("div", {
+				children: l[0].question
+			}),
+			/* @__PURE__ */ (0, c.jsxs)("div", {
+				className: "obm-fmfields",
+				ref: i,
+				children: [/* @__PURE__ */ (0, c.jsx)("div", {
 					className: "obm-fmfield-wrap",
-					ref: a,
+					ref: o,
 					"data-open": "true",
-					children: /* @__PURE__ */ (0, s.jsx)("div", {
+					children: /* @__PURE__ */ (0, c.jsx)("div", {
 						className: "obm-fmfield",
-						ref: h,
-						children: c[0].user
+						ref: g,
+						children: l[0].user
 					})
-				}), /* @__PURE__ */ (0, s.jsxs)("div", {
+				}), /* @__PURE__ */ (0, c.jsxs)("div", {
 					className: "obm-fmfield-wrap is-collapsed",
-					ref: m,
+					ref: h,
 					"data-open": "false",
-					children: [/* @__PURE__ */ (0, s.jsx)("div", {
+					children: [/* @__PURE__ */ (0, c.jsx)("div", {
 						className: "obm-fm-thinking",
-						ref: y,
+						ref: b,
 						"aria-hidden": "true",
-						children: /* @__PURE__ */ (0, s.jsx)("div", {
-							ref: b,
+						children: /* @__PURE__ */ (0, c.jsx)("div", {
+							ref: x,
 							style: {
 								width: "100%",
 								height: "100%"
 							}
 						})
-					}), /* @__PURE__ */ (0, s.jsx)("div", {
+					}), /* @__PURE__ */ (0, c.jsx)("div", {
 						className: "obm-fmfield obm-fmleo",
-						ref: g,
-						children: c[0].leo
+						ref: _,
+						children: l[0].leo
 					})]
 				})]
 			}),
-			/* @__PURE__ */ (0, s.jsxs)("div", {
+			/* @__PURE__ */ (0, c.jsxs)("div", {
 				className: "obm-miniact",
-				children: [/* @__PURE__ */ (0, s.jsx)("button", {
+				children: [/* @__PURE__ */ (0, c.jsx)("button", {
 					type: "button",
 					className: "obm-sugg obm-sugg-solid",
-					ref: _,
+					ref: v,
 					children: "Utiliser la version Leo"
-				}), /* @__PURE__ */ (0, s.jsx)("button", {
+				}), /* @__PURE__ */ (0, c.jsx)("button", {
 					type: "button",
 					className: "obm-sugg",
-					ref: v,
+					ref: y,
 					children: "Garder ma version"
 				})]
 			})
@@ -1389,6 +1389,6 @@ function m() {
 }
 //#endregion
 //#region src/preview-mounts/onboarding-mockup.tsx
-var h = "onboarding-mockup-mount", g = document.getElementById(h);
-g ? (0, a.createRoot)(g).render(/* @__PURE__ */ (0, s.jsx)(m, {})) : console.warn(`[preview] #${h} introuvable sur la page.`);
+var g = "onboarding-mockup-mount", _ = document.getElementById(g);
+_ ? (0, o.createRoot)(_).render(/* @__PURE__ */ (0, c.jsx)(h, {})) : console.warn(`[preview] #${g} introuvable sur la page.`);
 //#endregion

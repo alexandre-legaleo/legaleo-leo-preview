@@ -1,6 +1,6 @@
-import { a as e, n as t, r as n, t as r } from "./jsx-runtime-Bt-5_n2z.mjs";
+import { i as e, n as t, o as n, r, t as i } from "./jsx-runtime-Dc2F1fvU.mjs";
 //#region src/components/AvocatsMockup/leo-anims/generating.json
-var i = n(), a = t(), o = {
+var a = e(), o = r(), s = {
 	v: "5.12.1",
 	fr: 60,
 	ip: 89,
@@ -165,7 +165,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -334,7 +334,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -503,7 +503,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -672,7 +672,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -898,7 +898,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -1124,7 +1124,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -1142,7 +1142,7 @@ var i = n(), a = t(), o = {
 	],
 	markers: [],
 	props: {}
-}, s = r(), c = [
+}, c = i(), l = [
 	{
 		id: "reaffiliation",
 		title: "Clause de non-réaffiliation étendue",
@@ -1197,83 +1197,83 @@ var i = n(), a = t(), o = {
 		risk: "low",
 		text: "Les modalités d'actualisation du savoir-faire transmis pendant la durée du contrat gagneraient à être précisées."
 	}
-], l = {
+], u = {
 	high: 0,
 	medium: 1,
 	low: 2
-}, u = {
+}, d = {
 	high: "Risque élevé",
 	medium: "Risque moyen",
 	low: "Risque faible"
-}, d = 800;
-function f() {
+}, f = 800;
+function p() {
 	let e = Math.random() < .5 ? 2 : 3;
-	return [...c].map((e) => ({
+	return [...l].map((e) => ({
 		item: e,
 		sort: Math.random()
-	})).sort((e, t) => e.sort - t.sort).slice(0, e).map(({ item: e }) => e).sort((e, t) => l[e.risk] - l[t.risk]);
+	})).sort((e, t) => e.sort - t.sort).slice(0, e).map(({ item: e }) => e).sort((e, t) => u[e.risk] - u[t.risk]);
 }
-function p() {
-	let [t, n] = (0, i.useState)(() => f()), [r, a] = (0, i.useState)(!1), [c, l] = (0, i.useState)(2), [p, m] = (0, i.useState)(!1), h = (0, i.useRef)(null), g = (0, i.useRef)(null), _ = (0, i.useRef)(null), v = (0, i.useRef)(null);
-	(0, i.useEffect)(() => () => {
-		v.current !== null && window.clearTimeout(v.current), _.current?.destroy();
+function m() {
+	let [e, r] = (0, a.useState)(() => p()), [i, o] = (0, a.useState)(!1), [l, u] = (0, a.useState)(2), [m, h] = (0, a.useState)(!1), g = (0, a.useRef)(null), _ = (0, a.useRef)(null), v = (0, a.useRef)(null), y = (0, a.useRef)(null);
+	(0, a.useEffect)(() => () => {
+		y.current !== null && window.clearTimeout(y.current), v.current?.destroy();
 	}, []);
-	async function y() {
-		if (!g.current) return;
-		let t = (await import("./lottie-Bc59Otqb.mjs").then((t) => /* @__PURE__ */ e(t.default))).default;
-		if (!g.current) return;
-		_.current?.destroy(), _.current = t.loadAnimation({
-			container: g.current,
+	async function b() {
+		if (!_.current) return;
+		let e = (await import("./lottie-Cns74Zx7.mjs").then((e) => /* @__PURE__ */ n(e.default))).default;
+		if (!_.current) return;
+		v.current?.destroy(), v.current = e.loadAnimation({
+			container: _.current,
 			renderer: "canvas",
 			loop: !0,
 			autoplay: !0,
-			animationData: o
+			animationData: t(s)
 		});
-		let n = g.current.querySelector("canvas");
-		n && (n.style.width = "100%", n.style.height = "100%", n.style.display = "block");
+		let r = _.current.querySelector("canvas");
+		r && (r.style.width = "100%", r.style.height = "100%", r.style.display = "block");
 	}
-	function b() {
-		v.current !== null && window.clearTimeout(v.current), h.current && (h.current.style.width = `${h.current.getBoundingClientRect().width}px`), a(!0), l(Math.random() < .5 ? 2 : 3), m(!0), y(), v.current = window.setTimeout(() => {
-			n(f()), a(!1), m(!1), h.current && (h.current.style.width = "");
-		}, d);
+	function x() {
+		y.current !== null && window.clearTimeout(y.current), g.current && (g.current.style.width = `${g.current.getBoundingClientRect().width}px`), o(!0), u(Math.random() < .5 ? 2 : 3), h(!0), b(), y.current = window.setTimeout(() => {
+			r(p()), o(!1), h(!1), g.current && (g.current.style.width = "");
+		}, f);
 	}
-	return /* @__PURE__ */ (0, s.jsxs)("div", {
+	return /* @__PURE__ */ (0, c.jsxs)("div", {
 		className: "avm-mockup",
-		ref: h,
-		children: [/* @__PURE__ */ (0, s.jsx)("div", {
+		ref: g,
+		children: [/* @__PURE__ */ (0, c.jsx)("div", {
 			className: "avm-critlist",
-			children: r ? Array.from({ length: c }, (e, t) => /* @__PURE__ */ (0, s.jsxs)("div", {
+			children: i ? Array.from({ length: l }, (e, t) => /* @__PURE__ */ (0, c.jsxs)("div", {
 				className: "avm-crit-skeleton",
 				children: [
-					/* @__PURE__ */ (0, s.jsx)("span", {}),
-					/* @__PURE__ */ (0, s.jsx)("span", {}),
-					/* @__PURE__ */ (0, s.jsx)("span", {})
+					/* @__PURE__ */ (0, c.jsx)("span", {}),
+					/* @__PURE__ */ (0, c.jsx)("span", {}),
+					/* @__PURE__ */ (0, c.jsx)("span", {})
 				]
-			}, `skeleton-${t}`)) : t.map((e, t) => /* @__PURE__ */ (0, s.jsxs)("div", {
+			}, `skeleton-${t}`)) : e.map((e, t) => /* @__PURE__ */ (0, c.jsxs)("div", {
 				className: "avm-crit",
 				style: { animationDelay: `${t * 90}ms` },
-				children: [/* @__PURE__ */ (0, s.jsxs)("div", {
+				children: [/* @__PURE__ */ (0, c.jsxs)("div", {
 					className: "avm-critt",
-					children: [e.title, /* @__PURE__ */ (0, s.jsx)("span", {
+					children: [e.title, /* @__PURE__ */ (0, c.jsx)("span", {
 						className: e.risk === "high" ? "avm-risk" : `avm-risk avm-risk--${e.risk}`,
-						children: u[e.risk]
+						children: d[e.risk]
 					})]
-				}), /* @__PURE__ */ (0, s.jsx)("p", {
+				}), /* @__PURE__ */ (0, c.jsx)("p", {
 					className: "avm-critp",
 					children: e.text
 				})]
 			}, e.id))
-		}), /* @__PURE__ */ (0, s.jsxs)("div", {
+		}), /* @__PURE__ */ (0, c.jsxs)("div", {
 			className: "avm-miniact",
-			children: [/* @__PURE__ */ (0, s.jsx)("button", {
+			children: [/* @__PURE__ */ (0, c.jsx)("button", {
 				type: "button",
 				className: "avm-sugg",
-				onClick: b,
+				onClick: x,
 				children: "Lancer l'analyse d'un autre contrat"
-			}), /* @__PURE__ */ (0, s.jsx)("span", {
-				className: p ? "avm-minicheck is-visible" : "avm-minicheck",
-				children: /* @__PURE__ */ (0, s.jsx)("div", {
-					ref: g,
+			}), /* @__PURE__ */ (0, c.jsx)("span", {
+				className: m ? "avm-minicheck is-visible" : "avm-minicheck",
+				children: /* @__PURE__ */ (0, c.jsx)("div", {
+					ref: _,
 					style: {
 						width: "100%",
 						height: "100%"
@@ -1285,6 +1285,6 @@ function p() {
 }
 //#endregion
 //#region src/preview-mounts/avocats-mockup.tsx
-var m = "avocats-mockup-mount", h = document.getElementById(m);
-h ? (0, a.createRoot)(h).render(/* @__PURE__ */ (0, s.jsx)(p, {})) : console.warn(`[preview] #${m} introuvable sur la page.`);
+var h = "avocats-mockup-mount", g = document.getElementById(h);
+g ? (0, o.createRoot)(g).render(/* @__PURE__ */ (0, c.jsx)(m, {})) : console.warn(`[preview] #${h} introuvable sur la page.`);
 //#endregion

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import type { AnimationItem } from "lottie-web";
 import generatingAnim from "./leo-anims/generating.json";
 import "./AvocatsMockup.css";
+import { roundCaps } from "../../roundCaps";
 
 type Risk = "high" | "medium" | "low";
 
@@ -122,7 +123,7 @@ export default function AvocatsMockup() {
       renderer: "canvas",
       loop: true,
       autoplay: true,
-      animationData: generatingAnim,
+      animationData: roundCaps(generatingAnim),
     });
 
     const canvas = miniBadgeRef.current.querySelector("canvas");

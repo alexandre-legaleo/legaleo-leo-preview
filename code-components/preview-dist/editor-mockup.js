@@ -1,6 +1,6 @@
-import { a as e, n as t, r as n, t as r } from "./jsx-runtime-Bt-5_n2z.mjs";
+import { i as e, n as t, o as n, r, t as i } from "./jsx-runtime-Dc2F1fvU.mjs";
 //#region src/components/EditorMockup/leo-anims/generating.json
-var i = n(), a = t(), o = {
+var a = e(), o = r(), s = {
 	v: "5.12.1",
 	fr: 60,
 	ip: 89,
@@ -165,7 +165,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -334,7 +334,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -503,7 +503,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -672,7 +672,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -898,7 +898,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -1124,7 +1124,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -1142,76 +1142,76 @@ var i = n(), a = t(), o = {
 	],
 	markers: [],
 	props: {}
-}, s = r(), c = 450, l = 150, u = 400, d = "…pendant une durée <span class=\"edm-del\">d'une</span><span class=\"edm-add\" hidden> d'un (1) an</span> suivant la résiliation ou l'expiration du Contrat, le Franchisé s'interdit<span class=\"edm-add\" hidden>, exclusivement dans le local où était situé l'Établissement,</span> d'exercer une Activité Concurrente.<span class=\"edm-add\" hidden> Cette interdiction est strictement limitée à ce local et ne s'étend à aucun autre territoire.</span>";
-function f() {
-	let [t, n] = (0, i.useState)(!1), [r, a] = (0, i.useState)(!1), f = (0, i.useRef)(null), p = (0, i.useRef)(null), m = (0, i.useRef)(null), h = (0, i.useRef)([]);
-	function g() {
-		h.current.forEach((e) => window.clearTimeout(e)), h.current = [];
+}, c = i(), l = 450, u = 150, d = 400, f = "…pendant une durée <span class=\"edm-del\">d'une</span><span class=\"edm-add\" hidden> d'un (1) an</span> suivant la résiliation ou l'expiration du Contrat, le Franchisé s'interdit<span class=\"edm-add\" hidden>, exclusivement dans le local où était situé l'Établissement,</span> d'exercer une Activité Concurrente.<span class=\"edm-add\" hidden> Cette interdiction est strictement limitée à ce local et ne s'étend à aucun autre territoire.</span>";
+function p() {
+	let [e, r] = (0, a.useState)(!1), [i, o] = (0, a.useState)(!1), p = (0, a.useRef)(null), m = (0, a.useRef)(null), h = (0, a.useRef)(null), g = (0, a.useRef)([]);
+	function _() {
+		g.current.forEach((e) => window.clearTimeout(e)), g.current = [];
 	}
-	function _(e, t) {
-		h.current.push(window.setTimeout(e, t));
+	function v(e, t) {
+		g.current.push(window.setTimeout(e, t));
 	}
-	(0, i.useEffect)(() => () => {
-		g(), m.current?.destroy();
+	(0, a.useEffect)(() => () => {
+		_(), h.current?.destroy();
 	}, []);
-	async function v() {
-		if (!p.current) return;
-		let t = (await import("./lottie-Bc59Otqb.mjs").then((t) => /* @__PURE__ */ e(t.default))).default;
-		if (!p.current) return;
-		m.current?.destroy(), m.current = t.loadAnimation({
-			container: p.current,
+	async function y() {
+		if (!m.current) return;
+		let e = (await import("./lottie-Cns74Zx7.mjs").then((e) => /* @__PURE__ */ n(e.default))).default;
+		if (!m.current) return;
+		h.current?.destroy(), h.current = e.loadAnimation({
+			container: m.current,
 			renderer: "canvas",
 			loop: !0,
 			autoplay: !0,
-			animationData: o
+			animationData: t(s)
 		});
-		let n = p.current.querySelector("canvas");
-		n && (n.style.width = "100%", n.style.height = "100%", n.style.display = "block");
+		let r = m.current.querySelector("canvas");
+		r && (r.style.width = "100%", r.style.height = "100%", r.style.display = "block");
 	}
-	function y() {
-		let e = f.current;
-		if (!e) return;
-		g();
-		let r = e.querySelector(".edm-del"), i = [...e.querySelectorAll(".edm-add")];
-		t ? (n(!1), [...i].reverse().forEach((e, t) => {
-			_(() => {
-				e.classList.remove("is-visible"), _(() => {
+	function b() {
+		let t = p.current;
+		if (!t) return;
+		_();
+		let n = t.querySelector(".edm-del"), i = [...t.querySelectorAll(".edm-add")];
+		e ? (r(!1), [...i].reverse().forEach((e, t) => {
+			v(() => {
+				e.classList.remove("is-visible"), v(() => {
 					e.hidden = !0;
-				}, u);
-			}, t * l);
-		}), _(() => r?.classList.remove("is-struck"), i.length * l + u)) : (n(!0), a(!0), v(), i.forEach((e) => {
+				}, d);
+			}, t * u);
+		}), v(() => n?.classList.remove("is-struck"), i.length * u + d)) : (r(!0), o(!0), y(), i.forEach((e) => {
 			e.classList.remove("is-visible"), e.hidden = !0;
-		}), e.offsetWidth, _(() => r?.classList.add("is-struck"), 50), i.forEach((e, t) => {
-			_(() => {
+		}), t.offsetWidth, v(() => n?.classList.add("is-struck"), 50), i.forEach((e, t) => {
+			v(() => {
 				e.hidden = !1, e.offsetWidth, e.classList.add("is-visible");
-			}, c + t * l);
-		}), _(() => {
-			a(!1);
-		}, c + i.length * l + 300));
+			}, l + t * u);
+		}), v(() => {
+			o(!1);
+		}, l + i.length * u + 300));
 	}
-	return /* @__PURE__ */ (0, s.jsxs)("div", {
+	return /* @__PURE__ */ (0, c.jsxs)("div", {
 		className: "edm-reco",
 		children: [
-			/* @__PURE__ */ (0, s.jsxs)("div", {
+			/* @__PURE__ */ (0, c.jsxs)("div", {
 				className: "edm-recoh",
-				children: ["♦ Recommandation de l'IA ", /* @__PURE__ */ (0, s.jsx)("span", { children: "Art. 18.2, Non-concurrence" })]
+				children: ["♦ Recommandation de l'IA ", /* @__PURE__ */ (0, c.jsx)("span", { children: "Art. 18.2, Non-concurrence" })]
 			}),
-			/* @__PURE__ */ (0, s.jsx)("div", {
+			/* @__PURE__ */ (0, c.jsx)("div", {
 				className: "edm-recobody",
-				ref: f,
-				dangerouslySetInnerHTML: { __html: d }
+				ref: p,
+				dangerouslySetInnerHTML: { __html: f }
 			}),
-			/* @__PURE__ */ (0, s.jsxs)("div", {
+			/* @__PURE__ */ (0, c.jsxs)("div", {
 				className: "edm-miniact",
-				children: [/* @__PURE__ */ (0, s.jsx)("button", {
+				children: [/* @__PURE__ */ (0, c.jsx)("button", {
 					type: "button",
 					className: "edm-sugg edm-sugg-solid",
-					onClick: y,
-					children: t ? "Retirer la recommandation" : "Demander une amélioration"
-				}), /* @__PURE__ */ (0, s.jsx)("span", {
-					className: r ? "edm-minicheck is-visible" : "edm-minicheck",
-					children: /* @__PURE__ */ (0, s.jsx)("div", {
-						ref: p,
+					onClick: b,
+					children: e ? "Retirer la recommandation" : "Demander une amélioration"
+				}), /* @__PURE__ */ (0, c.jsx)("span", {
+					className: i ? "edm-minicheck is-visible" : "edm-minicheck",
+					children: /* @__PURE__ */ (0, c.jsx)("div", {
+						ref: m,
 						style: {
 							width: "100%",
 							height: "100%"
@@ -1224,6 +1224,6 @@ function f() {
 }
 //#endregion
 //#region src/preview-mounts/editor-mockup.tsx
-var p = "editor-mockup-mount", m = document.getElementById(p);
-m ? (0, a.createRoot)(m).render(/* @__PURE__ */ (0, s.jsx)(f, {})) : console.warn(`[preview] #${p} introuvable sur la page.`);
+var m = "editor-mockup-mount", h = document.getElementById(m);
+h ? (0, o.createRoot)(h).render(/* @__PURE__ */ (0, c.jsx)(p, {})) : console.warn(`[preview] #${m} introuvable sur la page.`);
 //#endregion

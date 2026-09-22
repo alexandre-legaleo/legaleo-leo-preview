@@ -1,6 +1,6 @@
-import { a as e, n as t, r as n, t as r } from "./jsx-runtime-Bt-5_n2z.mjs";
+import { i as e, n as t, o as n, r, t as i } from "./jsx-runtime-Dc2F1fvU.mjs";
 //#region src/components/ChatMockup/leo-anims/idle.json
-var i = n(), a = t(), o = {
+var a = e(), o = r(), s = {
 	v: "5.12.1",
 	fr: 60,
 	ip: 0,
@@ -233,7 +233,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -470,7 +470,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -692,7 +692,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -928,7 +928,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -1150,7 +1150,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -1386,7 +1386,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -1404,7 +1404,7 @@ var i = n(), a = t(), o = {
 	],
 	markers: [],
 	props: {}
-}, s = {
+}, c = {
 	v: "5.12.1",
 	fr: 60,
 	ip: 46,
@@ -1569,7 +1569,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -1738,7 +1738,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -1907,7 +1907,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -2076,7 +2076,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -2331,7 +2331,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -2349,7 +2349,7 @@ var i = n(), a = t(), o = {
 	],
 	markers: [],
 	props: {}
-}, c = {
+}, l = {
 	v: "5.12.1",
 	fr: 60,
 	ip: 89,
@@ -2514,7 +2514,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -2683,7 +2683,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -2852,7 +2852,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -3021,7 +3021,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -3247,7 +3247,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -3473,7 +3473,7 @@ var i = n(), a = t(), o = {
 						k: 18,
 						ix: 5
 					},
-					lc: 2,
+					lc: 1,
 					lj: 1,
 					ml: 4,
 					bm: 0,
@@ -3491,7 +3491,7 @@ var i = n(), a = t(), o = {
 	],
 	markers: [],
 	props: {}
-}, l = r(), u = [
+}, u = i(), d = [
 	{
 		question: "Comment structurer une clause de renouvellement ?",
 		answerHTML: "Sauf clause contraire, un renouvellement fait naître un <b>nouveau contrat à durée indéterminée</b>. Pour conserver une durée déterminée, il faut le prévoir explicitement dans la clause."
@@ -3504,166 +3504,166 @@ var i = n(), a = t(), o = {
 		question: "Puis-je imposer une clause d'exclusivité territoriale ?",
 		answerHTML: "Une exclusivité territoriale est possible, mais elle doit rester <b>proportionnée</b> à la protection du savoir-faire transmis : une zone trop large peut être requalifiée en clause abusive par le juge."
 	}
-], d = 950, f = 45;
-function p() {
-	let t = (0, i.useRef)(null), n = (0, i.useRef)(null), r = (0, i.useRef)(null), a = (0, i.useRef)(null), p = (0, i.useRef)(null);
-	return (0, i.useEffect)(() => {
-		let t = !1;
+], f = 950, p = 45;
+function m() {
+	let e = (0, a.useRef)(null), r = (0, a.useRef)(null), i = (0, a.useRef)(null), o = (0, a.useRef)(null), m = (0, a.useRef)(null);
+	return (0, a.useEffect)(() => {
+		let e = !1;
 		return (async () => {
-			if (!r.current) return;
-			let n = (await import("./lottie-Bc59Otqb.mjs").then((t) => /* @__PURE__ */ e(t.default))).default;
-			if (t || !r.current) return;
-			a.current = n.loadAnimation({
-				container: r.current,
+			if (!i.current) return;
+			let r = (await import("./lottie-Cns74Zx7.mjs").then((e) => /* @__PURE__ */ n(e.default))).default;
+			if (e || !i.current) return;
+			o.current = r.loadAnimation({
+				container: i.current,
 				renderer: "canvas",
 				loop: !0,
 				autoplay: !0,
-				animationData: o
+				animationData: t(s)
 			});
-			let i = r.current.querySelector("canvas");
-			i && (i.style.width = "100%", i.style.height = "100%", i.style.display = "block");
+			let a = i.current.querySelector("canvas");
+			a && (a.style.width = "100%", a.style.height = "100%", a.style.display = "block");
 		})(), () => {
-			t = !0, a.current?.destroy();
+			e = !0, o.current?.destroy();
 		};
-	}, []), (0, i.useEffect)(() => {
-		let r = t.current, i = n.current, a = p.current;
-		if (!r || !i || !a) return;
-		let o = !1, l = [];
-		function m(e, t) {
+	}, []), (0, a.useEffect)(() => {
+		let i = e.current, a = r.current, o = m.current;
+		if (!i || !a || !o) return;
+		let s = !1, u = [];
+		function h(e, t) {
 			let n = window.setTimeout(() => {
-				o || e();
+				s || e();
 			}, t);
-			return l.push(n), n;
+			return u.push(n), n;
 		}
-		function h() {
-			r.scrollTop = r.scrollHeight;
+		function g() {
+			i.scrollTop = i.scrollHeight;
 		}
-		function g(e) {
+		function _(e) {
 			return e.match(/<[^>]+>|\s+|[^\s<]+/g) || [];
 		}
-		let _ = document.createElement("textarea");
-		function v(e) {
-			return _.innerHTML = e, _.value;
+		let v = document.createElement("textarea");
+		function y(e) {
+			return v.innerHTML = e, v.value;
 		}
-		function y(e, t, { wordDelay: n = 45, shouldContinue: r = () => !0, onDone: i } = {}) {
-			let a = g(t);
+		function b(e, t, { wordDelay: n = 45, shouldContinue: r = () => !0, onDone: i } = {}) {
+			let a = _(t);
 			e.innerHTML = "";
-			let s = [e], c = 0;
+			let o = [e], c = 0;
 			function l(e) {
-				let t = /^<\/([a-zA-Z]+)>$/.test(e), n = /^<([a-zA-Z]+)[^>]*>$/.exec(e), r = s[s.length - 1];
-				if (t) s.length > 1 && s.pop();
+				let t = /^<\/([a-zA-Z]+)>$/.test(e), n = /^<([a-zA-Z]+)[^>]*>$/.exec(e), r = o[o.length - 1];
+				if (t) o.length > 1 && o.pop();
 				else if (n) {
 					let e = document.createElement(n[1]);
-					r.appendChild(e), s.push(e);
+					r.appendChild(e), o.push(e);
 				} else {
-					let t = v(e), n = r.lastChild;
+					let t = y(e), n = r.lastChild;
 					n?.nodeType === Node.TEXT_NODE ? n.textContent += t : r.appendChild(document.createTextNode(t));
 				}
 			}
 			function u() {
-				if (o || !r()) return;
+				if (s || !r()) return;
 				if (l(a[c]), c >= a.length - 1) {
 					i?.();
 					return;
 				}
 				let e = !/^\s+$/.test(a[c]) && !/^<[^>]+>$/.test(a[c]);
-				c += 1, m(u, e ? n : 0);
+				c += 1, h(u, e ? n : 0);
 			}
 			u();
 		}
-		let b = [];
-		function x() {
-			b = [...u], a.replaceChildren(...b.map((e) => {
+		let x = [];
+		function S() {
+			x = [...d], o.replaceChildren(...x.map((e) => {
 				let t = document.createElement("button");
 				return t.type = "button", t.className = "chm-qbubble", t.textContent = e.question, t;
 			}));
 		}
-		x();
-		let S = 0;
-		function C(t) {
-			let n = t.target.closest(".chm-qbubble");
-			if (!n) return;
-			let l = Array.from(a.children).indexOf(n), u = b[l];
-			if (!u) return;
-			S += 1;
-			let p = S;
-			a.hidden = !0, n.remove(), b.splice(l, 1), i.hidden = !0;
-			let g = document.createElement("div");
-			g.className = "chm-buser", g.textContent = u.question, r.appendChild(g);
+		S();
+		let C = 0;
+		function w(e) {
+			let r = e.target.closest(".chm-qbubble");
+			if (!r) return;
+			let u = Array.from(o.children).indexOf(r), d = x[u];
+			if (!d) return;
+			C += 1;
+			let m = C;
+			o.hidden = !0, r.remove(), x.splice(u, 1), a.hidden = !0;
 			let _ = document.createElement("div");
-			_.className = "chm-bleo is-thinking";
+			_.className = "chm-buser", _.textContent = d.question, i.appendChild(_);
 			let v = document.createElement("div");
-			v.className = "chm-bleo-icon";
-			let C = document.createElement("div");
-			C.style.width = "100%", C.style.height = "100%", v.appendChild(C);
+			v.className = "chm-bleo is-thinking";
+			let y = document.createElement("div");
+			y.className = "chm-bleo-icon";
 			let w = document.createElement("div");
-			w.className = "chm-bleo-skeleton", w.setAttribute("aria-hidden", "true"), w.innerHTML = "<span></span><span></span><span></span>";
-			let T = document.createElement("span");
-			T.className = "chm-chat-answer";
-			let E = document.createElement("div");
-			E.className = "chm-srcpill", E.innerHTML = "Textes officiels &amp; jurisprudence cités<span class=\"chm-srcpill-icon\" aria-hidden=\"true\"></span>", _.append(v, w, T, E), r.appendChild(_), h();
-			let D = null;
+			w.style.width = "100%", w.style.height = "100%", y.appendChild(w);
+			let T = document.createElement("div");
+			T.className = "chm-bleo-skeleton", T.setAttribute("aria-hidden", "true"), T.innerHTML = "<span></span><span></span><span></span>";
+			let E = document.createElement("span");
+			E.className = "chm-chat-answer";
+			let D = document.createElement("div");
+			D.className = "chm-srcpill", D.innerHTML = "Textes officiels &amp; jurisprudence cités<span class=\"chm-srcpill-icon\" aria-hidden=\"true\"></span>", v.append(y, T, E, D), i.appendChild(v), g();
+			let O = null;
 			(async () => {
-				let t = (await import("./lottie-Bc59Otqb.mjs").then((t) => /* @__PURE__ */ e(t.default))).default;
-				if (o || p !== S) return;
-				D = t.loadAnimation({
-					container: C,
+				let e = (await import("./lottie-Cns74Zx7.mjs").then((e) => /* @__PURE__ */ n(e.default))).default;
+				if (s || m !== C) return;
+				O = e.loadAnimation({
+					container: w,
 					renderer: "canvas",
 					loop: !1,
 					autoplay: !0,
-					animationData: s
+					animationData: t(c)
 				});
-				let n = C.querySelector("canvas");
-				n && (n.style.width = "100%", n.style.height = "100%", n.style.display = "block"), D.addEventListener("complete", () => {
-					if (o) return;
-					D?.destroy(), D = t.loadAnimation({
-						container: C,
+				let r = w.querySelector("canvas");
+				r && (r.style.width = "100%", r.style.height = "100%", r.style.display = "block"), O.addEventListener("complete", () => {
+					if (s) return;
+					O?.destroy(), O = e.loadAnimation({
+						container: w,
 						renderer: "canvas",
 						loop: !0,
 						autoplay: !0,
-						animationData: c
+						animationData: t(l)
 					});
-					let e = C.querySelector("canvas");
-					e && (e.style.width = "100%", e.style.height = "100%", e.style.display = "block");
+					let n = w.querySelector("canvas");
+					n && (n.style.width = "100%", n.style.height = "100%", n.style.display = "block");
 				});
-			})(), m(() => {
-				if (p !== S) return;
-				_.classList.remove("is-thinking");
-				let e = u.answerHTML;
-				T.innerHTML = e, E.classList.add("is-visible"), _.style.minHeight = `${_.getBoundingClientRect().height}px`, E.classList.remove("is-visible"), T.innerHTML = "", h(), y(T, e, {
-					wordDelay: f,
-					shouldContinue: () => p === S,
+			})(), h(() => {
+				if (m !== C) return;
+				v.classList.remove("is-thinking");
+				let e = d.answerHTML;
+				E.innerHTML = e, D.classList.add("is-visible"), v.style.minHeight = `${v.getBoundingClientRect().height}px`, D.classList.remove("is-visible"), E.innerHTML = "", g(), b(E, e, {
+					wordDelay: p,
+					shouldContinue: () => m === C,
 					onDone: () => {
-						E.classList.add("is-visible"), _.style.minHeight = "", a.children.length || x(), a.hidden = !1, h(), v.classList.add("is-done"), D?.destroy();
+						D.classList.add("is-visible"), v.style.minHeight = "", o.children.length || S(), o.hidden = !1, g(), y.classList.add("is-done"), O?.destroy();
 					}
 				});
-			}, d);
+			}, f);
 		}
-		return a.addEventListener("click", C), () => {
-			o = !0, l.forEach((e) => window.clearTimeout(e)), a.removeEventListener("click", C);
+		return o.addEventListener("click", w), () => {
+			s = !0, u.forEach((e) => window.clearTimeout(e)), o.removeEventListener("click", w);
 		};
-	}, []), /* @__PURE__ */ (0, l.jsxs)("div", {
+	}, []), /* @__PURE__ */ (0, u.jsxs)("div", {
 		className: "chm-mockup",
 		children: [
-			/* @__PURE__ */ (0, l.jsx)("div", {
+			/* @__PURE__ */ (0, u.jsx)("div", {
 				className: "chm-chatlog",
-				ref: t
+				ref: e
 			}),
-			/* @__PURE__ */ (0, l.jsx)("div", {
+			/* @__PURE__ */ (0, u.jsx)("div", {
 				className: "chm-fanim-inline",
-				ref: n,
+				ref: r,
 				"aria-hidden": "true",
-				children: /* @__PURE__ */ (0, l.jsx)("div", {
-					ref: r,
+				children: /* @__PURE__ */ (0, u.jsx)("div", {
+					ref: i,
 					style: {
 						width: "100%",
 						height: "100%"
 					}
 				})
 			}),
-			/* @__PURE__ */ (0, l.jsx)("div", {
+			/* @__PURE__ */ (0, u.jsx)("div", {
 				className: "chm-qbubbles",
-				ref: p,
+				ref: m,
 				role: "group",
 				"aria-label": "Questions suggérées"
 			})
@@ -3672,6 +3672,6 @@ function p() {
 }
 //#endregion
 //#region src/preview-mounts/chat-mockup.tsx
-var m = "chat-mockup-mount", h = document.getElementById(m);
-h ? (0, a.createRoot)(h).render(/* @__PURE__ */ (0, l.jsx)(p, {})) : console.warn(`[preview] #${m} introuvable sur la page.`);
+var h = "chat-mockup-mount", g = document.getElementById(h);
+g ? (0, o.createRoot)(g).render(/* @__PURE__ */ (0, u.jsx)(m, {})) : console.warn(`[preview] #${h} introuvable sur la page.`);
 //#endregion

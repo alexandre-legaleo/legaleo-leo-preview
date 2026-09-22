@@ -4,6 +4,7 @@ import idleAnim from "./leo-anims/idle.json";
 import generatingInAnim from "./leo-anims/generating-in.json";
 import generatingAnim from "./leo-anims/generating.json";
 import "./ChatMockup.css";
+import { roundCaps } from "../../roundCaps";
 
 interface Question {
   question: string;
@@ -56,7 +57,7 @@ export default function ChatMockup() {
         renderer: "canvas",
         loop: true,
         autoplay: true,
-        animationData: idleAnim,
+        animationData: roundCaps(idleAnim),
       });
 
       const canvas = fanimBadgeRef.current.querySelector("canvas");
@@ -254,7 +255,7 @@ export default function ChatMockup() {
           renderer: "canvas",
           loop: false,
           autoplay: true,
-          animationData: generatingInAnim,
+          animationData: roundCaps(generatingInAnim),
         });
         const canvas = iconBadgeEl.querySelector("canvas");
         if (canvas) {
@@ -270,7 +271,7 @@ export default function ChatMockup() {
             renderer: "canvas",
             loop: true,
             autoplay: true,
-            animationData: generatingAnim,
+            animationData: roundCaps(generatingAnim),
           });
           const loopCanvas = iconBadgeEl.querySelector("canvas");
           if (loopCanvas) {

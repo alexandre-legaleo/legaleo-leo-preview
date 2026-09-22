@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import type { AnimationItem } from "lottie-web";
 import generatingAnim from "./leo-anims/generating.json";
 import "./EditorMockup.css";
+import { roundCaps } from "../../roundCaps";
 
 // Timings repris tel quels de js/main.js (front-legaleo-leo, bloc 03).
 const STRIKE_DURATION = 450;
@@ -71,7 +72,7 @@ export default function EditorMockup() {
       renderer: "canvas",
       loop: true,
       autoplay: true,
-      animationData: generatingAnim,
+      animationData: roundCaps(generatingAnim),
     });
 
     // Le renderer canvas de lottie-web pose parfois un <canvas> dont la

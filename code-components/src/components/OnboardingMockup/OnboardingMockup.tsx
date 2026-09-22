@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import type { AnimationItem } from "lottie-web";
 import generatingAnim from "./leo-anims/generating.json";
 import "./OnboardingMockup.css";
+import { roundCaps } from "../../roundCaps";
 
 interface Scenario {
   question: string;
@@ -70,7 +71,7 @@ export default function OnboardingMockup() {
         renderer: "canvas",
         loop: true,
         autoplay: true,
-        animationData: generatingAnim,
+        animationData: roundCaps(generatingAnim),
       });
 
       const canvas = thinkingBadgeRef.current.querySelector("canvas");
