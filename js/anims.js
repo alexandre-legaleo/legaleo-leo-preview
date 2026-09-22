@@ -97,14 +97,15 @@ function playSequence(containerId, segments) {
 
 document.addEventListener("DOMContentLoaded", () => {
   playSequence("la-hero", [
-    { file: "idle-in.json" },
-    { file: "idle.json", loop: true, repeat: 2 },
-    { file: "idle-out.json" },
-    { file: "fetch-external.json", loop: true, repeat: 2 },
-    { file: "generating-in.json" },
-    { file: "generating.json", loop: true, repeat: 2 },
-    { file: "check.json" },
-    { file: "check-out.json" },
+    { file: "whole.json", loop: true },
+    // { file: "idle-in.json" },
+    // { file: "idle.json", loop: true, repeat: 2 },
+    // { file: "idle-out.json" },
+    // { file: "fetch-external.json", loop: true, repeat: 2 },
+    // { file: "generating-in.json" },
+    // { file: "generating.json", loop: true, repeat: 2 },
+    // { file: "check.json" },
+    // { file: "check-out.json" },
   ]);
 
   // 4 étapes du parcours (badge en coin de chaque mockup)
