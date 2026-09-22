@@ -57,6 +57,7 @@
 
 .lb-hero-anim-icon {
   position: relative;
+  display: block; /* <video> est inline par défaut : sinon quelques px sous la ligne de base */
   width: calc(var(--leo-tile-size) * 20 / 34);
   height: calc(var(--leo-tile-size) * 20 / 34);
 }

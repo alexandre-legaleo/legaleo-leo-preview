@@ -77,65 +77,12 @@ function flashMiniCheck(containerId, badgeId) {
 
 window.leoAnims = { swap: swapAnim, flashMiniCheck };
 
-// Hero : petite narration bouclée idle -> fetch -> generating -> check,
-// construite à partir des segments d'entrée/sortie fournis.
-function playSequence(containerId, segments) {
-  const container = document.getElementById(containerId);
-  if (!container) return;
-
-  let index = 0;
-
-  function playNext() {
-    const segment = segments[index % segments.length];
-    const anim = lottie.loadAnimation({
-      container,
-      renderer: LEO_RENDERER,
-      loop: !!segment.loop,
-      autoplay: true,
-      path: `leo-anims/${segment.file}`,
-    });
-    anim.addEventListener("DOMLoaded", () => fitCanvas(container));
-
-    // Un seul segment bouclé (cas du hero, whole.json) : lottie le rejoue
-    // indéfiniment tout seul. Enchaîner ferait détruire puis recharger le même
-    // fichier à chaque tour, sans rien changer à l'écran.
-    if (segments.length === 1 && segment.loop) return;
-
-    if (segment.loop) {
-      let completedLoops = 0;
-      anim.addEventListener("loopComplete", () => {
-        completedLoops += 1;
-        if (completedLoops >= (segment.repeat || 1)) {
-          anim.destroy();
-          index += 1;
-          playNext();
-        }
-      });
-    } else {
-      anim.addEventListener("complete", () => {
-        anim.destroy();
-        index += 1;
-        playNext();
-      });
-    }
-  }
-
-  playNext();
-}
+// Le badge du hero n'est plus rendu ici : c'est une <video> dans index.html
+// (whole.json rastérisé en amont, voir tools/render-hero-video.md). L'ancienne
+// séquence Lottie idle -> fetch -> generating -> check, et l'utilitaire
+// playSequence qui l'enchaînait, sont dans l'historique git.
 
 document.addEventListener("DOMContentLoaded", () => {
-  playSequence("la-hero", [
-    { file: "whole.json", loop: true },
-    // { file: "idle-in.json" },
-    // { file: "idle.json", loop: true, repeat: 2 },
-    // { file: "idle-out.json" },
-    // { file: "fetch-external.json", loop: true, repeat: 2 },
-    // { file: "generating-in.json" },
-    // { file: "generating.json", loop: true, repeat: 2 },
-    // { file: "check.json" },
-    // { file: "check-out.json" },
-  ]);
-
   // 4 étapes du parcours (badge en coin de chaque mockup)
   simpleLoop("la-onb", "sign-loop.json"); // 01 onboarding — signature du contrat
   simpleLoop("la-q", "idle.json"); // 02 quotidien — en attente d'une question
