@@ -77,12 +77,12 @@ function flashMiniCheck(containerId, badgeId) {
 
 window.leoAnims = { swap: swapAnim, flashMiniCheck };
 
-// Le badge du hero n'est plus rendu ici : c'est une <video> dans index.html
-// (whole.json rastérisé en amont, voir tools/render-hero-video.md). L'ancienne
-// séquence Lottie idle -> fetch -> generating -> check, et l'utilitaire
-// playSequence qui l'enchaînait, sont dans l'historique git.
-
 document.addEventListener("DOMContentLoaded", () => {
+  // Hero : une seule animation, qui contient toute la narration (idle -> fetch
+  // -> generating -> check). L'ancien enchaînement de 8 fichiers, et
+  // l'utilitaire playSequence qui le pilotait, sont dans l'historique git.
+  simpleLoop("la-hero", "whole.json");
+
   // 4 étapes du parcours (badge en coin de chaque mockup)
   simpleLoop("la-onb", "sign-loop.json"); // 01 onboarding — signature du contrat
   simpleLoop("la-q", "idle.json"); // 02 quotidien — en attente d'une question

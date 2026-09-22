@@ -39,16 +39,8 @@
     <!-- HERO -->
     <section class="lb-hero">
       <div class="lb-wrap">
-        <!-- Vidéo et non Lottie : le renderer canvas de lottie-web laisse une
-             encoche à l'extrémité des traits coupés par un trim path sous
-             Safari (invisible sous Chrome). Rastérisé ici une fois pour toutes
-             depuis Chrome, donc identique partout. Source : whole.json, même
-             dossier — voir tools/render-hero-video.md pour refaire le rendu. -->
         <div class="lb-hero-anim">
-          <video class="lb-hero-anim-icon" autoplay loop muted playsinline aria-hidden="true">
-            <source src="leo-anims/whole.webm" type="video/webm" />
-            <source src="leo-anims/whole.mp4" type="video/mp4" />
-          </video>
+          <div id="la-hero" class="lb-hero-anim-icon"></div>
         </div>
 
         <div class="lb-eyebrow-wrap">
