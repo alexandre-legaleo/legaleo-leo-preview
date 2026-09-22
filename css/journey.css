@@ -55,10 +55,14 @@
   text-wrap: balance;
 }
 
-.lb-p2 {
+/* Paragraphe et lignes de liste d'un bloc du parcours : même typographie,
+   déclarée une seule fois pour qu'ils ne divergent plus. */
+.lb-p2,
+.lb-frow {
   color: var(--color-muted);
   font-family: var(--font-sans);
   font-size: 16px;
+  font-weight: 400;
   line-height: 1.6;
 }
 
@@ -69,11 +73,9 @@
   margin-top: 20px;
 }
 
+/* Typographie : voir .lb-p2 plus haut. Ici, seulement le retrait suspendu
+   (la puce .lb-ck sort à gauche, les lignes suivantes restent alignées). */
 .lb-frow {
-  color: var(--color-black);
-  font-family: var(--font-sans);
-  font-size: 15px;
-  font-weight: 500;
   padding-left: 20px;
   text-indent: -20px;
 }
