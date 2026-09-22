@@ -202,10 +202,13 @@
   top: 50%;
   left: 12px;
   transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
-  padding: 5px;
-  border-radius: 8px;
+  /* Carré volontairement plus petit que la bulle (THINKING_HEIGHT = 40px dans
+     OnboardingMockup.tsx) : ~8px d'air autour de l'animation. Centré
+     verticalement (top: 50%), donc pas à recalculer si la hauteur change. */
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  border-radius: 6px;
   background-color: var(--color-leo-badge);
   box-shadow: 0 8px 16px -8px #1f120e40;
   overflow: clip;
@@ -231,7 +234,7 @@
   align-items: center;
   justify-content: flex-end;
   gap: 8px;
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
 .obm-sugg {
