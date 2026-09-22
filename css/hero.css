@@ -319,3 +319,12 @@
     margin: 24px 0 32px;
   }
 }
+
+/* Après le bloc 640px pour ne pas être écrasé par son raccourci `padding` :
+   un peu plus d'air au-dessus du contenu du hero sur petit écran, où
+   .lb-hero > .lb-wrap perd son centrage vertical (min-height: auto). */
+@media (max-width: 780px) {
+  .lb-hero {
+    padding-top: 96px;
+  }
+}

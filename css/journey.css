@@ -922,6 +922,22 @@
     padding-top: 56px;
   }
 
+  /* Le premier bloc suit directement le titre de section : il n'a pas besoin
+     du même écart que les suivants, qui eux se détachent du bloc précédent. */
+  .lb-sechead + .lb-feature {
+    padding-top: 30px;
+  }
+
+  /* Le badge passe sur sa propre ligne sous le tag. width: fit-content, sinon
+     un élément block remplirait toute la largeur de .lb-tagmini et la pilule
+     s'étirerait au lieu d'épouser son texte. */
+  .lb-badge-beta {
+    display: block;
+    width: fit-content;
+    margin-left: 0;
+    margin-top: 8px;
+  }
+
   /* Empilés en colonne : le min-width 320px (utile côte à côte) ferait
      déborder la page sous 360 px de large. Idem pour les mockups React,
      dont le min-width 320px (garde-fou shrink-to-fit côté Webflow) dépasse la
