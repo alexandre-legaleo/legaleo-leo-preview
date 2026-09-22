@@ -1,0 +1,51 @@
+/* « Pourquoi Leo » : cartouche noir à cheval sur la section suivante
+   (« Comment Leo travaille », fond beige).
+
+   Le fond de la section est coupé en deux à 50 % (blanc au-dessus, beige en
+   dessous) et son padding haut/bas est symétrique : la coupure tombe donc au
+   milieu du cartouche quelle que soit sa hauteur (texte qui passe à la ligne,
+   mobile...). Pas de marge négative ni de z-index, rien à recalculer si le
+   contenu change. Le titre, l'eyebrow et le texte réutilisent les styles
+   « sombres » du bloc « Conçu pour la confiance » (trust.css). */
+.lb-pourquoi {
+  padding: 56px 32px;
+  background: linear-gradient(to bottom, var(--color-white) 50%, var(--color-beige) 50%);
+}
+
+/* La moitié basse du cartouche déborde déjà sur la section beige : on réduit
+   son padding haut pour ne pas doubler l'espace sous le cartouche. */
+.lb-pourquoi + .lb-block-tint {
+  padding-top: 56px;
+}
+
+.lb-pourquoi-card {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 56px 48px;
+  color: var(--color-white);
+  text-align: center;
+  background-color: var(--color-black);
+  border-radius: var(--radius-xl);
+}
+
+/* .lb-h2dark et .lb-lededark ont un max-width pour le cas aligné à gauche de
+   .lb-deonto : ici on les recentre. */
+.lb-pourquoi-card .lb-h2dark,
+.lb-pourquoi-card .lb-lededark {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 640px) {
+  .lb-pourquoi {
+    padding: 40px 20px;
+  }
+
+  .lb-pourquoi + .lb-block-tint {
+    padding-top: 40px;
+  }
+
+  .lb-pourquoi-card {
+    padding: 36px 24px;
+  }
+}
