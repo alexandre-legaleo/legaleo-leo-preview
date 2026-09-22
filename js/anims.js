@@ -73,6 +73,11 @@ function playSequence(containerId, segments) {
       path: `leo-anims/${segment.file}`,
     });
 
+    // Un seul segment bouclé (cas du hero, whole.json) : lottie le rejoue
+    // indéfiniment tout seul. Enchaîner ferait détruire puis recharger le même
+    // fichier à chaque tour, sans rien changer à l'écran.
+    if (segments.length === 1 && segment.loop) return;
+
     if (segment.loop) {
       let completedLoops = 0;
       anim.addEventListener("loopComplete", () => {
