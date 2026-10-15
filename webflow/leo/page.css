@@ -1,0 +1,2073 @@
+/* tokens.css */
+:root {
+  /* Couleurs — reprises telles quelles du CSS partagé Webflow de legaleo.webflow.io */
+  --color-beige: #f7f4ef;
+  --color-black: #1f120e;
+  --color-white: #fffefb;
+  --color-border: #e6e0d3;
+  --color-muted: #6f6757;
+
+  --color-teal: #087f83;
+  --color-teal-text: #065e61;
+  --color-teal-bg: #e9fbfb;
+  --color-cyan: #62e7eb;
+
+  /* Badge Leo — reprend .iconTile de legaleo-ai/components/design-system/LeoBadge */
+  --color-leo-badge: #00383c;
+
+  --color-orange-bg: #ffe9bd;
+  --color-orange-text: #a3310f;
+
+  --color-green-text: #1e9e63;
+  --color-green-bg: #e3f6ec;
+
+  --color-red-text: #c8442c;
+  --color-red-bg: #fbeae6;
+
+  /* Typo */
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "Manrope", Arial, sans-serif;
+
+  /* Rayons */
+  --radius-pill: 100px;
+  --radius-xl: 28px;
+  --radius-lg: 21px;
+  --radius-md: 16px;
+  --radius-sm: 8px;
+
+  /* Largeur de contenu */
+  --wrap-max: 1180px;
+}
+
+
+/* Le CSS du site Webflow style les balises nues (p 1.2rem, h1 à h6, ul
+   padding 40px, sup décalé, label en bloc…), là où la page compte sur les
+   valeurs du navigateur. Retour à ces valeurs (revert) dans le wrapper, à
+   spécificité égale mais chargé après : nos classes passent toujours devant.
+   Pas sur le SVG : revert y effacerait les attributs fill, stroke… */
+:where(.lg-page) :is(p, h1, h2, h3, h4, h5, h6, ul, ol, li, a, b, strong, em, small, sub, sup, img, label, blockquote, figure, figcaption, button, input, select, textarea, summary, details, span, div, section, main, header, footer, nav, article) { all: revert; box-sizing: border-box; }
+/* Typo du body Webflow (taille, interligne, graisse) : celle du navigateur. */
+:where(.lg-page) { font-size: 16px; line-height: normal; font-weight: 400; letter-spacing: normal; text-align: left; }
+:where(.lg-page),
+:where(.lg-page) *,
+:where(.lg-page) *::before,
+:where(.lg-page) *::after { box-sizing: border-box; }
+:where(.lg-page) { --anchor-offset: 96px; }
+:where(.lg-page) section[id] { scroll-margin-top: var(--anchor-offset, 0px); }
+:where(.lg-page) img,
+:where(.lg-page) svg { display: block; max-width: 100%; }
+/* normalize Webflow : svg:not(:root) { overflow: hidden }. Un SVG de la page
+   qui passerait en overflow visible avec une seule classe est à ajouter ici
+   avec .lg-page devant (cf. front-legaleo-homepage). */
+:where(.lg-page) svg:not(:root) { overflow: revert; }
+:where(.lg-page) a { color: inherit; text-decoration: none; }
+:where(.lg-page) button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+:where(.lg-page) ul { margin: 0; padding: 0; list-style: none; }
+:where(.lg-page) h1,
+:where(.lg-page) h2,
+:where(.lg-page) h3,
+:where(.lg-page) h4,
+:where(.lg-page) p { margin: 0; }
+/* Code Embed Webflow : pas de clearfix entre les morceaux de la page. */
+.lg-page > .w-embed::before,
+.lg-page > .w-embed::after { content: none; }
+
+/* base.css */
+:where(.lg-page) {
+  font-family: var(--font-sans);
+  color: var(--color-black);
+  background-color: var(--color-white);
+}
+
+.lv-wrap {
+  max-width: var(--wrap-max);
+  margin: 0 auto;
+}
+
+.lv-block {
+  padding: 96px 32px;
+}
+
+.lv-block-notop {
+  padding-top: 56px;
+}
+
+.lv-block-tint {
+  background-color: var(--color-beige);
+}
+
+/* Boutons — communs au hero et au CTA final */
+.lv-ctarow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 56px;
+}
+
+.lv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+  border-radius: var(--radius-pill);
+  padding: 14px 26px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 700;
+  border: 1.5px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.lv-btn:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+}
+
+.lv-btn-primary {
+  color: var(--color-white);
+  background-color: var(--color-teal);
+}
+
+.lv-btn-primary:hover {
+  background-color: #076e71;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -8px rgb(8 127 131 / 0.55);
+}
+
+.lv-btn-ghost {
+  color: var(--color-black);
+  background-color: transparent;
+  border-color: var(--color-border);
+}
+
+.lv-btn-ghost:hover {
+  border-color: var(--color-black);
+  transform: translateY(-1px);
+}
+
+.lv-btn-dark {
+  color: var(--color-white);
+  background-color: var(--color-black);
+}
+
+.lv-btn-dark:hover {
+  background-color: #34211a;
+  transform: translateY(-1px);
+}
+
+.lv-btn-ghost-light {
+  color: var(--color-white);
+  background-color: transparent;
+  border-color: #ffffff4d;
+}
+
+.lv-btn-ghost-light:hover {
+  border-color: var(--color-white);
+  transform: translateY(-1px);
+}
+
+/* Eyebrows */
+.lv-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-teal-text);
+  background-color: var(--color-teal-bg);
+  border: 1px solid rgb(0 0 0 / 0.04);
+  border-radius: var(--radius-pill);
+  padding: 7px 15px;
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 700;
+  margin-top: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lv-eyebrow-dark {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-cyan);
+  background-color: #62e7eb24;
+  border-radius: var(--radius-pill);
+  padding: 7px 15px;
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lv-em2 {
+  color: var(--color-teal);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.lv-sechead-center {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.lv-h2 {
+  margin-top: 18px;
+  color: var(--color-black);
+  font-family: var(--font-serif);
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.6px;
+  text-wrap: balance;
+}
+
+.lv-h2center {
+  color: var(--color-black);
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+.lv-lede2 {
+  margin-top: 16px;
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.lv-lede2c {
+  max-width: 560px;
+  margin: 14px auto 0;
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+@media (max-width: 640px) {
+  .lv-block {
+    padding: 64px 20px;
+  }
+
+  .lv-block-notop {
+    padding-top: 36px;
+  }
+
+  .lv-h2 {
+    font-size: 30px;
+  }
+
+  .lv-h2center {
+    font-size: 26px;
+  }
+}
+
+/* hero.css */
+.lv-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  background-color: var(--color-white);
+  padding: 0 32px;
+  min-height: 100vh;
+}
+
+/* margin: auto 0 (plutôt que justify-content: center sur .lv-hero) centre
+   .lv-wrap dans l'espace disponible AU-DESSUS de .lv-heroreassure : les deux
+   sont en flux normal, donc si le viewport est trop bas pour les deux à la
+   fois, .lv-hero grandit tout seul (min-height, pas de cap) et .lv-heroreassure
+   suit juste en dessous — jamais de chevauchement, contrairement à l'ancien
+   position: absolute qui l'ignorait complètement dans le calcul. */
+.lv-hero > .lv-wrap {
+  margin: auto 0;
+}
+
+/* Page dans un iframe (classe posée par js/embed.js) : 100vh = hauteur de
+   l'iframe, qui s'ajuste elle-même à la hauteur de la page → le hero
+   grandirait en boucle. On le laisse à sa hauteur naturelle. padding-top
+   remplace le centrage vertical et dégage la nav fixe de www.legaleo.ai
+   (.nav-wrapper : 80px de haut sur desktop, 78px sur mobile, mesuré) qui
+   recouvre le haut de l'iframe ; surcharge aussi le padding mobile (64px). */
+.lg-page .lv-hero {
+  min-height: auto;
+  padding-top: 100px;
+}
+
+/* Hero « plein écran » comme en local : --embed-vh = hauteur visible de la page
+   parente (posée par js/embed.js à partir d'un message du parent). Desktop
+   seulement, comme le hero hors iframe (sous 640px il reste à sa hauteur
+   naturelle). Le hero étant en flex colonne, .lv-wrap se recentre tout seul
+   (margin: auto 0) et .lv-heroreassure reste calé en bas. */
+@media (min-width: 641px) {
+  .lg-page .lv-hero {
+    min-height: 100svh;
+  }
+}
+
+/* Reprend .iconTile de LeoIconTile.tsx (legaleo-ai/components/design-system/LeoBadge) :
+   tuile 34px de référence, rayon 7/34, icône 20/34, centrée en flex. */
+.lv-hero-anim {
+  --leo-tile-size: 80px;
+  width: var(--leo-tile-size);
+  height: var(--leo-tile-size);
+  margin: 0 auto 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(var(--leo-tile-size) * 7 / 34);
+  background-color: var(--color-leo-badge);
+}
+
+.lv-hero-anim-icon {
+  position: relative;
+  width: calc(var(--leo-tile-size) * 20 / 34);
+  height: calc(var(--leo-tile-size) * 20 / 34);
+}
+
+.lv-eyebrow-wrap {
+  margin-bottom: 4px;
+}
+
+.lv-h1 {
+  max-width: 900px;
+  margin: 18px auto 0;
+  color: var(--color-black);
+  font-family: var(--font-serif);
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -1px;
+  text-wrap: balance;
+}
+
+.lv-em {
+  color: var(--color-teal);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.lv-lede {
+  max-width: 660px;
+  margin: 22px auto 0;
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+/* Faux champ de prompt : décoratif, jamais interactif (pas de vrai <input>,
+   masqué aux lecteurs d'écran) — fait défiler des exemples de questions en
+   effet machine à écrire (voir js/main.js). min-height réserve la place de 2
+   lignes pour que le champ ne saute pas entre une question courte et longue. */
+.lv-heroprompt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 600px;
+  min-height: 72px;
+  margin: 40px auto 0;
+  padding: 6px 12px 6px 20px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 45px -20px #1f120e33;
+}
+
+.lv-heroprompt-lead {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--color-teal);
+}
+
+.lv-heroprompt-text {
+  flex: 1;
+  color: var(--color-black);
+  font-family: var(--font-sans);
+  font-size: 15.5px;
+  font-weight: 600;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.lv-heroprompt-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 16px;
+  margin-left: 2px;
+  vertical-align: -3px;
+  background-color: var(--color-teal);
+  animation: lv-cursor-blink 0.9s step-end infinite;
+}
+
+.lv-heroprompt-send {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: var(--color-white);
+  background-color: var(--color-teal);
+  border-radius: 50%;
+}
+
+.lv-heroprompt-send svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+@keyframes lv-cursor-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lv-heroprompt-cursor {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .lv-heroprompt {
+    margin-top: 22px;
+    padding: 12px 10px 12px 16px;
+  }
+
+  .lv-heroprompt-text {
+    font-size: 14px;
+  }
+}
+
+.lv-heroreassure {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 40px 0;
+}
+
+.lv-heroreassure-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  background-color: #f8f4f0;
+  padding: 3px 11px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.lv-heroreassure-icon {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.lv-heroreassure-icon--external-link {
+  background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 24 24'%3E %3C!-- Generator: Adobe Illustrator 30.8.1, SVG Export Plug-In . SVG Version: 2.1.4 Build 1) --%3E %3Cdefs%3E %3Cstyle%3E .st0 { fill: %23d3e1e1; opacity: 0; } .st1 { fill: none; stroke: %23000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.1px; } %3C/style%3E %3C/defs%3E %3Crect class='st0' width='24' height='24' rx='3.4' ry='3.4'/%3E %3Cg%3E %3Cg%3E %3Cpolyline class='st1' points='12.9 5.3 18.7 5.3 18.7 11.1'/%3E %3Cline class='st1' x1='11.8' y1='12.2' x2='18.7' y2='5.3'/%3E %3C/g%3E %3Cpolyline class='st1' points='17.5 15.4 17.5 18.7 5.3 18.7 5.3 6.5 8.6 6.5'/%3E %3C/g%3E %3C/svg%3E");
+}
+
+.lv-heroreassure-icon--buddy {
+  background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E %3Cdefs%3E %3Cstyle%3E .cls-1 { fill: %23fff; stroke: %23008083; stroke-linecap: round; stroke-linejoin: round; } .cls-2 { fill: %23d3e1e1; } %3C/style%3E %3C/defs%3E %3Crect class='cls-2' width='24' height='24' rx='3.41' ry='3.41'/%3E %3Cg%3E %3Cpath class='cls-1' d='M12,11.28h0c3.29,0,5.97,2.67,5.97,5.97v2.51H6.03v-2.51c0-3.29,2.67-5.97,5.97-5.97Z'/%3E %3Ccircle class='cls-1' cx='12' cy='7.55' r='3.31'/%3E %3C/g%3E %3C/svg%3E");
+}
+
+.lv-heroreassure-icon--french {
+  background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E %3Cdefs%3E %3Cstyle%3E .cls-1 { fill: %23008083; } .cls-2 { fill: %23fff; stroke: %23008083; stroke-linecap: round; stroke-linejoin: round; } .cls-3 { fill: %23d3e1e1; } %3C/style%3E %3C/defs%3E %3Crect class='cls-3' width='24' height='24' rx='3.41' ry='3.41'/%3E %3Cg%3E %3Cpolygon class='cls-2' points='18.9 15.98 18.9 8.02 12 4.03 5.1 8.02 5.1 15.98 12 19.97 18.9 15.98'/%3E %3Cg%3E %3Cpath class='cls-1' d='M8.13,14.58v-5.16h3.31v.78h-2.38v1.55h2.15v.77h-2.15v2.07h-.93Z'/%3E %3Cpath class='cls-1' d='M12.3,14.58v-5.16h1.93c.4,0,.73.07,1,.21.27.14.47.33.61.58.14.25.21.54.21.86s-.07.61-.21.86c-.14.24-.35.43-.62.56-.27.13-.61.2-1.01.2h-1.38v-.77h1.26c.23,0,.42-.03.57-.1.15-.07.26-.16.33-.29.07-.13.11-.28.11-.46s-.04-.34-.11-.47-.18-.23-.33-.3c-.15-.07-.34-.1-.58-.1h-.86v4.39h-.93ZM15.21,14.58l-1.25-2.34h1.01l1.28,2.34h-1.04Z'/%3E %3C/g%3E %3C/g%3E %3C/svg%3E");
+}
+
+.lv-reassure {
+  display: flex;
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 48px;
+  padding: 48px 32px;
+  margin-top: -20px;
+  background-color: #eeebe8;
+  /* background-color: #151413; */
+  /* background-color: #195b5e; */
+  /* background-image: url('https://alexandre-legaleo.github.io/legaleo-leo-preview/assets/pattern.svg'); */
+  /* background-size: 5%; */
+}
+
+.lv-reassure-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 170px;
+  text-align: center;
+}
+
+.lv-reassure-icon {
+  display: block;
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  background-color: #fffefb;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 45%;
+  border-radius: 50%;
+}
+
+.lv-reassure-icon--brain {
+  background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'%3E %3Cdefs%3E %3Cstyle%3E .cls-1 { fill: none; stroke: %2387b7b2; stroke-dasharray: 3; } .cls-1, .cls-2 { stroke-linecap: round; stroke-linejoin: round; } .cls-3 { fill: %23008083; } .cls-2 { stroke: %23008083; stroke-width: 1.1px; } .cls-2, .cls-4 { fill: %23d3e1e1; } %3C/style%3E %3C/defs%3E %3Cg%3E %3Cline class='cls-1' x1='10.66' y1='7.83' x2='23.81' y2='23.89'/%3E %3Cline class='cls-1' x1='6.67' y1='28' x2='25' y2='25'/%3E %3Cline class='cls-1' x1='12.65' y1='42.41' x2='25' y2='25'/%3E %3Cline class='cls-1' x1='39.5' y1='41.25' x2='26.18' y2='26'/%3E %3Cline class='cls-1' x1='42.99' y1='21.74' x2='26.18' y2='25'/%3E %3Cline class='cls-1' x1='41.52' y1='7.49' x2='25.35' y2='23.64'/%3E %3C/g%3E %3Cg%3E %3Cpolygon class='cls-4' points='20.89 17 17.64 20.72 16.98 26.38 19.99 32.33 29.97 32.33 33.64 29.31 33.64 21.01 29.03 16.81 20.89 17'/%3E %3Cpath class='cls-2' d='M25,31v-13'/%3E %3Cpath class='cls-2' d='M28,26c-1.78-.52-3-2.15-3-4,0,1.85-1.22,3.48-3,4'/%3E %3Cpath class='cls-2' d='M30.6,19.5c.83-1.43.34-3.27-1.1-4.1-1.43-.83-3.27-.34-4.1,1.1-.26.46-.4.97-.4,1.5,0-1.66-1.34-3-3-3-1.66,0-3,1.34-3,3,0,.53.14,1.04.4,1.5'/%3E %3Cpath class='cls-2' d='M31,18.13c2.14.55,3.43,2.73,2.88,4.87-.08.31-.2.62-.35.9'/%3E %3Cpath class='cls-2' d='M31,31c2.21,0,4-1.79,4-4,0-1.43-.76-2.75-2-3.46'/%3E %3Cpath class='cls-2' d='M32.97,30.49c.28,2.19-1.26,4.2-3.45,4.48-2.19.28-4.2-1.26-4.48-3.45-.02-.17-.03-.34-.03-.51,0,2.21-1.8,4-4,4-2.21,0-4-1.8-4-4,0-.17.01-.34.03-.51'/%3E %3Cpath class='cls-2' d='M19,31c-2.21,0-4-1.79-4-4,0-1.43.76-2.75,2-3.46'/%3E %3Cpath class='cls-2' d='M19,18.13c-2.14.55-3.43,2.73-2.88,4.87.08.31.2.62.35.9'/%3E %3C/g%3E %3Ccircle class='cls-2' cx='10.66' cy='7.83' r='1.99'/%3E %3Ccircle class='cls-2' cx='43.35' cy='21.67' r='1.99'/%3E %3Ccircle class='cls-2' cx='12.65' cy='42.41' r='1.99'/%3E %3Ccircle class='cls-3' cx='6.67' cy='28' r='1.5'/%3E %3Ccircle class='cls-3' cx='41.52' cy='7.49' r='1.5'/%3E %3Ccircle class='cls-3' cx='39.5' cy='41.25' r='1.5'/%3E %3C/svg%3E");
+}
+
+.lv-reassure-icon--quote {
+  background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'%3E %3Cdefs%3E %3Cstyle%3E .cls-1 { fill: %23fff; } .cls-1, .cls-2 { stroke: %23008083; stroke-linecap: round; stroke-linejoin: round; } .cls-3 { fill: %23008083; opacity: .2; } .cls-2 { fill: %23d3e1e1; stroke-width: 1.1px; } %3C/style%3E %3C/defs%3E %3Cg id='XhXODs.tif'%3E %3Cg%3E %3Cpath class='cls-2' d='M24.81,7.75c.3.23.6.5.92.82l1.55,2.07,3.24,2.08c1.34.86,2.74,1.66,4.31,1.98l2.95.61c.54.11,1.02.31,1.53.6-.21.52-1.4.73-1.67,1.56-.44,1.33-.72,2.66-1.07,4.01-.79.73-3.16,3.16-2.64,3.57.06.05.24.12.33.11l1.29-.1.83,2.74c.42,1.4,1.28,1.76.58,1.99l-1.18.38c-.18.06-.39.35-.4.51-.04.58.87.68.66,2.19-.08.58.17,1.11.79,1.22l1.1.19c.64.11-.23.95-.92,1.49l-3.06,2.4c-.27.21-.48.43-.87.26l-1.63-.68c-1.46-.61-3.38-1.88-4.37-.21-.47.79-.61,1.67-.51,2.6-.62.37-1.26.69-1.91.89-1-.34-2.51-.85-2.99-1.58-.17-.26-.39-.45-.73-.46-1.41-.02-2.9.38-3.45.22-1.19-.35-2.28-.93-3.33-1.57-.51-.31-.94-.73-1.25-1.21-.22-.34-.07-.69.24-.88.66-.39,1.06-.95,1.24-1.7.39-1.7.65-3.39.82-5.11-.34-.87-.43-1.73-.37-2.65.02-.28-.15-.45-.4-.52-.67-.18-1.15-.68-1.56-1.2-.26-.33-.28-.65-.07-1.02.18-.31.29-.77.11-1.11-.21-.37-.61-.6-1-.76-.83-.34-1.59-.71-2.34-1.21l-3.1-2.06c-.36-.24-.19-1.68.55-1.81l2.57-.44c.37-.06.71-.09,1.05.08l1.59.81c.77.39,1.79.61,1.92,0,.17-.84-.03-1.6-.45-2.31-.5-.86-.38-1.92,0-2.04.57-.19,1.48.83,2.16,1.35.56.43,1.27.73,1.92,1,.39.16.77-.02.91-.4s.17-.81.22-1.26c.12-.2.51-.38.77-.43l1.81-.35c.41-.08.7-.34.79-.77.13-.63.17-1.28.15-1.94-.02-.57.2-1.07.76-1.31l1.39-.62h.26Z'/%3E %3Cpath class='cls-2' d='M41.43,42.23c-.42.09-.65-.12-.84-.41-.37-.58-.69-1.18-.71-1.89-.01-.48.22-.96.3-1.42.11-.66.35-1.17.9-1.6.62-.49,1.14-1.03,1.61-1.68.12-.17.47-.25.65-.2.16.05.36.33.37.54l.02,2.38c-.26.4-.63.74-.84,1.16-.23.45.05,1.06.31,1.44.18.27.22.49,0,.73-.46.47-1.06.83-1.75.97Z'/%3E %3C/g%3E %3C/g%3E %3Cellipse class='cls-3' cx='25' cy='30.78' rx='5.73' ry='.97'/%3E %3Cg id='MmYSL7.tif'%3E %3Cpath class='cls-1' d='M25.22,16.48l.16.02c2.6.18,4.69,2.28,4.86,4.89.08,1.28-.35,2.49-.94,3.63-.98,1.9-2.49,3.8-3.97,5.34-.18.19-.47.19-.65,0-1.47-1.52-2.97-3.4-3.94-5.28-.49-.94-.91-2.01-.96-3.07l-.02-.14v-.36s.02-.19.02-.19c.19-2.57,2.25-4.64,4.83-4.83.07,0,.13,0,.19-.02h.44ZM24.79,19.85c-1.06.12-1.8,1.09-1.67,2.12s1.07,1.78,2.1,1.66,1.79-1.06,1.67-2.11-1.05-1.79-2.1-1.67Z'/%3E %3C/g%3E %3C/svg%3E");
+}
+
+.lv-reassure-icon--hammer {
+  background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'%3E %3Cdefs%3E %3Cstyle%3E .cls-1 { fill: %23fff; } .cls-1, .cls-2 { stroke: %23008083; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.1px; } .cls-3 { fill: %23008083; opacity: .2; } .cls-2 { fill: %23d3e1e1; } %3C/style%3E %3C/defs%3E %3Cellipse class='cls-3' cx='28.24' cy='41.21' rx='18.13' ry='1.2'/%3E %3Crect class='cls-1' x='20.75' y='5.87' width='2.9' height='13.94' rx='1.45' ry='1.45' transform='translate(15.58 -11.94) rotate(45)'/%3E %3Crect class='cls-1' x='30.26' y='15.38' width='2.9' height='13.94' rx='1.45' ry='1.45' transform='translate(25.09 -15.87) rotate(45)'/%3E %3Crect class='cls-2' x='21.62' y='12.58' width='10.55' height='10.13' transform='translate(20.36 -13.85) rotate(45)'/%3E %3Cpath class='cls-2' d='M13.6,17.89h3.27v21.2c0,.9-.73,1.63-1.63,1.63h0c-.9,0-1.63-.73-1.63-1.63v-21.2h0Z' transform='translate(25.19 -2.19) rotate(45)'/%3E %3Cg%3E %3Cpath class='cls-1' d='M26.08,34.09h12.82c.4,0,.73.33.73.73v1.51h-14.27v-1.51c0-.4.33-.73.73-.73Z'/%3E %3Cpath class='cls-2' d='M24.09,36.32h16.79c.4,0,.73.33.73.73v3.57h-18.24v-3.57c0-.4.33-.73.73-.73Z'/%3E %3C/g%3E %3C/svg%3E");
+}
+
+.lv-reassure-icon--map {
+  background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'%3E %3Cdefs%3E %3Cstyle%3E .cls-1 { fill: %23fff; } .cls-1, .cls-2 { stroke: %23008083; stroke-linecap: round; stroke-linejoin: round; } .cls-2 { fill: %23d3e1e1; stroke-width: 1.1px; } %3C/style%3E %3C/defs%3E %3Cg id='XhXODs.tif'%3E %3Cg%3E %3Cpath class='cls-2' d='M24.81,7.75c.3.23.6.5.92.82l1.55,2.07,3.24,2.08c1.34.86,2.74,1.66,4.31,1.98l2.95.61c.54.11,1.02.31,1.53.6-.21.52-1.4.73-1.67,1.56-.44,1.33-.72,2.66-1.07,4.01-.79.73-3.16,3.16-2.64,3.57.06.05.24.12.33.11l1.29-.1.83,2.74c.42,1.4,1.28,1.76.58,1.99l-1.18.38c-.18.06-.39.35-.4.51-.04.58.87.68.66,2.19-.08.58.17,1.11.79,1.22l1.1.19c.64.11-.23.95-.92,1.49l-3.06,2.4c-.27.21-.48.43-.87.26l-1.63-.68c-1.46-.61-3.38-1.88-4.37-.21-.47.79-.61,1.67-.51,2.6-.62.37-1.26.69-1.91.89-1-.34-2.51-.85-2.99-1.58-.17-.26-.39-.45-.73-.46-1.41-.02-2.9.38-3.45.22-1.19-.35-2.28-.93-3.33-1.57-.51-.31-.94-.73-1.25-1.21-.22-.34-.07-.69.24-.88.66-.39,1.06-.95,1.24-1.7.39-1.7.65-3.39.82-5.11-.34-.87-.43-1.73-.37-2.65.02-.28-.15-.45-.4-.52-.67-.18-1.15-.68-1.56-1.2-.26-.33-.28-.65-.07-1.02.18-.31.29-.77.11-1.11-.21-.37-.61-.6-1-.76-.83-.34-1.59-.71-2.34-1.21l-3.1-2.06c-.36-.24-.19-1.68.55-1.81l2.57-.44c.37-.06.71-.09,1.05.08l1.59.81c.77.39,1.79.61,1.92,0,.17-.84-.03-1.6-.45-2.31-.5-.86-.38-1.92,0-2.04.57-.19,1.48.83,2.16,1.35.56.43,1.27.73,1.92,1,.39.16.77-.02.91-.4s.17-.81.22-1.26c.12-.2.51-.38.77-.43l1.81-.35c.41-.08.7-.34.79-.77.13-.63.17-1.28.15-1.94-.02-.57.2-1.07.76-1.31l1.39-.62h.26Z'/%3E %3Cpath class='cls-2' d='M41.43,42.23c-.42.09-.65-.12-.84-.41-.37-.58-.69-1.18-.71-1.89-.01-.48.22-.96.3-1.42.11-.66.35-1.17.9-1.6.62-.49,1.14-1.03,1.61-1.68.12-.17.47-.25.65-.2.16.05.36.33.37.54l.02,2.38c-.26.4-.63.74-.84,1.16-.23.45.05,1.06.31,1.44.18.27.22.49,0,.73-.46.47-1.06.83-1.75.97Z'/%3E %3C/g%3E %3C/g%3E %3Cg id='MmYSL7.tif'%3E %3Cpath class='cls-1' d='M25.22,16.48l.16.02c2.6.18,4.69,2.28,4.86,4.89.08,1.28-.35,2.49-.94,3.63-.98,1.9-2.49,3.8-3.97,5.34-.18.19-.47.19-.65,0-1.47-1.52-2.97-3.4-3.94-5.28-.49-.94-.91-2.01-.96-3.07l-.02-.14v-.36s.02-.19.02-.19c.19-2.57,2.25-4.64,4.83-4.83.07,0,.13,0,.19-.02h.44ZM24.79,19.85c-1.06.12-1.8,1.09-1.67,2.12s1.07,1.78,2.1,1.66,1.79-1.06,1.67-2.11-1.05-1.79-2.1-1.67Z'/%3E %3C/g%3E %3C/svg%3E");
+}
+
+.lv-reassure-item p {
+  margin: 0;
+  color: #e9e6e3;
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 1.4;
+  opacity: 0.8;
+  text-wrap: balance;
+
+}
+
+@media (max-width: 640px) {
+  .lv-hero {
+    padding: 64px 20px 48px;
+    min-height: auto;
+  }
+
+  .lv-h1 {
+    font-size: 32px;
+    letter-spacing: -0.5px;
+  }
+
+  .lv-lede {
+    font-size: 17px;
+  }
+
+  .lv-reassure {
+    gap: 28px;
+    padding: 36px 20px;
+  }
+
+  .lv-reassure-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .lv-heroreassure {
+    margin: 24px 0 32px;
+  }
+}
+
+/* Après le bloc 640px pour ne pas être écrasé par son raccourci `padding` :
+   un peu plus d'air au-dessus du contenu du hero sur petit écran, où
+   .lv-hero > .lv-wrap perd son centrage vertical (min-height: auto). */
+@media (max-width: 780px) {
+  .lv-hero {
+    padding-top: 96px;
+  }
+}
+
+/* pourquoi.css */
+/* « Pourquoi Leo » : cartouche noir à cheval sur la section suivante
+   (« Comment Leo travaille », fond beige).
+
+   Le fond de la section est coupé en deux à 50 % (blanc au-dessus, beige en
+   dessous) et son padding haut/bas est symétrique : la coupure tombe donc au
+   milieu du cartouche quelle que soit sa hauteur (texte qui passe à la ligne,
+   mobile...). Pas de marge négative ni de z-index, rien à recalculer si le
+   contenu change. Le titre, l'eyebrow et le texte réutilisent les styles
+   « sombres » du bloc « Conçu pour la confiance » (trust.css). */
+.lv-pourquoi {
+  padding: 56px 32px;
+  background: linear-gradient(to bottom, var(--color-white) 50%, var(--color-beige) 50%);
+}
+
+/* La moitié basse du cartouche déborde déjà sur la section beige : on réduit
+   son padding haut pour ne pas doubler l'espace sous le cartouche. */
+.lv-pourquoi + .lv-block-tint {
+  padding-top: 56px;
+}
+
+.lv-pourquoi-card {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 56px 48px;
+  color: var(--color-white);
+  text-align: center;
+  background-color: var(--color-black);
+  border-radius: var(--radius-xl);
+}
+
+/* .lv-h2dark et .lv-lededark ont un max-width pour le cas aligné à gauche de
+   .lv-deonto : ici on les recentre. */
+.lv-pourquoi-card .lv-h2dark,
+.lv-pourquoi-card .lv-lededark {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 640px) {
+  .lv-pourquoi {
+    padding: 40px 20px;
+  }
+
+  .lv-pourquoi + .lv-block-tint {
+    padding-top: 40px;
+  }
+
+  .lv-pourquoi-card {
+    padding: 36px 24px;
+  }
+}
+
+/* how-it-works.css */
+.lv-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 48px;
+}
+
+.lv-step {
+  flex: 1;
+  min-width: 220px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lv-step:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px -24px rgb(31 18 14 / 0.25);
+}
+
+.lv-step-n {
+  display: block;
+  width: 90px;
+  height: 90px;
+  margin-bottom: 14px;
+  /* background-color: var(--color-teal-bg); */
+  background-color: #eff5f5;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80%;
+  border-radius: var(--radius-sm);
+}
+
+.lv-step-n--brain {
+  background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'%3E %3Cdefs%3E %3Cstyle%3E .cls-1 { fill: none; stroke: %2387b7b2; stroke-dasharray: 3; } .cls-1, .cls-2 { stroke-linecap: round; stroke-linejoin: round; } .cls-3 { fill: %23008083; } .cls-2 { stroke: %23008083; stroke-width: 1.1px; } .cls-2, .cls-4 { fill: %23d3e1e1; } %3C/style%3E %3C/defs%3E %3Cg%3E %3Cline class='cls-1' x1='10.66' y1='7.83' x2='23.81' y2='23.89'/%3E %3Cline class='cls-1' x1='6.67' y1='28' x2='25' y2='25'/%3E %3Cline class='cls-1' x1='12.65' y1='42.41' x2='25' y2='25'/%3E %3Cline class='cls-1' x1='39.5' y1='41.25' x2='26.18' y2='26'/%3E %3Cline class='cls-1' x1='42.99' y1='21.74' x2='26.18' y2='25'/%3E %3Cline class='cls-1' x1='41.52' y1='7.49' x2='25.35' y2='23.64'/%3E %3C/g%3E %3Cg%3E %3Cpolygon class='cls-4' points='20.89 17 17.64 20.72 16.98 26.38 19.99 32.33 29.97 32.33 33.64 29.31 33.64 21.01 29.03 16.81 20.89 17'/%3E %3Cpath class='cls-2' d='M25,31v-13'/%3E %3Cpath class='cls-2' d='M28,26c-1.78-.52-3-2.15-3-4,0,1.85-1.22,3.48-3,4'/%3E %3Cpath class='cls-2' d='M30.6,19.5c.83-1.43.34-3.27-1.1-4.1-1.43-.83-3.27-.34-4.1,1.1-.26.46-.4.97-.4,1.5,0-1.66-1.34-3-3-3-1.66,0-3,1.34-3,3,0,.53.14,1.04.4,1.5'/%3E %3Cpath class='cls-2' d='M31,18.13c2.14.55,3.43,2.73,2.88,4.87-.08.31-.2.62-.35.9'/%3E %3Cpath class='cls-2' d='M31,31c2.21,0,4-1.79,4-4,0-1.43-.76-2.75-2-3.46'/%3E %3Cpath class='cls-2' d='M32.97,30.49c.28,2.19-1.26,4.2-3.45,4.48-2.19.28-4.2-1.26-4.48-3.45-.02-.17-.03-.34-.03-.51,0,2.21-1.8,4-4,4-2.21,0-4-1.8-4-4,0-.17.01-.34.03-.51'/%3E %3Cpath class='cls-2' d='M19,31c-2.21,0-4-1.79-4-4,0-1.43.76-2.75,2-3.46'/%3E %3Cpath class='cls-2' d='M19,18.13c-2.14.55-3.43,2.73-2.88,4.87.08.31.2.62.35.9'/%3E %3C/g%3E %3Ccircle class='cls-2' cx='10.66' cy='7.83' r='1.99'/%3E %3Ccircle class='cls-2' cx='43.35' cy='21.67' r='1.99'/%3E %3Ccircle class='cls-2' cx='12.65' cy='42.41' r='1.99'/%3E %3Ccircle class='cls-3' cx='6.67' cy='28' r='1.5'/%3E %3Ccircle class='cls-3' cx='41.52' cy='7.49' r='1.5'/%3E %3Ccircle class='cls-3' cx='39.5' cy='41.25' r='1.5'/%3E %3C/svg%3E");
+}
+
+.lv-step-n--quote {
+  background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'%3E %3Cdefs%3E %3Cstyle%3E .cls-1 { fill: %23fff; } .cls-1, .cls-2 { stroke: %23008083; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.1px; } .cls-3 { fill: %23008083; opacity: .2; } .cls-2 { fill: %23d3e1e1; } %3C/style%3E %3C/defs%3E %3Cellipse class='cls-3' cx='28.24' cy='41.21' rx='18.13' ry='1.2'/%3E %3Crect class='cls-1' x='20.75' y='5.87' width='2.9' height='13.94' rx='1.45' ry='1.45' transform='translate(15.58 -11.94) rotate(45)'/%3E %3Crect class='cls-1' x='30.26' y='15.38' width='2.9' height='13.94' rx='1.45' ry='1.45' transform='translate(25.09 -15.87) rotate(45)'/%3E %3Crect class='cls-2' x='21.62' y='12.58' width='10.55' height='10.13' transform='translate(20.36 -13.85) rotate(45)'/%3E %3Cpath class='cls-2' d='M13.6,17.89h3.27v21.2c0,.9-.73,1.63-1.63,1.63h0c-.9,0-1.63-.73-1.63-1.63v-21.2h0Z' transform='translate(25.19 -2.19) rotate(45)'/%3E %3Cg%3E %3Cpath class='cls-1' d='M26.08,34.09h12.82c.4,0,.73.33.73.73v1.51h-14.27v-1.51c0-.4.33-.73.73-.73Z'/%3E %3Cpath class='cls-2' d='M24.09,36.32h16.79c.4,0,.73.33.73.73v3.57h-18.24v-3.57c0-.4.33-.73.73-.73Z'/%3E %3C/g%3E %3C/svg%3E");
+}
+
+.lv-step-n--hammer {
+  background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'%3E %3Cdefs%3E %3Cstyle%3E .cls-1 { fill: %23fff; } .cls-1, .cls-2, .cls-3 { stroke: %23008083; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.1px; } .cls-4 { fill: %23008083; opacity: .2; } .cls-2 { fill: %23d3e1e1; } .cls-3 { fill: none; } %3C/style%3E %3C/defs%3E %3Cg%3E %3Ccircle class='cls-2' cx='13.84' cy='20.65' r='9.02'/%3E %3Cpolyline class='cls-3' points='9.86 21.36 12.04 23.55 17.83 17.76'/%3E %3Ccircle class='cls-1' cx='35.11' cy='27.09' r='9.02'/%3E %3Cg%3E %3Cline class='cls-3' x1='32.41' y1='24.39' x2='37.81' y2='29.79'/%3E %3Cline class='cls-3' x1='32.41' y1='29.79' x2='37.81' y2='24.39'/%3E %3C/g%3E %3C/g%3E %3Cellipse class='cls-4' cx='35.11' cy='36.99' rx='10.07' ry='1.38'/%3E %3Cellipse class='cls-4' cx='13.24' cy='36.99' rx='4.59' ry='1.38'/%3E %3C/svg%3E");
+}
+
+.lv-h3 {
+  margin-bottom: 8px;
+  color: var(--color-black);
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+.lv-p-muted {
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+.lv-p-muted em {
+  background-color: var(--color-teal-bg);
+  color: var(--color-teal-text);
+  font-style: normal;
+  padding: 0.05em 4px;
+  border-radius: 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* journey.css */
+.lv-sechead {
+  max-width: 700px;
+  margin: 0 auto 8px;
+  text-align: center;
+}
+
+.lv-feature {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 30px;
+  padding: 96px 0 0;
+}
+
+.lv-feature-rev {
+  flex-direction: row-reverse;
+}
+
+.lv-ftext {
+  flex: 1;
+  min-width: 320px;
+}
+
+.lv-tagmini {
+  display: inline-block;
+  color: var(--color-teal);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.lv-badge-beta {
+  display: inline-block;
+  margin-left: 6px;
+  color: var(--color-cyan);
+  background-color: var(--color-black);
+  border-radius: var(--radius-pill);
+  padding: 3px 10px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.lv-h3b {
+  margin: 12px 0 14px;
+  color: var(--color-black);
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+/* Paragraphe et lignes de liste d'un bloc du parcours : même typographie,
+   déclarée une seule fois pour qu'ils ne divergent plus. */
+.lv-p2,
+.lv-frow {
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.lv-flist {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 20px;
+}
+
+/* Typographie : voir .lv-p2 plus haut. Ici, seulement le retrait suspendu
+   (la puce .lv-ck sort à gauche, les lignes suivantes restent alignées). */
+.lv-frow {
+  padding-left: 20px;
+  text-indent: -20px;
+}
+
+.lv-ck {
+  margin-right: 8px;
+  color: var(--color-teal);
+  font-weight: 800;
+}
+
+.lv-fnote {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--color-teal-text);
+  background-color: var(--color-teal-bg);
+  border: 1px solid var(--color-cyan);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+/* Visuel / mockup */
+.lv-fvisual {
+  position: relative;
+  flex: 1;
+  min-width: 320px;
+  background-color: var(--color-teal);
+  border: 1px solid var(--color-teal);
+  border-radius: var(--radius-xl);
+  padding: 22px;
+  box-shadow: 0 50px 100px 20px #1e505229, 0 25px 45px -25px #1f120e40;
+  will-change: transform;
+}
+
+/* Réservée au mockup 02 (chat) : max-height plafonne la carte à 400px — le
+   flux de questions/réponses est sans fin (voir main.js), donc sans cap elle
+   grandirait indéfiniment. display: flex permet à .lv-chatmock de remplir
+   cette hauteur via flex: 1, et .lv-chatlog (flex: 1 + overflow-y: auto, plus
+   bas) absorbe le surplus en scrollant au lieu de pousser la carte plus haut.
+   Les .lv-ficon (position: absolute) restent hors flux, non affectés. Les 3
+   autres .lv-fvisual gardent leur hauteur naturelle, non concernés. */
+.lv-fvisual--chat {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+}
+/* .lv-fvisual--chat .lv-chatmock{
+  padding-top: 0;
+}
+.lv-fvisual--chat .lv-formmock{
+  border: none;
+} */
+
+@media (prefers-reduced-motion: reduce) {
+  .lv-fvisual {
+    transform: none !important;
+  }
+}
+
+/* Badge Leo animé (Lottie) : en coin de son .lv-fvisual — haut-droit par
+   défaut, haut-gauche dans .lv-feature-rev (même bord "extérieur" que les
+   .lv-ficon, voir plus bas). Porte aussi la classe .lv-ficon pour hériter de
+   son position:absolute/z-index et du parallax JS (voir js/main.js) ; pas
+   d'animation de flottement CSS ici, pour ne pas superposer deux mouvements
+   au flottement continu déjà joué par le Lottie à l'intérieur. */
+.lv-fanim {
+  top: -20px;
+  right: -20px;
+  width: 56px;
+  height: 56px;
+  padding: 10px;
+  border-radius: 14px;
+  background-color: var(--color-leo-badge);
+  box-shadow: 0 20px 35px -12px #1f120e40;
+  overflow: clip;
+}
+
+.lv-feature-rev .lv-fanim {
+  right: auto;
+  left: -20px;
+}
+
+.lv-miniact {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* Mini icône de confirmation contextuelle, à côté des boutons d'action —
+   masquée par défaut, révélée par JS le temps de l'animation "check". */
+.lv-minicheck {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  padding: 4px;
+  border-radius: 6px;
+  background-color: var(--color-leo-badge);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.lv-minicheck.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* .lv-reco n'a pas de padding propre (son en-tête .lv-recoh doit toucher les
+   bords) : ses enfants gèrent leur propre inset, donc .lv-miniact a besoin du
+   sien ici — contrairement aux autres mockups où .lv-formmock porte déjà le
+   padding global. */
+.lv-reco .lv-miniact {
+  padding: 0 14px 14px;
+}
+
+.lv-sugg {
+  display: inline-block;
+  order: 1;
+  cursor: pointer;
+  color: var(--color-teal-text);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-teal);
+  border-radius: var(--radius-pill);
+  padding: 8px 13px;
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.lv-sugg:hover {
+  background-color: var(--color-teal-bg);
+}
+
+.lv-sugg-solid {
+  order: 2;
+  color: var(--color-white);
+  background-color: var(--color-teal);
+}
+
+.lv-sugg-solid:hover {
+  background-color: #076e71;
+}
+
+.lv-sugg:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.lv-sugg:disabled:hover {
+  background-color: var(--color-white);
+}
+
+.lv-sugg-solid:disabled:hover {
+  background-color: var(--color-teal);
+}
+
+/* 01 — mockup onboarding (formulaire) */
+.lv-formmock {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  transition: opacity 0.15s ease;
+}
+
+/* 02 — mockup chat : occupe toute la hauteur de .lv-fvisual (flex: 1, voir
+   .lv-fvisual) ; le log grandit dedans (flex: 1 aussi) et pousse l'icône Leo
+   + les bulles de suggestion tout en bas, comme le compositeur fixe d'une
+   vraie appli de chat. */
+.lv-chatmock {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+}
+
+/* Flux de questions/réponses : chaque clic ajoute une paire .lv-buser/.lv-bleo
+   en bas (voir main.js) au lieu de remplacer la précédente. flex: 1 + fade au
+   sommet + scroll auto vers le bas donnent l'effet de défilement continu ; le
+   pool de questions se régénère une fois épuisé, pour une boucle sans fin.
+   min-height: 0 est nécessaire pour qu'un flex item scrollable puisse
+   réellement se contraindre au lieu de pousser son parent. */
+.lv-chatlog {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+  /* hidden (pas auto) : coupe le scroll utilisateur (molette/tactile/
+     clavier/scrollbar) sans bloquer le scroll programmatique (scrollTop),
+     qui pilote l'auto-scroll en JS — donc pas besoin de masquer une
+     scrollbar, il n'y en a jamais. */
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Icône Leo (Lottie, la-q) déplacée du coin flottant de .lv-fvisual à
+   l'intérieur de .lv-chatmock, juste au-dessus des bulles — sans la classe
+   .lv-ficon, donc plus en position: absolute (les top/right hérités de
+   .lv-fanim ne s'appliquent qu'aux éléments positionnés, ils deviennent
+   inertes ici). */
+.lv-fanim--inline {
+  position: static;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* Bulles de questions suggérées — mimique les prompts cliquables de l'assistant.
+   Placées après l'icône Leo, tout en bas de .lv-chatmock (voir plus haut) :
+   visibles par défaut, se cachent le temps d'une question/réponse (voir
+   main.js) puis reviennent une fois le streaming terminé, ou se régénèrent
+   si le pool est épuisé. */
+.lv-qbubbles {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 8px;
+}
+
+.lv-qbubbles[hidden] {
+  display: none;
+}
+
+/* Fond teal (au lieu du beige de .lv-bleo) : ce sont des suggestions
+   cliquables, pas des messages — la confusion visuelle avec les réponses de
+   Leo serait facile vu qu'elles s'enchaînent juste en dessous. */
+.lv-qbubble {
+  width: 100%;
+  padding: 9px 14px;
+  color: var(--color-teal-text);
+  background-color: var(--color-teal-bg);
+  border: 1px solid var(--color-cyan);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-align: left;
+  line-height: 1.4;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.lv-qbubble:hover {
+  color: var(--color-white);
+  background-color: var(--color-teal);
+  border-color: var(--color-teal);
+}
+
+.lv-qbubble:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+}
+
+.lv-fmq {
+  transition: opacity 0.15s ease;
+}
+
+.lv-fmtitle {
+  margin-bottom: 12px;
+  color: var(--color-black);
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.lv-fmq {
+  margin-bottom: 6px;
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.lv-fmfield {
+  position: relative;
+  margin-bottom: 12px;
+  padding: 10px 32px 10px 12px;
+  color: var(--color-muted);
+  background-color: var(--color-beige);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Enveloppe de chaque champ : la hauteur (et non le champ lui-même) est
+   animée + clippée, pour que le padding/margin/border de .lv-fmfield ne
+   perturbe pas la transition (voir onboarding-demo.js, openWrapTo/closeWrap).
+   Repliée par défaut (.is-collapsed, pour lv-fm-leo) sinon "auto" (ouverte,
+   suit son contenu). Fondu en opacité porté par le wrapper lui-même (piloté
+   par data-open, posé en JS) : léger fade-in à l'arrivée, pour masquer la
+   bulle le temps qu'elle atteigne sa hauteur cible plutôt que de la voir
+   apparaître quasi plate (elle vise directement la hauteur du texte final,
+   voir openWrapTo — sans ce fade elle "pop" quand même un peu à l'oeil). */
+.lv-fmfield-wrap {
+  position: relative;
+  overflow: clip;
+  opacity: 0;
+  transition: height 0.45s ease, opacity 0.35s ease;
+}
+
+.lv-fmfield-wrap[data-open="true"] {
+  opacity: 1;
+}
+
+.lv-fmfield-wrap.is-collapsed {
+  height: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lv-fmfield-wrap {
+    transition: none;
+  }
+}
+
+/* Enveloppe flex de lv-fm-user-wrap + lv-fm-leo-wrap : centre le champ seul
+   ouvert tant que l'autre est replié à hauteur 0, et suit naturellement (flex
+   reflow, sans JS) le champ qui reste quand l'autre s'ouvre/se referme —
+   comme le ferait un flex-direction: column + justify-content: center
+   classique. La min-height (posée en JS à chaque scénario) réserve la place
+   des deux champs pour que ce centrage soit visible. */
+.lv-fmfields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Mini badge "Leo réfléchit" (generating.json) : dans #lv-fm-leo-wrap, sibling
+   de #lv-fm-leo (jamais dedans — leoFieldEl.textContent écraserait tout
+   enfant). onboarding-demo.js ouvre d'abord le wrap à une petite hauteur fixe
+   pour le rendre visible malgré l'overflow: clip du wrap replié, puis
+   l'enchaîne directement sur la hauteur du texte final une fois révélé.
+   position: absolute pour ne jamais peser sur les mesures de hauteur
+   (measureWrapHeight/syncFieldsMinHeight, voir onboarding-demo.js). */
+.lv-fm-thinking {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 8px;
+  background-color: var(--color-leo-badge);
+  box-shadow: 0 8px 16px -8px #1f120e40;
+  overflow: clip;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.lv-fm-thinking.is-visible {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lv-fm-thinking {
+    transition: none;
+  }
+}
+
+.lv-fmleo {
+  color: var(--color-teal-text);
+  background-color: var(--color-teal-bg);
+  border-color: var(--color-cyan);
+}
+
+.lv-fmfield.is-selected {
+  border-color: var(--color-teal);
+  /* inset : reste entièrement dans le border-box du champ, jamais rogné par
+     l'overflow: clip de .lv-fmfield-wrap pendant l'animation de hauteur (un
+     box-shadow non-inset déborderait du border-box et se ferait couper). */
+  box-shadow: inset 0 0 0 1px var(--color-teal);
+  animation: lv-select-flicker 0.45s ease-in-out;
+}
+
+/* Flicker de sélection : 3 fade-in / 2 fade-out avant de se stabiliser sur
+   l'état "on" (identique aux valeurs statiques ci-dessus, donc aucun saut à
+   la fin de l'animation). */
+@keyframes lv-select-flicker {
+  0%,
+  40%,
+  80% {
+    border-color: var(--color-border);
+    box-shadow: inset 0 0 0 1px transparent;
+  }
+  20%,
+  60%,
+  100% {
+    border-color: var(--color-teal);
+    box-shadow: inset 0 0 0 1px var(--color-teal);
+  }
+}
+
+/* Survol du bouton correspondant (voir onboarding-demo.js) : surbrillance
+   légère. */
+.lv-fmfield.is-hint {
+  /* border-color: var(--color-teal); */
+  /* box-shadow: inset 0 0 0 1px var(--color-teal); */
+}
+
+/* Assombrit le fond de is-hint de ~3% de noir, peu importe la couleur de
+   base (beige ou teal-bg pour .lv-fmleo) : un calque noir en mix-blend-mode
+   multiply plutôt qu'une couleur calculée, pour rester transitionnable
+   (background-image/-blend-mode ne s'anime pas, opacity si). */
+.lv-fmfield::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: var(--color-black);
+  opacity: 0;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.lv-fmfield.is-hint::before {
+  opacity: 0.03;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lv-fmfield.is-selected {
+    animation: none;
+  }
+}
+
+.lv-fmfield.is-selected::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 13px;
+  height: 13px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2.5 6.2L4.8 8.5L9.5 3.5' stroke='%23087f83' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* 02 — mockup chat : flux continu, voir .lv-chatlog plus bas */
+.lv-buser {
+  flex-shrink: 0;
+  max-width: 82%;
+  margin-left: auto;
+  padding: 11px 15px;
+  color: var(--color-white);
+  background-color: var(--color-black);
+  border-radius: 15px 15px 4px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.lv-bleo {
+  position: relative;
+  flex-shrink: 0;
+  padding: 13px 15px 13px 46px;
+  color: var(--color-black);
+  background-color: var(--color-beige);
+  border: 1px solid var(--color-border);
+  border-radius: 15px 15px 15px 4px;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+/* Mini version de .lv-fanim, une par réponse : remplace le badge unique
+   .lv-fanim--inline (masqué dès la 1re question, voir main.js) une fois la
+   conversation lancée — chaque bulle de Leo porte désormais son propre avatar. */
+.lv-bleo-icon {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  border-radius: 7px;
+  background-color: var(--color-leo-badge);
+  box-shadow: 0 8px 16px -8px #1f120e40;
+  overflow: clip;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+/* Une fois la réponse affichée (check.json terminé, voir main.js) : la
+   mini-icône de ce message s'efface, son rôle est fini. */
+.lv-bleo-icon.is-done {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lv-bleo-icon {
+    transition: none;
+  }
+}
+
+.lv-buser,
+.lv-bleo {
+  animation: lv-msg-in 0.25s ease;
+}
+
+@keyframes lv-msg-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lv-buser,
+  .lv-bleo {
+    animation: none;
+  }
+}
+
+/* Skeleton "réflexion" affiché pendant le faux chargement, avant le streaming */
+.lv-bleo-skeleton {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 2px 0;
+}
+
+.lv-bleo.is-thinking .lv-bleo-skeleton {
+  display: flex;
+}
+
+.lv-bleo.is-thinking .lv-chat-answer,
+.lv-bleo.is-thinking .lv-srcpill {
+  display: none;
+}
+
+.lv-bleo-skeleton span {
+  display: block;
+  height: 10px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--color-border) 25%, var(--color-white) 50%, var(--color-border) 75%);
+  background-size: 200% 100%;
+  animation: lv-shimmer 1.3s ease-in-out infinite;
+}
+
+.lv-bleo-skeleton span:nth-child(1) {
+  width: 92%;
+}
+
+.lv-bleo-skeleton span:nth-child(2) {
+  width: 78%;
+}
+
+.lv-bleo-skeleton span:nth-child(3) {
+  width: 55%;
+}
+
+@keyframes lv-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.lv-srcpill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: fit-content;
+  margin-top: 10px;
+  padding: 4px 11px;
+  color: #000;
+  background-color: #e6e0d4;
+  border: 1px solid #dfd9ce;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.lv-srcpill-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  background-color: #d7d0c3;
+  border-radius: 2px;
+  background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 24 24'%3E %3C!-- Generator: Adobe Illustrator 30.8.1, SVG Export Plug-In . SVG Version: 2.1.4 Build 1) --%3E %3Cdefs%3E %3Cstyle%3E .st0 { fill: %23d3e1e1; opacity: 0; } .st1 { fill: none; stroke: %23000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.1px; } %3C/style%3E %3C/defs%3E %3Crect class='st0' width='24' height='24' rx='3.4' ry='3.4'/%3E %3Cg%3E %3Cg%3E %3Cpolyline class='st1' points='12.9 5.3 18.7 5.3 18.7 11.1'/%3E %3Cline class='st1' x1='11.8' y1='12.2' x2='18.7' y2='5.3'/%3E %3C/g%3E %3Cpolyline class='st1' points='17.5 15.4 17.5 18.7 5.3 18.7 5.3 6.5 8.6 6.5'/%3E %3C/g%3E %3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80%;
+}
+
+.lv-srcpill.is-visible {
+  opacity: 1;
+}
+
+/* 03 — mockup éditeur (diff) */
+.lv-reco {
+  background-color: var(--color-white);
+  /* border: 1px solid var(--color-border); */
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.lv-recoh {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 14px;
+  color: var(--color-white);
+  background-color: var(--color-black);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.lv-recobody {
+  padding: 14px;
+  color: var(--color-black);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* Départ "texte basique" (voir main.js, #lv-ed-recommend) : .lv-add est
+   hidden (pas d'espace réservé, sinon le texte de départ aurait des trous
+   invisibles) et fade en opacity une fois révélé — display ne s'anime pas,
+   donc le pop de mise en page à l'insertion est inévitable, mais l'opacity
+   adoucit l'apparition. */
+.lv-add {
+  padding: 0 3px;
+  color: var(--color-green-text);
+  background-color: var(--color-green-bg);
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.lv-add.is-visible {
+  opacity: 1;
+}
+
+/* .lv-del reste du texte normal tant qu'il n'est pas "barré" : le trait se
+   dessine (scaleX) plutôt que d'apparaître d'un coup via text-decoration. */
+.lv-del {
+  position: relative;
+  padding: 0 3px;
+  border-radius: 3px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.lv-del::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 50%;
+  height: 1.5px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.lv-del.is-struck {
+  color: var(--color-red-text);
+  background-color: var(--color-red-bg);
+}
+
+.lv-del.is-struck::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lv-add,
+  .lv-del,
+  .lv-del::after {
+    transition: none;
+  }
+}
+
+.lv-legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px 12px;
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 11px;
+}
+
+.lv-legend[hidden] {
+  display: none;
+}
+
+.lv-ladd,
+.lv-ldel {
+  padding: 2px 9px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+}
+
+.lv-ladd {
+  color: var(--color-green-text);
+  background-color: var(--color-green-bg);
+}
+
+.lv-ldel {
+  color: var(--color-red-text);
+  background-color: var(--color-red-bg);
+}
+
+/* 04 — mockup avocats (criticité) : #lv-av-critlist pioche 2-3 cartes au
+   hasard dans le pool de 9 du <template>, à chaque chargement et à chaque
+   clic sur "Relancer l'analyse" (voir main.js), avec un bref état "scan" et
+   une entrée décalée pour donner l'impression d'une vraie nouvelle passe. */
+.lv-critlist {
+  display: flex;
+  flex-direction: column;
+}
+
+.lv-crit {
+  margin-bottom: 6px;
+  padding: 14px;
+  background-color: var(--color-beige);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  animation: lv-crit-in 0.3s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lv-crit {
+    animation: none;
+  }
+}
+
+@keyframes lv-crit-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lv-critt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-black);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.lv-risk {
+  padding: 3px 8px;
+  color: var(--color-red-text);
+  background-color: var(--color-red-bg);
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.lv-risk--medium {
+  color: var(--color-orange-text);
+  background-color: var(--color-orange-bg);
+}
+
+.lv-risk--low {
+  color: var(--color-green-text);
+  background-color: var(--color-green-bg);
+}
+
+.lv-critp {
+  margin-top: 6px;
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+/* État "scan en cours" pendant une relance d'analyse (voir main.js) : les
+   cartes réelles cèdent la place à des barres qui pulsent, le temps du scan. */
+.lv-crit-skeleton {
+  margin-bottom: 6px;
+  padding: 14px;
+  background-color: var(--color-beige);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.lv-crit-skeleton span {
+  display: block;
+  height: 10px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--color-border) 25%, var(--color-white) 50%, var(--color-border) 75%);
+  background-size: 200% 100%;
+  animation: lv-shimmer 1.3s ease-in-out infinite;
+}
+
+.lv-crit-skeleton span + span {
+  margin-top: 8px;
+}
+
+.lv-crit-skeleton span:nth-child(1) {
+  width: 55%;
+}
+
+.lv-crit-skeleton span:nth-child(2) {
+  width: 92%;
+}
+
+.lv-crit-skeleton span:nth-child(3) {
+  width: 78%;
+}
+
+@media (max-width: 780px) {
+  .lv-feature,
+  .lv-feature-rev {
+    flex-direction: column;
+    gap: 32px;
+    padding-top: 56px;
+  }
+
+  /* Le premier bloc suit directement le titre de section : il n'a pas besoin
+     du même écart que les suivants, qui eux se détachent du bloc précédent. */
+  .lv-sechead + .lv-feature {
+    padding-top: 30px;
+  }
+
+  /* Le badge passe sur sa propre ligne sous le tag. width: fit-content, sinon
+     un élément block remplirait toute la largeur de .lv-tagmini et la pilule
+     s'étirerait au lieu d'épouser son texte. */
+  .lv-badge-beta {
+    display: block;
+    width: fit-content;
+    margin-left: 0;
+    margin-top: 8px;
+  }
+
+  /* Empilés en colonne : le min-width 320px (utile côte à côte) ferait
+     déborder la page sous 360 px de large. Idem pour les mockups React,
+     dont le min-width 320px (garde-fou shrink-to-fit côté Webflow) dépasse la
+     place utile d'un .lv-fvisual (largeur écran - gutters - padding) ; ici le
+     conteneur a une largeur définie, donc pas de risque d'écroulement. Le
+     sélecteur à 2 classes l'emporte sur celui du composant quel que soit
+     l'ordre de chargement. */
+  .lv-fvisual .obm-mockup,
+  .lv-fvisual .chm-mockup,
+  .lv-fvisual .edm-reco,
+  .lv-fvisual .avm-mockup,
+  .lv-ftext,
+  .lv-fvisual {
+    min-width: 0;
+  }
+}
+
+/* Icônes flottantes autour de chaque .lv-fvisual — décoratives, une par
+   sujet abordé dans le bloc (le 3e corner, en haut, est pris par le badge
+   Lottie .lv-fanim ci-dessus). Deux effets se superposent sans se marcher
+   dessus car ils portent chacun leur propre transform : le flottement est en
+   CSS pure sur .lv-ficon-inner (donc transféré tel quel vers Webflow, comme
+   .lv-shimmer), le parallax de scroll est piloté par JS sur .lv-ficon
+   (voir js/main.js + WEBFLOW-TODO.md #8). */
+.lv-ficon {
+  position: absolute;
+  z-index: 2;
+  will-change: transform;
+}
+
+.lv-ficon-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 35px -12px #1f120e40;
+  animation: lv-ficon-float 5s ease-in-out infinite;
+}
+
+.lv-ficon svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+}
+
+.lv-ficon--white .lv-ficon-inner {
+  color: var(--color-black);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+}
+
+.lv-ficon--teal .lv-ficon-inner {
+  color: var(--color-white);
+  background-color: var(--color-teal);
+}
+
+.lv-ficon--tint .lv-ficon-inner {
+  color: var(--color-teal-text);
+  background-color: var(--color-teal-bg);
+  border: 1px solid var(--color-cyan);
+}
+
+.lv-ficon--risk .lv-ficon-inner {
+  color: var(--color-red-text);
+  background-color: var(--color-red-bg);
+}
+
+@keyframes lv-ficon-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+/* Durée/décalage propres à b et c pour que les 2 icônes d'un même mockup ne
+   flottent pas en phase (délais négatifs : démarrent déjà "en cours"). */
+.lv-ficon-b .lv-ficon-inner {
+  animation-duration: 6s;
+  animation-delay: -2s;
+}
+
+.lv-ficon-c .lv-ficon-inner {
+  animation-duration: 4.2s;
+  animation-delay: -3.4s;
+}
+
+/* Positions par défaut : .lv-fvisual est à droite dans .lv-feature, donc le
+   bord "extérieur" (celui qui ne mord pas sur .lv-ftext) est la droite. */
+.lv-ficon-b {
+  top: 38%;
+  right: -28px;
+}
+
+.lv-ficon-c {
+  bottom: -16px;
+  right: 24px;
+}
+
+/* .lv-feature-rev inverse la ligne (.lv-fvisual passe à gauche) : on
+   reflète les positions pour garder les icônes du côté extérieur. */
+.lv-feature-rev .lv-ficon-b {
+  right: auto;
+  left: -28px;
+}
+
+.lv-feature-rev .lv-ficon-c {
+  right: auto;
+  left: 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lv-ficon,
+  .lv-ficon-inner {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Masquées dès que .lv-feature repasse en colonne (voir règle ci-dessus) :
+   pas assez de marge autour de .lv-fvisual en pleine largeur pour déborder
+   sans risquer un scroll horizontal. .lv-fanim fait exception : ce n'est pas
+   de la pure déco (badge Lottie de statut), donc il reste visible, mais
+   rentre dans la carte horizontalement (offsets positifs) au lieu de déborder
+   de son bord. Verticalement il chevauche le bord haut du cadre (top négatif,
+   l'espace au-dessus est libre : gap de .lv-feature) plutôt que le mockup,
+   dont il masquait le début du contenu (ex. bloc 04, coin haut-gauche). */
+@media (max-width: 900px) {
+  .lv-ficon:not(.lv-fanim) {
+    display: none;
+  }
+
+  .lv-fanim {
+    top: -22px;
+    right: 14px;
+    width: 48px;
+    height: 48px;
+    padding: 8px;
+    border-radius: 12px;
+  }
+
+  .lv-feature-rev .lv-fanim {
+    left: 14px;
+  }
+}
+
+/* states.css */
+.lv-states {
+  text-align: center;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 44px 40px;
+}
+
+.lv-statesrow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.lv-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 150px;
+  max-width: 220px;
+  padding: 22px 14px 16px;
+  background-color: var(--color-leo-badge);
+  border-radius: var(--radius-lg);
+}
+
+.lv-stateanim {
+  width: 64px;
+  height: 64px;
+  padding: 11px;
+}
+
+.lv-stateb {
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.lv-states-sub {
+  color: #b8afa3;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* trust.css */
+.lv-deonto {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 56px;
+  color: var(--color-white);
+  background-color: var(--color-black);
+  border-radius: var(--radius-xl);
+}
+
+.lv-deonto-text {
+  flex: 1;
+  min-width: 320px;
+}
+
+.lv-deonto .lv-ctarow {
+  flex-shrink: 0;
+  justify-content: flex-start;
+  margin-top: 0;
+}
+
+.lv-h2dark {
+  max-width: 640px;
+  margin-top: 20px;
+  color: var(--color-white);
+  font-family: var(--font-serif);
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.lv-em3 {
+  color: var(--color-cyan);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.lv-lededark {
+  max-width: 580px;
+  margin-top: 18px;
+  color: #fffefbb8;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.lv-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 56px;
+}
+
+.lv-stat {
+  flex: 1;
+  min-width: 180px;
+  text-align: center;
+}
+
+.lv-statnum {
+  color: var(--color-teal);
+  font-family: var(--font-serif);
+  font-size: 46px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Valeur textuelle (« Quelques secondes ») plutôt que chiffrée : plus petite
+   pour tenir sur une ligne, même hauteur de ligne que .lv-statnum pour que
+   les libellés restent alignés entre les trois stats. */
+.lv-statnum--word {
+  font-size: 32px;
+  line-height: 46px;
+}
+
+.lv-statlab {
+  margin-top: 10px;
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+@media (max-width: 640px) {
+  .lv-deonto {
+    padding: 36px 24px;
+  }
+
+  /* Desktop : texte (min-width 320) et boutons (flex-shrink 0) côte à côte.
+     Sur mobile ils s'empilent, et sans ça la rangée de boutons garde sa
+     largeur maximale et fait déborder toute la page. */
+  .lv-deonto-text {
+    min-width: 0;
+  }
+
+  .lv-deonto .lv-ctarow {
+    flex-shrink: 1;
+    width: 100%;
+  }
+
+  .lv-h2dark {
+    font-size: 26px;
+  }
+}
+
+/* faq.css */
+.lv-faq {
+  max-width: 760px;
+  margin: 44px auto 0;
+}
+
+.lv-faqitem {
+  padding: 20px 4px;
+  border-top: 1px solid var(--color-border);
+}
+
+.lv-faqq {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  text-align: left;
+  color: var(--color-black);
+  font-family: var(--font-sans);
+  font-size: 16.5px;
+  font-weight: 700;
+  transition: color 0.15s ease;
+}
+
+.lv-faqq:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 4px;
+}
+
+.lv-faqq:hover {
+  color: var(--color-teal);
+}
+
+.lv-faqplus {
+  flex: none;
+  color: var(--color-teal);
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.lv-faqitem.is-open .lv-faqplus {
+  transform: rotate(45deg);
+}
+
+.lv-faqa {
+  display: none;
+  max-width: 640px;
+  margin-top: 12px;
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.lv-faqitem.is-open .lv-faqa {
+  display: block;
+}
+
+/* final-cta.css */
+.lv-final {
+  text-align: center;
+  padding: 72px;
+  background-color: var(--color-teal-bg);
+  border-radius: var(--radius-xl);
+}
+
+.lv-finalanim {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto;
+}
+
+.lv-finalnote {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 10px 16px;
+  color: var(--color-teal-text);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-cyan);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+}
+
+@media (max-width: 640px) {
+  .lv-final {
+    padding: 40px 22px;
+  }
+}
+
+/* code-components.css */
+.avm-mockup,.avm-mockup *,.avm-mockup :before,.avm-mockup :after{box-sizing:border-box}.avm-mockup{--color-white:#fffefb;--color-black:#1f120e;--color-beige:#f7f4ef;--color-border:#e6e0d3;--color-muted:#6f6757;--color-teal:#087f83;--color-teal-text:#065e61;--color-teal-bg:#e9fbfb;--color-leo-badge:#00383c;--color-orange-bg:#ffe9bd;--color-orange-text:#a3310f;--color-green-text:#1e9e63;--color-green-bg:#e3f6ec;--color-red-text:#c8442c;--color-red-bg:#fbeae6;--font-sans:"Manrope", Arial, sans-serif;--radius-md:16px;--radius-pill:100px;background-color:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius-md);align-self:stretch;width:100%;min-width:320px;padding:18px}.avm-critlist{flex-direction:column;display:flex}.avm-crit{background-color:var(--color-beige);border:1px solid var(--color-border);border-radius:var(--radius-md);margin-bottom:6px;padding:14px;animation:.3s both avm-crit-in}@keyframes avm-crit-in{0%{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}.avm-critt{color:var(--color-black);font-family:var(--font-sans);justify-content:space-between;align-items:center;gap:8px;font-size:13.5px;font-weight:700;display:flex}.avm-risk{color:var(--color-red-text);background-color:var(--color-red-bg);font-family:var(--font-sans);letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;border-radius:6px;padding:3px 8px;font-size:10.5px;font-weight:800}.avm-risk--medium{color:var(--color-orange-text);background-color:var(--color-orange-bg)}.avm-risk--low{color:var(--color-green-text);background-color:var(--color-green-bg)}.avm-critp{color:var(--color-muted);font-family:var(--font-sans);margin-top:6px;font-size:12.5px;line-height:1.5}@media (prefers-reduced-motion:reduce){.avm-crit{animation:none}}.avm-crit-skeleton{background-color:var(--color-beige);border:1px solid var(--color-border);border-radius:var(--radius-md);margin-bottom:6px;padding:14px}.avm-crit-skeleton span{background:linear-gradient(90deg, var(--color-border) 25%, var(--color-white) 50%, var(--color-border) 75%);background-size:200% 100%;border-radius:6px;height:10px;animation:1.3s ease-in-out infinite avm-shimmer;display:block}.avm-crit-skeleton span+span{margin-top:8px}.avm-crit-skeleton span:first-child{width:55%}.avm-crit-skeleton span:nth-child(2){width:92%}.avm-crit-skeleton span:nth-child(3){width:78%}@keyframes avm-shimmer{0%{background-position:200% 0}to{background-position:-200% 0}}@media (prefers-reduced-motion:reduce){.avm-crit-skeleton span{animation:none}}.avm-miniact{flex-flow:row-reverse wrap;justify-content:flex-end;align-items:center;gap:8px;margin-top:8px;display:flex}.avm-minicheck{background-color:var(--color-leo-badge);opacity:0;border-radius:6px;flex-shrink:0;justify-content:center;align-items:center;width:22px;height:22px;padding:4px;transition:opacity .2s,transform .2s;display:flex;transform:scale(.6)}.avm-minicheck.is-visible{opacity:1;transform:scale(1)}.avm-sugg{cursor:pointer;color:var(--color-teal-text);background-color:var(--color-white);border:1px solid var(--color-teal);border-radius:var(--radius-pill);font-family:var(--font-sans);padding:8px 13px;font-size:12.5px;font-weight:600;transition:background-color .15s,color .15s;display:inline-block}.avm-sugg:hover{background-color:var(--color-teal-bg)}.chm-mockup,.chm-mockup *,.chm-mockup :before,.chm-mockup :after{box-sizing:border-box}.chm-mockup{--color-white:#fffefb;--color-black:#1f120e;--color-beige:#f7f4ef;--color-border:#e6e0d3;--color-teal:#087f83;--color-teal-text:#065e61;--color-teal-bg:#e9fbfb;--color-cyan:#62e7eb;--color-leo-badge:#00383c;--font-sans:"Manrope", Arial, sans-serif;--radius-md:16px;--radius-lg:21px;--radius-pill:100px;background-color:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius-md);flex-direction:column;align-self:stretch;gap:12px;width:100%;min-width:320px;height:356px;min-height:0;padding:18px;display:flex}.chm-chatlog{scroll-behavior:smooth;flex-direction:column;flex:1;gap:12px;min-height:0;display:flex;overflow-y:hidden}.chm-fanim-inline{background-color:var(--color-leo-badge);border-radius:14px;flex-shrink:0;align-self:center;width:56px;height:56px;padding:10px;position:static;overflow:clip;box-shadow:0 20px 35px -12px #1f120e40}.chm-fanim-inline[hidden]{display:none}.chm-qbubbles{flex-direction:column;flex-shrink:0;gap:8px;display:flex}.chm-qbubbles[hidden]{display:none}.chm-qbubble{width:100%;color:var(--color-teal-text);background-color:var(--color-teal-bg);border:1px solid var(--color-cyan);border-radius:var(--radius-lg);font-family:var(--font-sans);text-align:left;padding:9px 14px;font-size:12.5px;font-weight:600;line-height:1.4;transition:background-color .15s,border-color .15s,color .15s}.chm-qbubble:hover{color:var(--color-white);background-color:var(--color-teal);border-color:var(--color-teal)}.chm-qbubble:focus-visible{outline:2px solid var(--color-teal);outline-offset:2px}.chm-buser{max-width:82%;color:var(--color-white);background-color:var(--color-black);font-family:var(--font-sans);text-wrap:pretty;border-radius:15px 15px 4px;flex-shrink:0;margin-left:auto;padding:11px 15px;font-size:14px;line-height:1.5}.chm-bleo{color:var(--color-black);background-color:var(--color-beige);border:1px solid var(--color-border);font-family:var(--font-sans);border-radius:15px 15px 15px 4px;flex-shrink:0;padding:13px 15px 13px 46px;font-size:13.5px;line-height:1.55;position:relative}.chm-buser,.chm-bleo{animation:.25s chm-msg-in}@keyframes chm-msg-in{0%{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}@media (prefers-reduced-motion:reduce){.chm-buser,.chm-bleo{animation:none}}.chm-bleo-icon{background-color:var(--color-leo-badge);opacity:1;border-radius:7px;width:24px;height:24px;padding:4px;transition:opacity .5s;position:absolute;top:12px;left:12px;overflow:clip;box-shadow:0 8px 16px -8px #1f120e40}.chm-bleo-icon.is-done{opacity:0}@media (prefers-reduced-motion:reduce){.chm-bleo-icon{transition:none}}.chm-bleo-skeleton{flex-direction:column;gap:8px;padding:2px 0;display:none}.chm-bleo.is-thinking .chm-bleo-skeleton{display:flex}.chm-bleo.is-thinking .chm-chat-answer,.chm-bleo.is-thinking .chm-srcpill{display:none}.chm-bleo-skeleton span{background:linear-gradient(90deg, var(--color-border) 25%, var(--color-white) 50%, var(--color-border) 75%);background-size:200% 100%;border-radius:6px;height:10px;animation:1.3s ease-in-out infinite chm-shimmer;display:block}.chm-bleo-skeleton span:first-child{width:92%}.chm-bleo-skeleton span:nth-child(2){width:78%}.chm-bleo-skeleton span:nth-child(3){width:55%}@keyframes chm-shimmer{0%{background-position:200% 0}to{background-position:-200% 0}}.chm-srcpill{color:#000;border-radius:var(--radius-pill);width:fit-content;font-family:var(--font-sans);opacity:0;background-color:#e6e0d4;border:1px solid #dfd9ce;align-items:center;gap:5px;margin-top:10px;padding:4px 11px;font-size:12px;font-weight:500;transition:opacity .25s;display:flex}.chm-srcpill-icon{background-color:#d7d0c3;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.1'%3E%3Cpolyline points='12.9 5.3 18.7 5.3 18.7 11.1'/%3E%3Cline x1='11.8' y1='12.2' x2='18.7' y2='5.3'/%3E%3Cpolyline points='17.5 15.4 17.5 18.7 5.3 18.7 5.3 6.5 8.6 6.5'/%3E%3C/g%3E%3C/svg%3E");background-position:50%;background-repeat:no-repeat;background-size:80%;border-radius:2px;flex-shrink:0;width:16px;height:16px}.chm-srcpill.is-visible{opacity:1}.edm-reco,.edm-reco *,.edm-reco :before,.edm-reco :after{box-sizing:border-box}.edm-reco{--color-white:#fffefb;--color-black:#1f120e;--color-teal:#087f83;--color-teal-text:#065e61;--color-teal-bg:#e9fbfb;--color-leo-badge:#00383c;--color-green-text:#1e9e63;--color-green-bg:#e3f6ec;--color-red-text:#c8442c;--color-red-bg:#fbeae6;--font-sans:"Manrope", Arial, sans-serif;--radius-md:16px;--radius-pill:100px;background-color:var(--color-white);border-radius:var(--radius-md);width:100%;min-width:320px;font-family:var(--font-sans);align-self:stretch;overflow:hidden}.edm-recoh{color:var(--color-white);background-color:var(--color-black);justify-content:space-between;gap:8px;padding:10px 14px;font-size:13px;font-weight:700;display:flex}.edm-recobody{color:var(--color-black);padding:14px;font-size:13px;line-height:1.65}.edm-add{color:var(--color-green-text);background-color:var(--color-green-bg);opacity:0;border-radius:3px;padding:0 3px;transition:opacity .4s}.edm-add.is-visible{opacity:1}.edm-del{border-radius:3px;padding:0 3px;transition:color .3s,background-color .3s;position:relative}.edm-del:after{content:"";transform-origin:0;background-color:currentColor;height:1.5px;transition:transform .35s;position:absolute;top:50%;left:2px;right:2px;transform:scaleX(0)}.edm-del.is-struck{color:var(--color-red-text);background-color:var(--color-red-bg)}.edm-del.is-struck:after{transform:scaleX(1)}@media (prefers-reduced-motion:reduce){.edm-add,.edm-del,.edm-del:after{transition:none}}.edm-miniact{flex-flow:row-reverse wrap;justify-content:flex-end;align-items:center;gap:8px;padding:0 14px 14px;display:flex}.edm-minicheck{background-color:var(--color-leo-badge);opacity:0;border-radius:6px;flex-shrink:0;justify-content:center;align-items:center;width:22px;height:22px;padding:4px;transition:opacity .2s,transform .2s;display:flex;transform:scale(.6)}.edm-minicheck.is-visible{opacity:1;transform:scale(1)}.edm-sugg{cursor:pointer;color:var(--color-teal-text);background-color:var(--color-white);border:1px solid var(--color-teal);border-radius:var(--radius-pill);font-family:var(--font-sans);order:1;padding:8px 13px;font-size:12.5px;font-weight:600;transition:background-color .15s,color .15s;display:inline-block}.edm-sugg:hover{background-color:var(--color-teal-bg)}.edm-sugg-solid{color:var(--color-white);background-color:var(--color-teal);order:2}.edm-sugg-solid:hover{background-color:#076e71}.obm-mockup,.obm-mockup *,.obm-mockup :before,.obm-mockup :after{box-sizing:border-box}.obm-mockup{--color-white:#fffefb;--color-black:#1f120e;--color-beige:#f7f4ef;--color-border:#e6e0d3;--color-muted:#6f6757;--color-teal:#087f83;--color-teal-text:#065e61;--color-teal-bg:#e9fbfb;--color-cyan:#62e7eb;--color-leo-badge:#00383c;--font-serif:"Fraunces", Georgia, serif;--font-sans:"Manrope", Arial, sans-serif;--radius-md:16px;--radius-sm:8px;--radius-pill:100px;background-color:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius-md);align-self:stretch;width:100%;min-width:320px;padding:18px}.obm-fmtitle{color:var(--color-black);font-family:var(--font-serif);margin-bottom:12px;font-size:17px;font-weight:600}.obm-fmq{color:var(--color-muted);font-family:var(--font-sans);margin-bottom:6px;font-size:12.5px;font-weight:600;transition:opacity .15s}.obm-fmfields{flex-direction:column;justify-content:center;gap:12px;display:flex}.obm-fmfield-wrap{opacity:0;transition:height .45s,opacity .35s;position:relative;overflow:clip}.obm-fmfield-wrap[data-open=true]{opacity:1}.obm-fmfield-wrap.is-collapsed{height:0}@media (prefers-reduced-motion:reduce){.obm-fmfield-wrap{transition:none}}.obm-fmfield{height:100%;color:var(--color-muted);background-color:var(--color-beige);border:1px solid var(--color-border);border-radius:var(--radius-sm);font-family:var(--font-sans);padding:10px 32px 10px 12px;font-size:13px;line-height:1.5;transition:border-color .2s,box-shadow .2s;position:relative}.obm-fmleo{color:var(--color-teal-text);background-color:var(--color-teal-bg);border-color:var(--color-cyan)}.obm-fmfield:before{content:"";border-radius:inherit;background-color:var(--color-black);opacity:0;mix-blend-mode:multiply;pointer-events:none;transition:opacity .15s;position:absolute;inset:0}.obm-fmfield.is-hint:before{opacity:.03}.obm-fmfield.is-selected{border-color:var(--color-teal);box-shadow:inset 0 0 0 1px var(--color-teal);animation:.45s ease-in-out obm-select-flicker}.obm-fmfield.is-selected:after{content:"";background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2.5 6.2L4.8 8.5L9.5 3.5' stroke='%23087f83' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:contain;width:13px;height:13px;position:absolute;top:12px;right:12px}@keyframes obm-select-flicker{0%,40%,80%{border-color:var(--color-border);box-shadow:inset 0 0 0 1px #0000}20%,60%,to{border-color:var(--color-teal);box-shadow:inset 0 0 0 1px var(--color-teal)}}@media (prefers-reduced-motion:reduce){.obm-fmfield.is-selected{animation:none}}.obm-fm-thinking{z-index:1;background-color:var(--color-leo-badge);opacity:0;pointer-events:none;border-radius:6px;width:24px;height:24px;padding:4px;transition:opacity .25s;position:absolute;top:50%;left:12px;overflow:clip;transform:translateY(-50%);box-shadow:0 8px 16px -8px #1f120e40}.obm-fm-thinking.is-visible{opacity:1}@media (prefers-reduced-motion:reduce){.obm-fm-thinking{transition:none}}.obm-miniact{flex-flow:row-reverse wrap;justify-content:flex-end;align-items:center;gap:8px;margin-top:16px;display:flex}.obm-sugg{cursor:pointer;color:var(--color-teal-text);background-color:var(--color-white);border:1px solid var(--color-teal);border-radius:var(--radius-pill);font-family:var(--font-sans);order:1;padding:8px 13px;font-size:12.5px;font-weight:600;transition:background-color .15s,color .15s;display:inline-block}.obm-sugg:hover{background-color:var(--color-teal-bg)}.obm-sugg-solid{color:var(--color-white);background-color:var(--color-teal);order:2}.obm-sugg-solid:hover{background-color:#076e71}.obm-sugg:disabled{cursor:default;opacity:.5}.obm-sugg:disabled:hover{background-color:var(--color-white)}.obm-sugg-solid:disabled:hover{background-color:var(--color-teal)}
+/*$vite$:1*/

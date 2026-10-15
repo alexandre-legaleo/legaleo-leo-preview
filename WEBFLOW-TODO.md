@@ -1,3 +1,20 @@
+# Webflow natif : build sans iframe (à jour)
+
+**Remplace la stratégie HTMLtoflow + IX2 décrite plus bas** (gardée pour
+mémoire) : `pnpm build:webflow` (`scripts/build-webflow.mjs`) produit
+`webflow/leo/` : `embed-1.html` (Code Embed, HTML dans le source de la page,
+indexé), `head.html` / `footer.html` (custom code de la page), CSS, JS et
+composants React servis par GitHub Pages. Aucune animation à recréer.
+Procédure de collage : README de `front-legaleo-homepage`, section
+« Webflow natif ». Ici le wrapper `lg-page` prend le tag `main`.
+
+La sortie renomme toutes les classes et ids `lb-*` en `lv-*` : le CSS du
+site Webflow contient encore les classes `lb-*` d'un ancien import de la page
+(62 en commun), qui fuiraient. Les sources restent en `lb-*`. **Relancer le
+build et pousser sur `main` après chaque modification.**
+
+---
+
 # À recréer manuellement dans Webflow
 
 **Mise à jour stratégie** : codetocanvas.io n'est plus listé sur le
