@@ -51,7 +51,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".lb-faqitem").forEach((item) => {
     const question = item.querySelector(".lb-faqq");
-    question.addEventListener("click", () => {
+    // preventDefault : dans Webflow natif, la question est un lien (href="#").
+    question.addEventListener("click", (e) => {
+      e.preventDefault();
       const isOpen = item.classList.toggle("is-open");
       question.setAttribute("aria-expanded", String(isOpen));
     });
